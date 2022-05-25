@@ -33,6 +33,22 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
     import_customer_sites(account_numbers)
   end
 
+  def fetch_all(page = nil)
+    load_standing_data
+    import_all_customer_sites(bookmark_repo.find(PlatformBookmark::CUSTOMER_SITE), page)
+    import_all_locations(bookmark_repo.find(PlatformBookmark::LOCATION), page)
+  end
+
+  def fetch_all_customer_sites(page = nil)
+    load_standing_data
+    import_all_customer_sites(bookmark_repo.find(PlatformBookmark::CUSTOMER_SITE), page)
+  end
+  
+  def fetch_all_locations(page = nil)
+    load_standing_data
+    import_all_locations(bookmark_repo.find(PlatformBookmark::LOCATION), page)
+  end
+
   private
 
   def import_customer_site(guid)
@@ -41,6 +57,14 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
 
     customer = customer_repo.load_by_guid(response.data[:resource][:RelatedCustomerGuid])
     customer_site_repo.import([customer_site_from_resource(response.data, customer.id)])
+    import_location(response.data[:resource][:RelatedLocationGuid])
+  end
+
+  def import_location(guid)
+    response = query("integrator/erp/directory/locations/#{guid}")
+    return unless response.success?
+
+    location_repo.import([location_from_resource(response.data)])
   end
 
   def import_customer_sites(ar_account_codes)
@@ -53,23 +77,42 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
       records += customer_sites_from_response(response.data, customer.id) if response.success?
     end
     customer_site_repo.import(records)
+
+    records.each do |record|
+      import_location(record[:location_guid])
+    end
   end
 
   def import_all_customer_sites(bookmark, pages)
+    @customers = customer_repo.all
     page = 1
     response = query_changes("integrator/erp/directory/sites/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
-    customer_site_repo.import(customers_from_response(response.data)) if response.success?
+    customer_site_repo.import(customer_sites_from_response(response.data)) if response.success?
 
     until response.cursor.nil? || (pages.present? && page >= pages)
       response = query_changes("integrator/erp/directory/sites/changes", nil, response.cursor)
-      customer_site_repo.import(customers_from_response(response.data))
+      customer_site_repo.import(customer_sites_from_response(response.data))
       page += 1
     end
 
     bookmark_repo.create_or_update(PlatformBookmark::CUSTOMER_SITE, response.until, response.cursor)
+  end
+
+  def import_all_locations(bookmark, pages)
+    page = 1
+    response = query_changes("integrator/erp/directory/locations/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
+    location_repo.import(locations_from_response(response.data)) if response.success?
+
+    until response.cursor.nil? || (pages.present? && page >= pages)
+      response = query_changes("integrator/erp/directory/locations/changes", nil, response.cursor)
+      location_repo.import(locations_from_response(response.data))
+      page += 1
+    end
+
+    bookmark_repo.create_or_update(PlatformBookmark::LOCATION, response.until, response.cursor)
   end  
 
-  def customer_sites_from_response(response_data, customer_id)
+  def customer_sites_from_response(response_data, customer_id = nil)
     records = []
     response_data[:resource].each do |customer_site|
       formated_customer_site = customer_site_from_resource(customer_site, customer_id)
@@ -80,26 +123,46 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
     records
   end
 
-  def customer_site_from_resource(customer_site, customer_id)
+  def customer_site_from_resource(customer_site, customer_id = nil)
     company_outlet_id = @company_outlets.find { |co| co.guid == customer_site[:resource][:CompanyOutletListItem][:Guid] }&.id
     customer_site_state_id = customer_site[:resource][:CustomerSiteStateListItem].present? ? @customer_site_states.find { |c| c.guid == customer_site[:resource][:CustomerSiteStateListItem][:Guid] }&.id : nil
     zone_id = customer_site[:resource][:ZoneListItem].present? ? @zones.find { |c| c.guid ==  customer_site[:resource][:ZoneListItem][:Guid] }&.id : nil
-    # if nil customer id     
+    customer_id = customer_site[:resource][:RelatedCustomerGuid].present? ? @customers.find { |c| c.guid == customer_site[:resource][:RelatedCustomerGuid] }&.id : customer_id if customer_id.nil?
+    # if nil customer id
     return {} if customer_id.nil?
 
-    location_response = query("integrator/erp/directory/locations/#{customer_site[:resource][:RelatedLocationGuid]}")
-    location = location_response.data
     { project_id: project.id,
-      
       guid: customer_site[:resource][:GUID],
       name: customer_site[:resource][:Name],
       reference: customer_site[:resource][:Reference],
       unqiue_customer_site_code: customer_site[:resource][:UniqueCustomerSiteCode],
       location_guid: customer_site[:resource][:RelatedLocationGuid],
+      location_invoice_guid: customer_site[:resource][:RelatedLocationInvoiceGuid],
       platform_customer_id: customer_id,
       platform_company_outlet_id: company_outlet_id,
       platform_customer_site_state_id: customer_site_state_id,
-      platform_zone_id: zone_id,
+      platform_zone_id: zone_id }
+  end
+
+  def locations_from_response(response_data)
+    records = []
+    response_data[:resource].each do |location|
+      formated_location = location_from_resource(location)
+      next if formated_location.blank?
+
+      records << formated_location
+    end
+    records
+  end
+
+  def location_from_resource(location)
+    zone_id = location[:resource][:Geo][:ZoneListItem].present? ? @zones.find { |c| c.guid == location[:resource][:Geo][:ZoneListItem][:Guid] }&.id : nil
+    latitude = location[:resource][:Geo][:Latitude] if location[:resource][:Geo].present?
+    longitude = location[:resource][:Geo][:Longitude] if location[:resource][:Geo].present?
+    tel_no = location[:resource][:Address][:ContactMethods][:TelNo] if location[:resource][:Address][:ContactMethods].present?
+
+    { project_id: project.id,
+      guid: location[:resource][:GUID],
       house_number: location[:resource][:Address][:HouseNumber],
       address_1: location[:resource][:Address][:Address1],
       address_2: location[:resource][:Address][:Address2],
@@ -107,9 +170,10 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
       address_4: location[:resource][:Address][:Address4],
       address_5: location[:resource][:Address][:Address5],
       post_code: location[:resource][:Address][:Postcode],
-      tel_no: location[:resource][:Address][:ContactMethods][:TelNo],
-      latitude: location[:resource][:Geo][:Latitude],
-      longitude: location[:resource][:Geo][:Longitude] }
+      tel_no: tel_no,
+      latitude: latitude,
+      longitude: longitude,
+      platform_zone_id: zone_id }
   end
 
   def load_standing_data
@@ -124,5 +188,13 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
 
   def customer_site_repo
     @customer_site_repo ||= PlatformCustomerSiteRepository.new(user, project)
+  end
+
+  def location_repo
+    @location_repo ||= PlatformLocationRepository.new(user, project)
+  end
+
+  def bookmark_repo
+    @bookmark_repo ||= PlatformBookmarkRepository.new(user, project)
   end
 end

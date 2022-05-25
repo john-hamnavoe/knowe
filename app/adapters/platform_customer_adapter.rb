@@ -108,7 +108,6 @@ class PlatformCustomerAdapter < ApplicationAdapter
     business_type_id = customer[:resource][:BusinessTypeListItem].present? ? @business_types.find { |c| c.guid == customer[:resource][:BusinessTypeListItem][:Guid] }&.id : nil
     customer_template_id = customer[:resource][:CustomerTemplateListItem].present? ? @customer_templates.find { |c| c.guid == customer[:resource][:CustomerTemplateListItem][:Guid] }&.id : nil
     platform_customer = PlatformCustomer.new(project_id: project.id,
-                                             
                                              guid: customer[:resource][:GUID],
                                              name: customer[:resource][:Name],
                                              is_internal: customer[:resource][:IsInternal],
@@ -159,7 +158,7 @@ class PlatformCustomerAdapter < ApplicationAdapter
 
   def bookmark_repo
     @bookmark_repo ||= PlatformBookmarkRepository.new(user, project)
-  end  
+  end
 
   def load_standing_data
     @companies = company_repo.all

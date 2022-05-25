@@ -61,5 +61,5 @@ class ProjectsController < ApplicationController
 
   def repo
     @repo ||= ProjectRepository.new(current_user)
-  end  
+  end
 end

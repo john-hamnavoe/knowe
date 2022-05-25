@@ -18,6 +18,6 @@ class PlatformCustomerSiteRepository < ApplicationRepository
 
   def import(records)
     PlatformCustomerSite.import records, on_duplicate_key_update: { conflict_target: [:guid, :project_id], columns: [:name, :reference, :unqiue_customer_site_code, :platform_customer_id, :platform_company_outlet_id,
-                                                                                                                                       :platform_customer_site_state_id, :platform_zone_id, :location_guid] }, returning: :guid
+                                                                                                                     :platform_customer_site_state_id, :platform_zone_id, :location_guid, :location_invoice_guid] }, returning: :guid
   end
 end

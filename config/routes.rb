@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :settings, only: [:index]
   resources :projects, except: [:destroy]
 
+  namespace :platform do
+    resources :customers, only: [:index, :create, :show]
+  end
+
   namespace :platform_settings do
     resources :actions, only: [:index]
     resources :business_types, only: [:index]

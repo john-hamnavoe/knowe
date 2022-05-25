@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_23_162758) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_124534) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -138,6 +138,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_162758) do
     t.index ["project_id"], name: "index_platform_currencies_on_project_id"
   end
 
+  create_table "platform_customer_document_deliveries", force: :cascade do |t|
+    t.bigint "platform_customer_id", null: false
+    t.bigint "platform_document_delivery_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["platform_customer_id", "platform_document_delivery_type_id"], name: "index_platform_customer_document_deliveries_on_unquie", unique: true
+    t.index ["platform_customer_id"], name: "index_platform_customers_on_platform_document_delivery"
+    t.index ["platform_document_delivery_type_id"], name: "index_platform_customers_on_platform_document_delivery_type"
+  end
+
   create_table "platform_customer_site_states", force: :cascade do |t|
     t.uuid "guid"
     t.string "description"
@@ -147,6 +157,34 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_162758) do
     t.datetime "updated_at", null: false
     t.index ["guid", "project_id"], name: "index_platform_customer_site_state_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_customer_site_states_on_project_id"
+  end
+
+  create_table "platform_customer_sites", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "name"
+    t.string "reference"
+    t.string "unqiue_customer_site_code"
+    t.bigint "platform_customer_id", null: false
+    t.bigint "platform_company_outlet_id", null: false
+    t.bigint "platform_customer_site_state_id"
+    t.bigint "platform_zone_id"
+    t.bigint "platform_location_id"
+    t.bigint "platform_invoice_location_id"
+    t.text "last_response_body"
+    t.integer "last_response_code"
+    t.uuid "guid"
+    t.uuid "location_guid"
+    t.uuid "location_invoice_guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_customer_sites_on_guid_project", unique: true
+    t.index ["platform_company_outlet_id"], name: "index_platform_customer_sites_on_platform_company_outlet_id"
+    t.index ["platform_customer_id"], name: "index_platform_customer_sites_on_platform_customer_id"
+    t.index ["platform_customer_site_state_id"], name: "index_platform_customer_sites_on_platform_customer_site_state"
+    t.index ["platform_invoice_location_id"], name: "index_platform_customer_sites_on_platform_invoice_location_id"
+    t.index ["platform_location_id"], name: "index_platform_customer_sites_on_platform_location_id"
+    t.index ["platform_zone_id"], name: "index_platform_customer_sites_on_platform_zone_id"
+    t.index ["project_id"], name: "index_platform_customer_sites_on_project_id"
   end
 
   create_table "platform_customer_states", force: :cascade do |t|
@@ -180,6 +218,60 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_162758) do
     t.datetime "updated_at", null: false
     t.index ["guid", "project_id"], name: "index_platform_customer_type_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_customer_types_on_project_id"
+  end
+
+  create_table "platform_customers", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "name"
+    t.string "reference"
+    t.boolean "is_internal", default: false
+    t.boolean "combine_charges_rebates", default: false
+    t.boolean "receive_service_updates_by_email", default: false
+    t.boolean "receive_service_updates_by_text", default: false
+    t.boolean "receive_marketing_updates_by_email", default: false
+    t.boolean "receive_marketing_updates_by_text", default: false
+    t.decimal "credit_limit", precision: 18, scale: 2
+    t.string "ar_account_code"
+    t.string "ap_account_code"
+    t.bigint "platform_company_id", null: false
+    t.bigint "platform_currency_id"
+    t.bigint "platform_customer_state_id"
+    t.bigint "platform_invoice_cycle_id"
+    t.bigint "platform_department_id"
+    t.bigint "platform_contract_status_id"
+    t.bigint "platform_payment_type_id"
+    t.bigint "platform_payment_term_id"
+    t.bigint "platform_invoice_frequency_id"
+    t.bigint "platform_customer_type_id"
+    t.bigint "platform_business_type_id"
+    t.bigint "platform_customer_template_id"
+    t.bigint "platform_direct_debit_run_configuration_id"
+    t.string "bank_name"
+    t.string "bank_account_name"
+    t.string "bank_account_no"
+    t.string "bank_sort_code"
+    t.string "bank_bic"
+    t.string "bank_iban"
+    t.text "last_response_body"
+    t.integer "last_response_code"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_customers_on_guid_project", unique: true
+    t.index ["platform_business_type_id"], name: "index_platform_customers_on_platform_business_type_id"
+    t.index ["platform_company_id"], name: "index_platform_customers_on_platform_company_id"
+    t.index ["platform_contract_status_id"], name: "index_platform_customers_on_platform_contract_status_id"
+    t.index ["platform_currency_id"], name: "index_platform_customers_on_platform_currency_id"
+    t.index ["platform_customer_state_id"], name: "index_platform_customers_on_platform_customer_state_id"
+    t.index ["platform_customer_template_id"], name: "index_platform_customers_on_platform_customer_template_id"
+    t.index ["platform_customer_type_id"], name: "index_platform_customers_on_platform_customer_type_id"
+    t.index ["platform_department_id"], name: "index_platform_customers_on_platform_department_id"
+    t.index ["platform_direct_debit_run_configuration_id"], name: "index_platform_customers_on_platform_direct_debit_configuration"
+    t.index ["platform_invoice_cycle_id"], name: "index_platform_customers_on_platform_invoice_cycle_id"
+    t.index ["platform_invoice_frequency_id"], name: "index_platform_customers_on_platform_invoice_frequency_id"
+    t.index ["platform_payment_term_id"], name: "index_platform_customers_on_platform_payment_term_id"
+    t.index ["platform_payment_type_id"], name: "index_platform_customers_on_platform_payment_type_id"
+    t.index ["project_id"], name: "index_platform_customers_on_project_id"
   end
 
   create_table "platform_day_of_weeks", force: :cascade do |t|
@@ -256,6 +348,32 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_162758) do
     t.datetime "updated_at", null: false
     t.index ["guid", "project_id"], name: "index_platform_invoice_frequency_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_invoice_frequencies_on_project_id"
+  end
+
+  create_table "platform_locations", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "description"
+    t.string "legal_name"
+    t.string "unqiue_reference"
+    t.string "house_number"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "address_3"
+    t.string "address_4"
+    t.string "address_5"
+    t.string "post_code"
+    t.string "tel_no"
+    t.bigint "platform_zone_id"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.text "last_response_body"
+    t.integer "last_response_code"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_locations_on_guid_project", unique: true
+    t.index ["platform_zone_id"], name: "index_platform_locations_on_platform_zone_id"
+    t.index ["project_id"], name: "index_platform_locations_on_project_id"
   end
 
   create_table "platform_materials", force: :cascade do |t|
@@ -471,10 +589,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_162758) do
   add_foreign_key "platform_container_types", "projects"
   add_foreign_key "platform_contract_statuses", "projects"
   add_foreign_key "platform_currencies", "projects"
+  add_foreign_key "platform_customer_document_deliveries", "platform_customers"
+  add_foreign_key "platform_customer_document_deliveries", "platform_document_delivery_types"
   add_foreign_key "platform_customer_site_states", "projects"
+  add_foreign_key "platform_customer_sites", "platform_company_outlets"
+  add_foreign_key "platform_customer_sites", "platform_customer_site_states"
+  add_foreign_key "platform_customer_sites", "platform_customers"
+  add_foreign_key "platform_customer_sites", "platform_locations"
+  add_foreign_key "platform_customer_sites", "platform_locations", column: "platform_invoice_location_id"
+  add_foreign_key "platform_customer_sites", "platform_zones"
+  add_foreign_key "platform_customer_sites", "projects"
   add_foreign_key "platform_customer_states", "projects"
   add_foreign_key "platform_customer_templates", "projects"
   add_foreign_key "platform_customer_types", "projects"
+  add_foreign_key "platform_customers", "platform_business_types"
+  add_foreign_key "platform_customers", "platform_companies"
+  add_foreign_key "platform_customers", "platform_contract_statuses"
+  add_foreign_key "platform_customers", "platform_currencies"
+  add_foreign_key "platform_customers", "platform_customer_states"
+  add_foreign_key "platform_customers", "platform_customer_templates"
+  add_foreign_key "platform_customers", "platform_customer_types"
+  add_foreign_key "platform_customers", "platform_departments"
+  add_foreign_key "platform_customers", "platform_direct_debit_run_configurations"
+  add_foreign_key "platform_customers", "platform_invoice_cycles"
+  add_foreign_key "platform_customers", "platform_invoice_frequencies"
+  add_foreign_key "platform_customers", "platform_payment_terms"
+  add_foreign_key "platform_customers", "platform_payment_types"
+  add_foreign_key "platform_customers", "projects"
   add_foreign_key "platform_day_of_weeks", "projects"
   add_foreign_key "platform_departments", "projects"
   add_foreign_key "platform_direct_debit_run_configurations", "projects"
@@ -482,6 +623,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_162758) do
   add_foreign_key "platform_external_vehicles", "projects"
   add_foreign_key "platform_invoice_cycles", "projects"
   add_foreign_key "platform_invoice_frequencies", "projects"
+  add_foreign_key "platform_locations", "platform_zones"
+  add_foreign_key "platform_locations", "projects"
   add_foreign_key "platform_materials", "projects"
   add_foreign_key "platform_payment_points", "projects"
   add_foreign_key "platform_payment_terms", "projects"

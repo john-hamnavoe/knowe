@@ -3,7 +3,6 @@
 class PlatformCustomerRepository < ApplicationRepository
   def all(args = {}, order_by = "ar_account_code", direction = "asc")
     query = PlatformCustomer.where( project: project).where(args)
-    query = query.where("lower(name) LIKE :keyword OR lower(ar_account_code) LIKE :keyword", keyword: "%#{params[:keywords].downcase}%") if params && params[:keywords].present?
 
     query.order(order_by => direction)
   end
