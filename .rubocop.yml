@@ -1,0 +1,42 @@
+inherit_gem:
+  rubocop-github:
+    - config/default_edge.yml
+    - config/rails_edge.yml
+
+AllCops:
+  TargetRubyVersion: 3.0.0
+  Exclude:
+      - 'app/views/reports/**/*'
+      - 'app/views/report_requests/**/*'
+      - 'node_modules/**/*'
+      - 'db/schema.rb'
+
+Naming/VariableNumber:
+  Enabled: false
+
+Rails/ContentTag:
+  Enabled: false 
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false 
+
+Style/ColonMethodCall:
+  Enabled: false 
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/RedundantReturn:
+  AllowMultipleReturnValues: true
+
+GitHub/RailsControllerRenderPathsExist:
+  Enabled: false 

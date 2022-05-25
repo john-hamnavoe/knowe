@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guid: 00000000-0000-0000-0000-000000000000
+  description: MyString
+  is_deleted: false
+  project: one
+
+
+two:
+  guid: 
+  description: MyString
+  is_deleted: false
+  project: two
+

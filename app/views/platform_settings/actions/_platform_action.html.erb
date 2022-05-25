@@ -1,0 +1,6 @@
+<%= content_tag :tr, id: dom_id(platform_action) do %>
+  <%= render "shared/table/table_data_cell", data: platform_action.description %>
+  <%= render "shared/table/table_data_cell", data: platform_action.short_action %>
+  <%= render "shared/table/table_data_cell", data: platform_action.is_deleted %>    
+  <%= render "shared/table/table_data_cell", data: platform_action.guid %>    
+<% end %>

@@ -1,0 +1,12 @@
+
+<%= turbo_stream_from :projects %>
+<div class="w-full">
+  <%= search_form_for @query do |f| %>  
+    <%= render partial: "shared/index/top", locals: { new_path: new_project_path, search_field: "name_or_base_url_or_version_cont", form: f, filter: @filter } %>
+
+    <div id="projects" class="min-w-full">        
+        <%= render partial: "table", layout: "shared/index/table", locals: { current_sort: params[:query].try(:[], :s), form: f} %>
+        <%= render partial: "shared/index/paginator", locals: { pagy: @pagy, reflex: "IndexReflex" } %>
+    </div>  
+  <% end %>      
+</div>

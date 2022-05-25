@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+
+  description: MyString
+  guid: 
+  is_direct_debit: false
+  is_cash: false
+  is_auto_pay: false
+  is_card: false
+  is_electronic: false
+  is_cheque: false
+  accept_low_value: false
+  is_system_payment: false
+  can_mark_as_bad: false
+  is_negative: false
+  is_for_lodgement: false
+  short_code: MyString
+  is_deleted: false
+
+two:
+  project: two
+
+  description: MyString
+  guid: 
+  is_direct_debit: false
+  is_cash: false
+  is_auto_pay: false
+  is_card: false
+  is_electronic: false
+  is_cheque: false
+  accept_low_value: false
+  is_system_payment: false
+  can_mark_as_bad: false
+  is_negative: false
+  is_for_lodgement: false
+  short_code: MyString
+  is_deleted: false

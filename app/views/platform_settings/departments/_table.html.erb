@@ -1,0 +1,23 @@
+<table class="min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
+    <tr>
+      <%= render "shared/table/sort_table_header", query: @query, column: "description", current_sort: current_sort %>
+
+      <%= render "shared/table/sort_table_header", query: @query, column: "is_deleted", current_sort: current_sort %>      
+      <%= render "shared/table/sort_table_header", query: @query, column: "guid", current_sort: current_sort %>           
+
+    </tr>
+    <tr>
+      <%= render "shared/table/search_table_header", form: form, search_field: "description_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "is_deleted_true" %>   
+      <%= render "shared/table/search_table_header", form: form, search_field: "guid_eq" %>         
+
+    </tr>    
+  </thead>
+
+  <tbody class="divide-y divide-gray-200 bg-white">
+    <% @platform_departments.each do |platform_department| %>
+      <%= render "platform_department", platform_department: platform_department %>
+    <% end %>
+  </tbody>
+</table>

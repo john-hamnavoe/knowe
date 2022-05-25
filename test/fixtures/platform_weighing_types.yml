@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guid: 00000000-0000-0000-0000-00000000013a
+  description: MyString
+  type: 
+  project: one
+
+
+two:
+  guid: 00000000-0000-0000-0000-00000000013b
+  description: MyString
+  type: 
+  project: two
+

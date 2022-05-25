@@ -1,0 +1,6 @@
+<%= content_tag :tr, id: dom_id(platform_currency) do %>
+  <%= render "shared/table/table_data_cell", data: platform_currency.description %>
+  <%= render "shared/table/table_data_cell", data: platform_currency.symbol %>
+  <%= render "shared/table/table_data_cell", data: platform_currency.is_deleted %>    
+  <%= render "shared/table/table_data_cell", data: platform_currency.guid %>    
+<% end %>

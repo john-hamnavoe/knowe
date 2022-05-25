@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-100">
+  <%= render "shared/head" %>
+
+  <body class="h-full">
+    <div class="min-h-full">
+      <%= render "shared/flash_notice" %>
+      <%= render "shared/top_nav" %>
+      
+      <header class="bg-white shadow-sm">
+        <div class="max-w-full mx-auto py-4 px-4 sm:px-6 lg:px-8">
+          <h1 class="text-lg leading-6 font-semibold text-gray-900"><%= @title %></h1>
+        </div>
+      </header>    
+
+
+      <main>
+        <div class="max-w-full mx-auto py-6 sm:px-6 lg:px-8">
+          <!-- Replace with your content -->
+          <div class="px-4 sm:px-0">
+            <%= yield %>
+          </div>
+          <!-- /End replace -->
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

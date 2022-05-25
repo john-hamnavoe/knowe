@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+
+  platform_company_outlet: one
+  description: MyString
+  route_no: 1
+  is_deleted: false
+  guid: 
+
+two:
+  project: two
+
+  platform_company_outlet: two
+  description: MyString
+  route_no: 1
+  is_deleted: false
+  guid: 

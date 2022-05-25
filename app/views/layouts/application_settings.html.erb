@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html class="h-full bg-gray-100">
+  <%= render "shared/head" %>
+
+  <body class="h-full bg-white">
+    <div class="min-h-full">
+      <%= render "shared/flash_notice" %>
+      <%= render "shared/top_nav" %>
+      <div class="h-full flex">
+        <%= render "settings/side_bar"%>
+
+        <main class="flex-1 relative z-0 focus:outline-none xl:order-last">
+
+          <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200  %>">
+            <div class="flex-1 px-4 flex justify-between">
+              <div class="flex">
+                <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+                <h2 class="text-gray-900 group flex items-center text-sm font-medium rounded-md">
+                  <!--
+                      Heroicon name: outline/cog
+
+                      Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500"
+                    -->
+                  <%= settings_o_icon %>
+                  <%= @title %>
+                </h2>
+              </div>
+              
+            </div>
+          </div>
+          <div class="max-w-full mx-auto pr-4">
+            <%= content_for?(:content) ? yield(:content) : yield %>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

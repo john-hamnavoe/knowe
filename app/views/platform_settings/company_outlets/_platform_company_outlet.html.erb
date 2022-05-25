@@ -1,0 +1,6 @@
+<%= content_tag :tr, id: dom_id(platform_company_outlet) do %>
+  <%= render "shared/table/table_data_cell", data: platform_company_outlet.description %>
+  <%= render "shared/table/table_data_cell", data: platform_company_outlet.abbreviated_description %>
+  <%= render "shared/table/table_data_cell", data: platform_company_outlet.is_deleted %>    
+  <%= render "shared/table/table_data_cell", data: platform_company_outlet.guid %>    
+<% end %>

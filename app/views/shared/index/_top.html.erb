@@ -1,0 +1,23 @@
+<div class="flex justify-between items-center border rounded-lg bg-white">
+  <div class="flex-1 flex pl-1">
+    <div class="w-1/4 flex lg:ml-0">
+      <label for="search-field" class="sr-only">Search</label>
+      <div class="relative w-full text-gray-400 focus-within:text-gray-600">
+        <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+          <!-- Heroicon name: solid/search -->
+          <%= search_s_icon %>
+        </div>
+        <% unless hide_search ||= false %>
+          <%= form.search_field search_field, autocomplete: "off",  data: { reflex:"input->Index#search" }, class: 'rounded-lg  input-search',  placeholder: "Search..." %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="p-1">
+    <% unless hide_new ||= false %>
+      <%= link_to 'New project', new_path, class: "rounded-lg py-1 px-2 bg-blue-600 text-white block font-medium" %>
+    <% end %>
+  </div>
+</div>
+<%= form.hidden_field :s, value: current_sort(params) %>
+<%= form.hidden_field :filter_id, value: filter&.id %>     

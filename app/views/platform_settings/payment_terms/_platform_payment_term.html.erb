@@ -1,0 +1,5 @@
+<%= content_tag :tr, id: dom_id(platform_payment_term) do %>
+  <%= render "shared/table/table_data_cell", data: platform_payment_term.description %>
+  <%= render "shared/table/table_data_cell", data: platform_payment_term.is_deleted %>    
+  <%= render "shared/table/table_data_cell", data: platform_payment_term.guid %>    
+<% end %>

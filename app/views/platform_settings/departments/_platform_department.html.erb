@@ -1,0 +1,5 @@
+<%= content_tag :tr, id: dom_id(platform_department) do %>
+  <%= render "shared/table/table_data_cell", data: platform_department.description %>
+  <%= render "shared/table/table_data_cell", data: platform_department.is_deleted %>    
+  <%= render "shared/table/table_data_cell", data: platform_department.guid %>    
+<% end %>

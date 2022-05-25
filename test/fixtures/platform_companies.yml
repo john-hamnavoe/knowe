@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+
+  description: MyString
+  analysis_code: MyString
+  guid: 
+
+two:
+  project: two
+
+  description: MyString
+  analysis_code: MyString
+  guid: 

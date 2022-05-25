@@ -1,0 +1,5 @@
+<%= content_tag :tr, id: dom_id(platform_document_delivery_type) do %>
+  <%= render "shared/table/table_data_cell", data: platform_document_delivery_type.description %>
+  <%= render "shared/table/table_data_cell", data: platform_document_delivery_type.is_active %>    
+  <%= render "shared/table/table_data_cell", data: platform_document_delivery_type.guid %>    
+<% end %>

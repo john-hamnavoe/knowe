@@ -1,0 +1,27 @@
+<table class="min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
+    <tr>
+      <th class="text-left text-sm font-semibold text-gray-900"> Service</th>        
+      <th class="text-left text-sm font-semibold text-gray-900"> Action</th>      
+      <th class="text-left text-sm font-semibold text-gray-900"> Container Type</th>          
+      <th class="text-left text-sm font-semibold text-gray-900"> Material</th>           
+      <th class="text-left text-sm font-semibold text-gray-900"> Amount</th>      
+      <th class="text-left text-sm font-semibold text-gray-900"> External Description</th>                     
+      <th class="text-left text-sm font-semibold text-gray-900"> Guid</th>  
+    </tr>  
+  </thead>
+
+  <tbody class="divide-y divide-gray-200 bg-white">
+    <% prices.each do |price| %>
+      <%= content_tag :tr, id: dom_id(price) do %>
+        <td> <%= price.platform_service.description %> </td>   
+        <td> <%= price.platform_action.description %> </td>    
+        <td> <%= price.platform_container_type&.description %> </td>                    
+        <td> <%= price.platform_material&.description %> </td>       
+        <td> <%= price.amount %>  </td>   
+        <td> <%= price.description %> </td>      
+        <td> <%= price.guid %>   </td>         
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

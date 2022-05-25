@@ -1,0 +1,20 @@
+<table class="min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
+    <tr>
+      <%= render "shared/table/sort_table_header", query: @query, column: "day_of_week", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "guid", current_sort: current_sort %>           
+
+    </tr>
+    <tr>
+      <%= render "shared/table/search_table_header", form: form, search_field: "day_of_week_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "guid_eq" %>         
+
+    </tr>    
+  </thead>
+
+  <tbody class="divide-y divide-gray-200 bg-white">
+    <% @platform_day_of_weeks.each do |platform_day_of_week| %>
+      <%= render "platform_day_of_week", platform_day_of_week: platform_day_of_week %>
+    <% end %>
+  </tbody>
+</table>

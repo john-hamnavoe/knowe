@@ -1,0 +1,24 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  platform_company: one
+  project: one
+
+  description: MyString
+  abbreviated_description: MyString
+  is_deleted: false
+  vat_registration_number: MyString
+  analysis_code: MyString
+  guid: 05b09d28-7c48-4664-9435-9d24254cc965
+  location_guid: 1f9d56e6-41c5-4888-a0d4-9739428f7498
+
+two:
+  platform_company: two
+  project: two
+
+  description: MyString
+  abbreviated_description: MyString
+  is_deleted: false
+  vat_registration_number: MyString
+  analysis_code: MyString
+  guid: 

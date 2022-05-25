@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if change target 
+
+one:
+  project: one
+
+  guid: 74435c4e-7e1c-ea11-828b-00155d30f917
+  description: Action_One
+  analysis_code: One
+  is_deleted: false
+  short_action: A1
+  equivalent_haul: 9.99
+
+two:
+  project: two
+
+  guid: actionGuid_two
+  description: MyString
+  analysis_code: MyString
+  is_deleted: false
+  short_action: MyString
+  equivalent_haul: 9.99
+
+
+three:
+  project: one
+
+  guid: 00000000-0000-0000-0000-00000000010b
+  description: Action_Three
+  analysis_code: Three
+  is_deleted: false
+  short_action: A3
+  equivalent_haul: 9.99  

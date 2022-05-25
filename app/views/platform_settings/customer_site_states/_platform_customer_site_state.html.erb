@@ -1,0 +1,5 @@
+<%= content_tag :tr, id: dom_id(platform_customer_site_state) do %>
+  <%= render "shared/table/table_data_cell", data: platform_customer_site_state.description %>
+  <%= render "shared/table/table_data_cell", data: platform_customer_site_state.is_deleted %>    
+  <%= render "shared/table/table_data_cell", data: platform_customer_site_state.guid %>    
+<% end %>

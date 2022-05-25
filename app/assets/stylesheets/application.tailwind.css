@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components {
+
+  .btn {
+    @apply font-normal text-base rounded cursor-pointer border border-transparent appearance-none inline-block select-none leading-normal antialiased align-baseline;
+  
+    padding: 0.15rem 0.75rem;
+    transition: 0.15s ease;
+  }  
+  .btn-default {
+    @apply bg-white border border-gray-400 text-gray-700 hover:border-gray-700 focus:border-gray-700;
+  }
+  
+.input {
+  @apply py-1 mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md;
+}
+
+.input-inline {
+  @apply focus:border-indigo-500 relative block w-full rounded-none text-xs p-0 pl-1 border-0;
+}
+
+.input-select {
+  @apply mt-1 block w-full pl-3 pr-10 py-1 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md
+}
+
+.input-search {
+  @apply block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm;
+}
+
+.input-sm {
+  @apply  px-1 text-sm leading-tight shadow-sm rounded-md;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+
+
+.input-checkbox {
+  @apply items-center focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded;
+}
+
+
+.label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.label-no-border {
+  @apply block text-gray-700 text-sm font-bold;
+}
+
+
+.select {
+  @apply  py-3 px-4 pr-8 block w-full bg-white border border-gray-300 text-gray-700 rounded leading-tight;
+}
+
+.select:focus {
+  @apply outline-none border-gray-400;
+
+  box-shadow: 0 0 0 0.2rem theme("colors.gray.100");
+  background-clip: padding-box;
+}
+
+.caret {
+  @apply pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-800;
+}
+
+.input-group {
+  @apply mb-4;
+}
+
+}
+

@@ -1,0 +1,16 @@
+<div id="unique-morph-target" data-reflex-root='#unique-morph-target'>
+  <div class="flex flex-wrap overflow-hidden bg-white">
+    <div class="w-full overflow-hidden p-1">
+      <div class="lg:grid lg:grid-cols-6 lg:gap-6 p-2">
+        <!-- Column Content -->
+        <div class="lg:col-span-3 ">
+          <span class="text-xl py-1 text-left font-medium text-blue-900"><%= link_to "Service Agreements - ", platform_settings_service_agreements_path() %></span>
+          <span class="text-xl py-1 text-left font-medium text-gray-900"><%= "#{@service_agreement.description}" %></span>
+        </div>
+      </div>
+    </div>
+    <div class="w-full overflow-hidden p-1">
+      <%= render "prices_table", prices: @service_agreement.platform_prices %>
+    </div>    
+  </div>
+ 

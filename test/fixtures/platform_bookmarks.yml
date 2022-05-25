@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  table_name: MyString
+  until_bookmark: MyString
+  cursor_bookmark: MyString
+
+two:
+  project: two
+  table_name: MyString
+  until_bookmark: MyString
+  cursor_bookmark: MyString

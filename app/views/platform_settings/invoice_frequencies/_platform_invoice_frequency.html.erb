@@ -1,0 +1,5 @@
+<%= content_tag :tr, id: dom_id(platform_invoice_frequency) do %>
+  <%= render "shared/table/table_data_cell", data: platform_invoice_frequency.description %>
+  <%= render "shared/table/table_data_cell", data: platform_invoice_frequency.is_deleted %>    
+  <%= render "shared/table/table_data_cell", data: platform_invoice_frequency.guid %>    
+<% end %>

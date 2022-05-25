@@ -1,0 +1,6 @@
+<%= content_tag :tr, id: dom_id(platform_service) do %>
+  <%= render "shared/table/table_data_cell", data: platform_service.description %>
+  <%= render "shared/table/table_data_cell", data: platform_service.short_name %>
+  <%= render "shared/table/table_data_cell", data: platform_service.is_deleted %>    
+  <%= render "shared/table/table_data_cell", data: platform_service.guid %>    
+<% end %>

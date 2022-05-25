@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+
+  registration: TEST
+  description: 
+  guid: 0fe86526-d7ec-4cb1-a07a-ae3600f06bcf
+
+two:
+  project: two
+
+  registration: MyString
+  description: MyString
+  guid: 

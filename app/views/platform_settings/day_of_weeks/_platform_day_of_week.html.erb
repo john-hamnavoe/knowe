@@ -1,0 +1,4 @@
+<%= content_tag :tr, id: dom_id(platform_day_of_week) do %>
+  <%= render "shared/table/table_data_cell", data: platform_day_of_week.day_of_week %>  
+  <%= render "shared/table/table_data_cell", data: platform_day_of_week.guid %>    
+<% end %>

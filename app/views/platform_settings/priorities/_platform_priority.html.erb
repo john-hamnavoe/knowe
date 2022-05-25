@@ -1,0 +1,4 @@
+<%= content_tag :tr, id: dom_id(platform_priority) do %>
+  <%= render "shared/table/table_data_cell", data: platform_priority.description %>  
+  <%= render "shared/table/table_data_cell", data: platform_priority.guid %>    
+<% end %>

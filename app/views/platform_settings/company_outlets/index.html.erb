@@ -1,0 +1,11 @@
+<%= turbo_stream_from :platform_company_outlets %>
+<div class="w-full">
+  <%= search_form_for(@query, url: request.path , method: :get) do |f| %>  
+    <%= render partial: "shared/index/top", locals: { hide_new: true, search_field: "description_or_abbreviated_description_cont", form: f, filter: @filter } %>
+
+    <div id="company_outlets" class="min-w-full">        
+        <%= render partial: "table", layout: "shared/index/table", locals: { current_sort: params[:query].try(:[], :s), form: f} %>
+        <%= render partial: "shared/index/paginator", locals: { pagy: @pagy, reflex: "IndexReflex" } %>
+    </div>  
+  <% end %>      
+</div>

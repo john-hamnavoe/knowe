@@ -1,0 +1,6 @@
+<%= content_tag :tr, id: dom_id(project) do %>
+  <%= render "shared/table/table_data_cell", data: project.name %>
+  <%= render "shared/table/table_data_cell", data: project.base_url %>
+  <%= render "shared/table/table_data_cell", data: project.version %>    
+  <td class="whitespace-nowrap px-3 py-1 text-sm text-blue-500"><%= link_to 'Edit', edit_project_path(project) %></td>
+<% end %>
