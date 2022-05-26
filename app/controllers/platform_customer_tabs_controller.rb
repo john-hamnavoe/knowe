@@ -13,7 +13,7 @@ class PlatformCustomerTabsController < ApplicationController
       @path = platform_customer_customer_sites_path(@platform_customer)
       @target_frame = "sites"
     when "contacts"
-      @path = "#"
+      @path = platform_customer_contacts_path(@platform_customer)
       @target_frame = "contacts"
     when "assignments"
       @path = platform_customer_route_assignments_path(@platform_customer)

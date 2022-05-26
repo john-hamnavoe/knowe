@@ -110,7 +110,7 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
     end
 
     bookmark_repo.create_or_update(PlatformBookmark::LOCATION, response.until, response.cursor)
-  end  
+  end
 
   def customer_sites_from_response(response_data, customer_id = nil)
     records = []

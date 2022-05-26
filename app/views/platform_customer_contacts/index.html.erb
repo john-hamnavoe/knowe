@@ -1,0 +1,26 @@
+<%= turbo_frame_tag "contacts" do %>
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+      <tr>
+        <%= render "shared/table/static_table_header", title: "Surname" %>
+        <%= render "shared/table/static_table_header", title: "Forename" %>  
+        <%= render "shared/table/static_table_header", title: "Tel No" %>               
+        <%= render "shared/table/static_table_header", title: "email" %>    
+        <%= render "shared/table/static_table_header", title: "Contact Type" %>    
+        <%= render "shared/table/static_table_header", title: "Guid" %>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+     <% @platform_contacts.each do |platform_contact| %>
+      <tr>
+        <%= render "shared/table/table_data_cell", data: platform_contact.surname %>
+        <%= render "shared/table/table_data_cell", data: platform_contact.forename %>       
+        <%= render "shared/table/table_data_cell", data: platform_contact.tel_no %>            
+        <%= render "shared/table/table_data_cell", data: platform_contact.email %>        
+        <%= render "shared/table/table_data_cell", data: platform_contact.platform_contact_type&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_contact.guid %>        
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+<% end %>

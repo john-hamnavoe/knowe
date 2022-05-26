@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_213849) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_26_143816) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_213849) do
     t.datetime "updated_at", null: false
     t.index ["guid", "project_id"], name: "index_platform_contact_type_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_contact_types_on_project_id"
+  end
+
+  create_table "platform_contacts", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "forename"
+    t.string "surname"
+    t.string "tel_no"
+    t.string "email"
+    t.bigint "platform_customer_id", null: false
+    t.bigint "platform_contact_type_id", null: false
+    t.text "last_response_body"
+    t.integer "last_response_code"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_contact_on_guid_project", unique: true
+    t.index ["platform_contact_type_id"], name: "index_platform_contacts_on_platform_contact_type_id"
+    t.index ["platform_customer_id"], name: "index_platform_contacts_on_platform_customer_id"
+    t.index ["project_id"], name: "index_platform_contacts_on_project_id"
   end
 
   create_table "platform_container_statuses", force: :cascade do |t|
@@ -678,6 +697,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_213849) do
   add_foreign_key "platform_company_outlets", "platform_companies"
   add_foreign_key "platform_company_outlets", "projects"
   add_foreign_key "platform_contact_types", "projects"
+  add_foreign_key "platform_contacts", "platform_contact_types"
+  add_foreign_key "platform_contacts", "platform_customers"
+  add_foreign_key "platform_contacts", "projects"
   add_foreign_key "platform_container_statuses", "projects"
   add_foreign_key "platform_container_types", "projects"
   add_foreign_key "platform_contract_statuses", "projects"

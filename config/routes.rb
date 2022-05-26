@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :route_assignments, only: [:index], controller: "platform_customer_route_assignments"
     resources :item_rentals, only: [:index], controller: "platform_customer_item_rentals"
     resources :order_items, only: [:index], controller: "platform_customer_order_items"
+    resources :contacts, only: [:index], controller: "platform_customer_contacts"    
   end
 
   namespace :platform_settings do
