@@ -33,20 +33,20 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
     import_customer_sites(account_numbers)
   end
 
-  def fetch_all(page = nil)
+  def fetch_all(pages = nil)
     load_standing_data
-    import_all_customer_sites(bookmark_repo.find(PlatformBookmark::CUSTOMER_SITE), page)
-    import_all_locations(bookmark_repo.find(PlatformBookmark::LOCATION), page)
+    import_all_customer_sites(bookmark_repo.find(PlatformBookmark::CUSTOMER_SITE), pages)
+    import_all_locations(bookmark_repo.find(PlatformBookmark::LOCATION), pages)
   end
 
-  def fetch_all_customer_sites(page = nil)
+  def fetch_all_customer_sites(pages = nil)
     load_standing_data
-    import_all_customer_sites(bookmark_repo.find(PlatformBookmark::CUSTOMER_SITE), page)
+    import_all_customer_sites(bookmark_repo.find(PlatformBookmark::CUSTOMER_SITE), pages)
   end
   
-  def fetch_all_locations(page = nil)
+  def fetch_all_locations(pages = nil)
     load_standing_data
-    import_all_locations(bookmark_repo.find(PlatformBookmark::LOCATION), page)
+    import_all_locations(bookmark_repo.find(PlatformBookmark::LOCATION), pages)
   end
 
   private

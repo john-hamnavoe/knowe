@@ -11,8 +11,13 @@ Rails.application.routes.draw do
   resources :settings, only: [:index]
   resources :projects, except: [:destroy]
 
-  namespace :platform do
-    resources :customers, only: [:index, :create, :show]
+  resources :platform_customers, only: [:index, :create, :show] do
+    resources :tabs, only: [:index], controller: "platform_customer_tabs"
+    resources :customer_sites, only: [:index], controller: "platform_customer_customer_sites"
+    resources :orders, only: [:index], controller: "platform_customer_orders"
+    resources :route_assignments, only: [:index], controller: "platform_customer_route_assignments"
+    resources :item_rentals, only: [:index], controller: "platform_customer_item_rentals"
+    resources :order_items, only: [:index], controller: "platform_customer_order_items"
   end
 
   namespace :platform_settings do

@@ -1,0 +1,28 @@
+<%= turbo_frame_tag "orders" do %>
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+      <tr>
+        <%= render "shared/table/static_table_header", title: "Order Number" %>
+        <%= render "shared/table/static_table_header", title: "Agreement" %>
+        <%= render "shared/table/static_table_header", title: "Outlet" %>        
+        <%= render "shared/table/static_table_header", title: "Service" %>
+        <%= render "shared/table/static_table_header", title: "Container" %>
+        <%= render "shared/table/static_table_header", title: "Material" %>                
+        <%= render "shared/table/static_table_header", title: "Guid" %>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+     <% @platform_orders.each do |platform_order| %>
+      <tr>
+        <%= render "shared/table/table_data_cell", data: platform_order.order_number %>
+        <%= render "shared/table/table_data_cell", data: platform_order.platform_service_agreement&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_order.platform_company_outlet&.description %>        
+        <%= render "shared/table/table_data_cell", data: platform_order.platform_service&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_order.platform_container_type&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_order.platform_material&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_order.guid %>        
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+<% end %>

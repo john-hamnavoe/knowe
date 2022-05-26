@@ -1,0 +1,26 @@
+<%= turbo_frame_tag "rentals" do %>
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+      <tr>
+        <%= render "shared/table/static_table_header", title: "Order Number" %>
+        <%= render "shared/table/static_table_header", title: "Action" %>  
+        <%= render "shared/table/static_table_header", title: "Container Type" %>               
+        <%= render "shared/table/static_table_header", title: "Material" %>    
+        <%= render "shared/table/static_table_header", title: "Price" %>
+        <%= render "shared/table/static_table_header", title: "Guid" %>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+     <% @platform_item_rentals.each do |platform_item_rental| %>
+      <tr>
+        <%= render "shared/table/table_data_cell", data: platform_item_rental.platform_order&.order_number %>
+        <%= render "shared/table/table_data_cell", data: platform_item_rental.platform_action&.description %>       
+        <%= render "shared/table/table_data_cell", data: platform_item_rental.platform_container_type&.description %>            
+        <%= render "shared/table/table_data_cell", data: platform_item_rental.platform_order.platform_material&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_item_rental.platform_price&.amount %>
+        <%= render "shared/table/table_data_cell", data: platform_item_rental.guid %>        
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+<% end %>

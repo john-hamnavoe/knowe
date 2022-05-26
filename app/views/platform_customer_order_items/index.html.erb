@@ -1,0 +1,26 @@
+<%= turbo_frame_tag "items" do %>
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+      <tr>
+        <%= render "shared/table/static_table_header", title: "Order Number" %>
+        <%= render "shared/table/static_table_header", title: "Container Type" %>               
+        <%= render "shared/table/static_table_header", title: "Material" %>    
+        <%= render "shared/table/static_table_header", title: "Container Status" %>            
+        <%= render "shared/table/static_table_header", title: "Tag" %>
+        <%= render "shared/table/static_table_header", title: "Guid" %>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+     <% @platform_order_items.each do |platform_order_item| %>
+      <tr>
+        <%= render "shared/table/table_data_cell", data: platform_order_item.platform_order&.order_number %> 
+        <%= render "shared/table/table_data_cell", data: platform_order_item.platform_container_type&.description %>            
+        <%= render "shared/table/table_data_cell", data: platform_order_item.platform_order.platform_material&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_order_item.platform_container_status&.description %>                 
+        <%= render "shared/table/table_data_cell", data: platform_order_item.tag %>
+        <%= render "shared/table/table_data_cell", data: platform_order_item.guid %>        
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+<% end %>

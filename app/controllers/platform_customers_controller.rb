@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Platform::CustomersController < ApplicationController
+class PlatformCustomersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_title
 
@@ -24,5 +24,10 @@ class Platform::CustomersController < ApplicationController
 
   def set_title
     @title = "Customers"
+    @title_path = platform_customers_path
+  end
+
+  def repo
+    @repo ||= PlatformCustomerRepository.new(current_user)
   end
 end

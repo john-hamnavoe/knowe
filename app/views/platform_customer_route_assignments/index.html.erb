@@ -1,0 +1,30 @@
+<%= turbo_frame_tag "assignments" do %>
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+      <tr>
+        <%= render "shared/table/static_table_header", title: "Order Number" %>
+        <%= render "shared/table/static_table_header", title: "Route Template" %>
+        <%= render "shared/table/static_table_header", title: "Action" %>  
+        <%= render "shared/table/static_table_header", title: "Container Type" %>               
+        <%= render "shared/table/static_table_header", title: "Material" %>    
+        <%= render "shared/table/static_table_header", title: "Day" %>
+        <%= render "shared/table/static_table_header", title: "Interval" %>
+        <%= render "shared/table/static_table_header", title: "Guid" %>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+     <% @platform_route_assignments.each do |platform_route_assignment| %>
+      <tr>
+        <%= render "shared/table/table_data_cell", data: platform_route_assignment.platform_order&.order_number %>
+        <%= render "shared/table/table_data_cell", data: platform_route_assignment.platform_route_template&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_route_assignment.platform_action&.description %>       
+        <%= render "shared/table/table_data_cell", data: platform_route_assignment.platform_container_type&.description %>            
+        <%= render "shared/table/table_data_cell", data: platform_route_assignment.platform_order.platform_material&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_route_assignment.platform_day_of_week&.day_of_week %>
+        <%= render "shared/table/table_data_cell", data: platform_route_assignment.platform_pickup_interval&.description %>
+        <%= render "shared/table/table_data_cell", data: platform_route_assignment.guid %>        
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+<% end %>

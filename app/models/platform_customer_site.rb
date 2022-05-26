@@ -8,10 +8,10 @@ class PlatformCustomerSite < ApplicationRecord
   belongs_to :platform_customer_site_state, optional: true
   belongs_to :platform_zone, optional: true
 
-  # has_many :platform_orders, -> { order(:order_number) }, dependent: :destroy
-  # has_many :platform_item_rentals, through: :platform_orders, dependent: :destroy
-  # has_many :platform_route_assignments, through: :platform_orders, dependent: :destroy
-  # accepts_nested_attributes_for :platform_orders
+  has_many :platform_orders, -> { order(:order_number) }, dependent: :destroy
+  has_many :platform_item_rentals, through: :platform_orders, dependent: :destroy
+  has_many :platform_route_assignments, through: :platform_orders, dependent: :destroy
+  accepts_nested_attributes_for :platform_orders
 
 
   def as_platform_json

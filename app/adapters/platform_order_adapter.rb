@@ -23,6 +23,11 @@ class PlatformOrderAdapter < ApplicationAdapter
     import_orders(account_numbers)
   end
 
+  def fetch_all(pages = nil)
+    load_standing_data
+    import_all_orders(bookmark_repo.find(PlatformBookmark::ORDER), pages)
+  end
+
   private
 
   def import_order(guid)
@@ -43,8 +48,8 @@ class PlatformOrderAdapter < ApplicationAdapter
     assignments.each do |assigment|
       assigment[:platform_order_id] = platform_order.id
     end
-    items.each do |items|
-      items[:platform_order_id] = platform_order.id
+    items.each do |item|
+      item[:platform_order_id] = platform_order.id
     end
 
     rental_repo.import(rentals)
@@ -97,13 +102,55 @@ class PlatformOrderAdapter < ApplicationAdapter
     item_repo.import(items)
   end
 
+  def import_all_orders(bookmark, pages = nil)
+    page = 1
+    response = query_changes("integrator/erp/transport/orders/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
+    orders, rentals, assignments, items = orders_from_response(response.data)
+    create_orders(orders, rentals, assignments, items) if orders.length.positive?
+
+    until response.cursor.nil? || (pages.present? && page >= pages)
+      response = query_changes("integrator/erp/transport/orders/changes", nil, response.cursor)
+      orders, rentals, assignments, items = orders_from_response(response.data)
+      create_orders(orders, rentals, assignments, items) if orders.length.positive?
+      page += 1
+    end
+
+    bookmark_repo.create_or_update(PlatformBookmark::ORDER, response.until, response.cursor)
+  end
+
+  def create_orders(orders, rentals, assignments, items)
+    order_repo.import(orders)
+
+    # after orders saved set the platform_order_id to be new id on detail records
+    saved_orders = order_repo.all({guid: orders.map { |o| o[:guid] }})
+    rentals.each do |rental|
+      platform_order_id = saved_orders.find { |c| c.guid == rental[:platform_order_id] }&.id
+      rental[:platform_order_id] = platform_order_id
+    end
+    assignments.each do |assignment|
+      platform_order_id = saved_orders.find { |c| c.guid == assignment[:platform_order_id] }&.id
+      assignment[:platform_order_id] = platform_order_id
+    end
+    items.each do |item|
+      platform_order_id = saved_orders.find { |c| c.guid == item[:platform_order_id] }&.id
+      item[:platform_order_id] = platform_order_id
+    end
+
+    rental_repo.import(rentals)
+    assignment_repo.import(assignments)
+    item_repo.import(items)
+  end
+
   def orders_from_response(response_data, parent_customer_site_id = nil)
+    customer_sites = customer_site_repo.all({guid: response_data[:resource].map { |r| r[:resource][:RelatedSiteGuid] }})
     records = []
     rentals = []
     assignments = []
     items = []
     response_data[:resource].each do |order|
-      customer_site_id = parent_customer_site_id || @customer_sites.find { |cs| cs.guid == order[:resource][:RelatedSiteGuid] }&.id
+      customer_site_id = parent_customer_site_id || customer_sites.find { |cs| cs.guid == order[:resource][:RelatedSiteGuid] }&.id
+      next if customer_site_id.nil?
+
       new_order, new_rentals, new_assignments, new_items = order_from_resource(order, customer_site_id)
       records << new_order
       rentals += new_rentals
@@ -125,7 +172,6 @@ class PlatformOrderAdapter < ApplicationAdapter
     priority_id =  order[:resource][:PriorityListItem].present? ? @priorities.find { |c| c.guid == order[:resource][:PriorityListItem][:Guid] }&.id : nil
 
     platform_order = { project_id: project.id,
-                       
                        guid: order[:resource][:GUID],
                        order_number: order[:resource][:OrderNumber],
                        customer_order_number: order[:resource][:CustomerOrderNumber],
@@ -149,7 +195,6 @@ class PlatformOrderAdapter < ApplicationAdapter
       container_type_id = rental[:ContainerTypeListItem].present? ? @container_types.find { |c| c.guid == rental[:ContainerTypeListItem][:Guid] }&.id : nil
       rentals << {
         project_id: project.id,
-        
         guid: rental[:Guid],
         quantity: rental[:Quantity],
         start_date: rental[:StartDate],
@@ -169,7 +214,6 @@ class PlatformOrderAdapter < ApplicationAdapter
       route_template_id = @route_templates.find { |c| c.guid == assignment[:RelatedRouteTemplateGuid] }&.id
       assignments << {
         project_id: project.id,
-        
         guid: assignment[:Guid],
         position: assignment[:Quantity],
         start_date: assignment[:StartDate],
@@ -187,7 +231,6 @@ class PlatformOrderAdapter < ApplicationAdapter
       container_status_id = find_or_create_container_status_id(container[:ContainerStateListItem])
       items << {
         project_id: project.id,
-        
         guid: container[:Guid],
         platform_container_type_id: container_type_id,
         platform_container_status_id: container_status_id,
@@ -243,5 +286,9 @@ class PlatformOrderAdapter < ApplicationAdapter
 
   def item_repo
     @item_repo ||= PlatformOrderItemRepository.new(user, project)
+  end
+
+  def bookmark_repo 
+    @bookmark_repo ||= PlatformBookmarkRepository.new(user, project)
   end
 end

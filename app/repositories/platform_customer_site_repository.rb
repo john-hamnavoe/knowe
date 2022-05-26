@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class PlatformCustomerSiteRepository < ApplicationRepository
-  def all(args={}, params=nil, order_by="name", direction="asc")
+  def all(args={}, order_by="name", direction="asc")
     query = PlatformCustomerSite.where( project: project).where(args)
-    query = query.where("lower(name) LIKE :keyword OR lower(reference) LIKE :keyword", keyword: "%#{params[:keywords].downcase}%") if params && params[:keywords].present?
 
     query.order(order_by => direction)
   end

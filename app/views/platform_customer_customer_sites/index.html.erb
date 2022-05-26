@@ -1,0 +1,28 @@
+<%= turbo_frame_tag "sites" do %>
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+      <tr>
+        <%= render "shared/table/static_table_header", title: "Name" %>
+        <%= render "shared/table/static_table_header", title: "Outlet" %>  
+        <%= render "shared/table/static_table_header", title: "Zone" %>               
+        <%= render "shared/table/static_table_header", title: "Address1" %>    
+        <%= render "shared/table/static_table_header", title: "Address4" %>
+        <%= render "shared/table/static_table_header", title: "Tel No" %>        
+        <%= render "shared/table/static_table_header", title: "Guid" %>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+     <% @platform_customer_sites.each do |platform_customer_site| %>
+      <tr>
+        <%= render "shared/table/table_data_cell", data: platform_customer_site.name %>
+        <%= render "shared/table/table_data_cell", data: platform_customer_site.platform_company_outlet&.description %>       
+        <%= render "shared/table/table_data_cell", data: platform_customer_site.platform_zone&.description %>            
+        <%= render "shared/table/table_data_cell", data: platform_customer_site.platform_location&.address_1 %>        
+        <%= render "shared/table/table_data_cell", data: platform_customer_site.platform_location&.address_4 %>
+        <%= render "shared/table/table_data_cell", data: platform_customer_site.platform_location&.tel_no %>
+        <%= render "shared/table/table_data_cell", data: platform_customer_site.guid %>        
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+<% end %>

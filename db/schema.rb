@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_124534) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_213849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -350,6 +350,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_124534) do
     t.index ["project_id"], name: "index_platform_invoice_frequencies_on_project_id"
   end
 
+  create_table "platform_item_rentals", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "platform_order_id", null: false
+    t.integer "quantity"
+    t.date "start_date"
+    t.bigint "platform_price_id"
+    t.bigint "platform_action_id"
+    t.bigint "platform_container_type_id"
+    t.boolean "is_arrears"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_item_rentals_on_guid_project", unique: true
+    t.index ["platform_action_id"], name: "index_platform_item_rentals_on_platform_action_id"
+    t.index ["platform_container_type_id"], name: "index_platform_item_rentals_on_platform_container_type_id"
+    t.index ["platform_order_id"], name: "index_platform_item_rentals_on_platform_order_id"
+    t.index ["platform_price_id"], name: "index_platform_item_rentals_on_platform_price_id"
+    t.index ["project_id"], name: "index_platform_item_rentals_on_project_id"
+  end
+
   create_table "platform_locations", force: :cascade do |t|
     t.bigint "project_id", null: false
     t.string "description"
@@ -387,6 +407,56 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_124534) do
     t.datetime "updated_at", null: false
     t.index ["guid", "project_id"], name: "index_platform_materials_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_materials_on_project_id"
+  end
+
+  create_table "platform_order_items", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "platform_order_id", null: false
+    t.bigint "platform_container_type_id", null: false
+    t.bigint "platform_container_status_id", null: false
+    t.string "tag"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_order_item_on_guid_project", unique: true
+    t.index ["platform_container_status_id"], name: "index_platform_order_items_on_platform_container_status_id"
+    t.index ["platform_container_type_id"], name: "index_platform_order_items_on_platform_container_type_id"
+    t.index ["platform_order_id"], name: "index_platform_order_items_on_platform_order_id"
+    t.index ["project_id"], name: "index_platform_order_items_on_project_id"
+  end
+
+  create_table "platform_orders", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "platform_customer_site_id", null: false
+    t.bigint "platform_service_id", null: false
+    t.bigint "platform_material_id", null: false
+    t.bigint "platform_company_outlet_id", null: false
+    t.bigint "platform_container_type_id"
+    t.bigint "platform_service_agreement_id"
+    t.bigint "platform_priority_id"
+    t.string "order_number"
+    t.string "customer_order_number"
+    t.string "ordered_by"
+    t.date "process_from"
+    t.date "valid_until"
+    t.text "notes"
+    t.text "driver_notes"
+    t.boolean "is_customer_owned_equipment", default: false
+    t.uuid "related_order_combination_grouping_guid"
+    t.text "last_response_body"
+    t.integer "last_response_code"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_orders_on_guid_project", unique: true
+    t.index ["platform_company_outlet_id"], name: "index_platform_orders_on_platform_company_outlet_id"
+    t.index ["platform_container_type_id"], name: "index_platform_orders_on_platform_container_type_id"
+    t.index ["platform_customer_site_id"], name: "index_platform_orders_on_platform_customer_site_id"
+    t.index ["platform_material_id"], name: "index_platform_orders_on_platform_material_id"
+    t.index ["platform_priority_id"], name: "index_platform_orders_on_platform_priority_id"
+    t.index ["platform_service_agreement_id"], name: "index_platform_orders_on_platform_service_agreement_id"
+    t.index ["platform_service_id"], name: "index_platform_orders_on_platform_service_id"
+    t.index ["project_id"], name: "index_platform_orders_on_project_id"
   end
 
   create_table "platform_payment_points", force: :cascade do |t|
@@ -474,6 +544,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_124534) do
     t.datetime "updated_at", null: false
     t.index ["guid", "project_id"], name: "index_platform_priorities_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_priorities_on_project_id"
+  end
+
+  create_table "platform_route_assignments", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "platform_order_id", null: false
+    t.bigint "platform_action_id"
+    t.bigint "platform_pickup_interval_id"
+    t.bigint "platform_day_of_week_id"
+    t.bigint "platform_container_type_id"
+    t.bigint "platform_route_template_id"
+    t.integer "position"
+    t.date "start_date"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_route_assignments_on_guid_project", unique: true
+    t.index ["platform_action_id"], name: "index_platform_route_assignments_on_platform_action_id"
+    t.index ["platform_container_type_id"], name: "index_platform_route_assignments_on_platform_container_type_id"
+    t.index ["platform_day_of_week_id"], name: "index_platform_route_assignments_on_platform_day_of_week_id"
+    t.index ["platform_order_id"], name: "index_platform_route_assignments_on_platform_order_id"
+    t.index ["platform_pickup_interval_id"], name: "index_platform_route_assignments_on_platform_pickup_interval_id"
+    t.index ["platform_route_template_id"], name: "index_platform_route_assignments_on_platform_route_template_id"
+    t.index ["project_id"], name: "index_platform_route_assignments_on_project_id"
   end
 
   create_table "platform_route_templates", force: :cascade do |t|
@@ -623,9 +716,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_124534) do
   add_foreign_key "platform_external_vehicles", "projects"
   add_foreign_key "platform_invoice_cycles", "projects"
   add_foreign_key "platform_invoice_frequencies", "projects"
+  add_foreign_key "platform_item_rentals", "platform_actions"
+  add_foreign_key "platform_item_rentals", "platform_container_types"
+  add_foreign_key "platform_item_rentals", "platform_orders"
+  add_foreign_key "platform_item_rentals", "platform_prices"
+  add_foreign_key "platform_item_rentals", "projects"
   add_foreign_key "platform_locations", "platform_zones"
   add_foreign_key "platform_locations", "projects"
   add_foreign_key "platform_materials", "projects"
+  add_foreign_key "platform_order_items", "platform_container_statuses"
+  add_foreign_key "platform_order_items", "platform_container_types"
+  add_foreign_key "platform_order_items", "platform_orders"
+  add_foreign_key "platform_order_items", "projects"
+  add_foreign_key "platform_orders", "platform_company_outlets"
+  add_foreign_key "platform_orders", "platform_container_types"
+  add_foreign_key "platform_orders", "platform_customer_sites"
+  add_foreign_key "platform_orders", "platform_materials"
+  add_foreign_key "platform_orders", "platform_priorities"
+  add_foreign_key "platform_orders", "platform_service_agreements"
+  add_foreign_key "platform_orders", "platform_services"
+  add_foreign_key "platform_orders", "projects"
   add_foreign_key "platform_payment_points", "projects"
   add_foreign_key "platform_payment_terms", "projects"
   add_foreign_key "platform_payment_types", "projects"
@@ -637,6 +747,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_124534) do
   add_foreign_key "platform_prices", "platform_services"
   add_foreign_key "platform_prices", "projects"
   add_foreign_key "platform_priorities", "projects"
+  add_foreign_key "platform_route_assignments", "platform_actions"
+  add_foreign_key "platform_route_assignments", "platform_container_types"
+  add_foreign_key "platform_route_assignments", "platform_day_of_weeks"
+  add_foreign_key "platform_route_assignments", "platform_orders"
+  add_foreign_key "platform_route_assignments", "platform_pickup_intervals"
+  add_foreign_key "platform_route_assignments", "platform_route_templates"
+  add_foreign_key "platform_route_assignments", "projects"
   add_foreign_key "platform_route_templates", "platform_company_outlets"
   add_foreign_key "platform_route_templates", "projects"
   add_foreign_key "platform_service_agreements", "platform_company_outlets"

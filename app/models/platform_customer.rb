@@ -16,20 +16,20 @@ class PlatformCustomer < ApplicationRecord
   belongs_to :platform_customer_template, optional: true
   belongs_to :platform_direct_debit_run_configuration, optional: true
 
-  # has_many :platform_customer_sites, dependent: :destroy
+  has_many :platform_customer_sites, dependent: :destroy
   # has_many :platform_contacts, dependent: :destroy
   # has_many :platform_payments, dependent: :destroy
   has_many :platform_customer_document_deliveries, dependent: :destroy
-  # has_many :platform_orders, through: :platform_customer_sites
+  has_many :platform_orders, through: :platform_customer_sites
   # has_many :platform_jobs, through: :platform_orders
-  # has_many :platform_item_rentals, through: :platform_orders
-  # has_many :platform_route_assignments, through: :platform_orders
-  # has_many :platform_order_items, through: :platform_orders
+  has_many :platform_item_rentals, through: :platform_orders
+  has_many :platform_route_assignments, through: :platform_orders
+  has_many :platform_order_items, through: :platform_orders
 
-  # accepts_nested_attributes_for :platform_customer_sites
+  accepts_nested_attributes_for :platform_customer_sites
   # accepts_nested_attributes_for :platform_contacts
   # accepts_nested_attributes_for :platform_payments
-  # accepts_nested_attributes_for :platform_customer_document_deliveries
+  accepts_nested_attributes_for :platform_customer_document_deliveries
 
   def as_platform_json
     { "Name": name,

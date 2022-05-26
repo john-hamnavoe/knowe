@@ -1,7 +1,7 @@
 <% if search_field.nil? %>
   <th scope="col" class="pb-1 px-3 text-left text-sm font-semibold text-gray-900"> </th>
 <% elsif search_field.include?("_true") %>
-  <th scope="col" class="pb-1 px-3 text-left text-sm font-semibold text-gray-900">  <%= form.check_box search_field, autocomplete: "off",  data: { reflex:"input->Index#search", reflex_serialize_form: "true" }, class: 'input-sm' %> </th>
+  <th scope="col" class="pb-1 px-3 text-left text-sm font-semibold text-gray-900">  <%= form.check_box search_field, autocomplete: "off",  data: { reflex:"debounced:input->Index#search", reflex_serialize_form: "true" }, class: 'input-sm' %> </th>
 <% else %>
-  <th scope="col" class="pb-1 px-3 text-left text-sm font-semibold text-gray-900">  <%= form.search_field search_field, autocomplete: "off",  data: { reflex:"input->Index#search", reflex_serialize_form: "true" }, class: 'input-sm' %> </th>
+  <th scope="col" class="pb-1 px-3 text-left text-sm font-semibold text-gray-900">  <%= form.search_field search_field, autocomplete: "off",  data: { reflex:"debounced:input->Index#search", reflex_serialize_form: "true" }, class: 'input-sm' %> </th>
 <% end %>

@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "customer_tabs" do %>
+  <%= render "platform_customers/tabs"%>
+  <%= turbo_frame_tag @target_frame, src: @path do %>
+  <% end %>
+<% end %>

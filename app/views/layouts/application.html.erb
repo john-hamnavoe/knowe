@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-100">
+<html class="h-full bg-white">
   <%= render "shared/head" %>
 
   <body class="h-full">
@@ -9,13 +9,17 @@
       
       <header class="bg-white shadow-sm">
         <div class="max-w-full mx-auto py-4 px-4 sm:px-6 lg:px-8">
-          <h1 class="text-lg leading-6 font-semibold text-gray-900"><%= @title %></h1>
+          <% if @title_path %>
+            <%= link_to @title, @title_path, class: "text-lg leading-6 font-semibold text-blue-700" %>
+          <% else %>
+            <h1 class="text-lg leading-6 font-semibold text-gray-900"><%= @title %></h1>
+          <% end %>
         </div>
       </header>    
 
 
       <main>
-        <div class="max-w-full mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="max-w-full mx-auto">
           <!-- Replace with your content -->
           <div class="px-4 sm:px-0">
             <%= yield %>
@@ -23,6 +27,7 @@
           <!-- /End replace -->
         </div>
       </main>
+      <% debug session%>
     </div>
   </body>
 </html>
