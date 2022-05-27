@@ -7,6 +7,11 @@ class PlatformLiftEventRepository < ApplicationRepository
     query.order(order_by => direction)
   end
 
+  def all_group_by_month(args = {})
+    query = PlatformLiftEvent.joins(platform_order_item: { platform_order: :platform_material }).where(project: project).where(args)
+    query.group("platform_materials.description").group_by_month(:collection_date).sum(:net_weight)
+  end
+
   def load(id)
     PlatformLiftEvent.find_by(id: id,  project: project)
   end
