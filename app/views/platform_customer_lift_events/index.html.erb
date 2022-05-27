@@ -1,0 +1,28 @@
+<%= turbo_frame_tag "lifts" do %>
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+      <tr>
+        <%= render "shared/table/static_table_header", title: "Order Number" %>
+        <%= render "shared/table/static_table_header", title: "Material" %>            
+        <%= render "shared/table/static_table_header", title: "Date" %>  
+        <%= render "shared/table/static_table_header", title: "Net Weight" %>    
+        <%= render "shared/table/static_table_header", title: "Tag" %>                   
+        <%= render "shared/table/static_table_header", title: "Collected" %>
+        <%= render "shared/table/static_table_header", title: "Guid" %>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+     <% @platform_lift_events.each do |platform_lift_event| %>
+      <tr>
+        <%= render "shared/table/table_data_cell", data: platform_lift_event.platform_order_item.platform_order.order_number %>
+        <%= render "shared/table/table_data_cell", data: platform_lift_event.platform_order_item.platform_order.platform_material&.description %>
+        <%= render "shared/table/table_data_cell", data: ldate(platform_lift_event.collection_date, format: :default) %>       
+        <%= render "shared/table/table_data_cell", data: platform_lift_event.net_weight %>            
+        <%= render "shared/table/table_data_cell", data: platform_lift_event.tag %>            
+        <%= render "shared/table/table_data_cell", data: platform_lift_event.is_collected %>
+        <%= render "shared/table/table_data_cell", data: platform_lift_event.guid %>        
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+<% end %>

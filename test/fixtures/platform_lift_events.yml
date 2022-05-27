@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  platform_order_item: one
+  charge_weight: 9.99
+  net_weight: 9.99
+  weight: 9.99
+  quantity_collected: 1
+  vehicle_code: MyString
+  problem_text: MyString
+  tag: MyString
+  collection_date: 2022-05-27
+  collection_time_stamp: 2022-05-27 09:11:32
+  related_route_guid: 
+  related_route_visit_guid: 
+  related_site_order_container_guid: 
+  is_deleted: false
+  is_collected: false
+  latitude: 9.99
+  longitude: 9.99
+  guid: 
+
+two:
+  project: two
+  platform_order_item: two
+  charge_weight: 9.99
+  net_weight: 9.99
+  weight: 9.99
+  quantity_collected: 1
+  vehicle_code: MyString
+  problem_text: MyString
+  tag: MyString
+  collection_date: 2022-05-27
+  collection_time_stamp: 2022-05-27 09:11:32
+  related_route_guid: 
+  related_route_visit_guid: 
+  related_site_order_container_guid: 
+  is_deleted: false
+  is_collected: false
+  latitude: 9.99
+  longitude: 9.99
+  guid: 

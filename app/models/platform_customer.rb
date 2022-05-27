@@ -25,6 +25,7 @@ class PlatformCustomer < ApplicationRecord
   has_many :platform_item_rentals, through: :platform_orders
   has_many :platform_route_assignments, through: :platform_orders
   has_many :platform_order_items, through: :platform_orders
+  has_many :platform_lift_events, through: :platform_orders
 
   accepts_nested_attributes_for :platform_customer_sites
   accepts_nested_attributes_for :platform_contacts

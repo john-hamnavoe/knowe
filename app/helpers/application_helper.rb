@@ -20,4 +20,8 @@ module ApplicationHelper
   def ldate(date, hash = {})
     date ? l(date, **hash) : nil
   end
+
+  def to_tonnes(kgs)
+    (kgs / 1000.0).round(2)
+  end  
 end

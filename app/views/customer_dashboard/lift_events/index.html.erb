@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "customer_dashboard_lift_events" do %>
+  <% @material_weights.each do |material, weight| %>
+    <h3 class="text-indigo-500  whitespace-nowrap py-1 px-2 font-bold text-xs"><%= material %> - <%= weight.round %> kgs </h2>
+  <% end %>
+<% end %>
+

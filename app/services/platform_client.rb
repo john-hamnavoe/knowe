@@ -11,13 +11,18 @@ class PlatformClient
   end
 
   def pat_authorization_url
-    url = "https://#{@base_url}/authTokens?privatekey=#{@pat_token}"
-    url
+    "https://#{@base_url}/authTokens?privatekey=#{@pat_token}"
   end
 
   def pat_login
-    response = HTTParty.post(pat_authorization_url)
-    @auth_cookie = response.headers["set-cookie"]
+    begin
+      response = HTTParty.post(pat_authorization_url)
+      @auth_cookie = response.headers["set-cookie"]
+    rescue HTTParty::Error
+      @auth_cookie = nil
+    rescue StandardError
+      @auth_cookie = nil
+    end
     @auth_cookie
   end
 

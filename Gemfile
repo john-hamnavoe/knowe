@@ -83,6 +83,7 @@ end
 
 gem "activerecord-import"
 gem "devise"
+gem "groupdate"
 gem "httparty"
 gem "pagy", "~> 3.5"
 gem "ransack"

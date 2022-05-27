@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_26_155915) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_27_081132) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -389,6 +389,35 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_155915) do
     t.index ["project_id"], name: "index_platform_item_rentals_on_project_id"
   end
 
+  create_table "platform_lift_events", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "platform_order_item_id"
+    t.decimal "charge_weight"
+    t.decimal "net_weight"
+    t.decimal "weight"
+    t.integer "quantity_collected"
+    t.string "vehicle_code"
+    t.string "information_text"
+    t.string "lift_text"
+    t.string "problem_text"
+    t.string "tag"
+    t.date "collection_date"
+    t.datetime "collection_time_stamp"
+    t.uuid "related_route_guid"
+    t.uuid "related_route_visit_guid"
+    t.uuid "related_site_order_container_guid"
+    t.boolean "is_deleted"
+    t.boolean "is_collected"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_lift_events_on_guid_project", unique: true
+    t.index ["platform_order_item_id"], name: "index_platform_lift_events_on_platform_order_item_id"
+    t.index ["project_id"], name: "index_platform_lift_events_on_project_id"
+  end
+
   create_table "platform_locations", force: :cascade do |t|
     t.bigint "project_id", null: false
     t.string "description"
@@ -744,6 +773,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_155915) do
   add_foreign_key "platform_item_rentals", "platform_orders"
   add_foreign_key "platform_item_rentals", "platform_prices"
   add_foreign_key "platform_item_rentals", "projects"
+  add_foreign_key "platform_lift_events", "platform_order_items"
+  add_foreign_key "platform_lift_events", "projects"
   add_foreign_key "platform_locations", "platform_zones"
   add_foreign_key "platform_locations", "projects"
   add_foreign_key "platform_materials", "projects"

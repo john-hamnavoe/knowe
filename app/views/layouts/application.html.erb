@@ -3,7 +3,6 @@
   <%= render "shared/head" %>
 
   <body class="h-full">
-    <div class="min-h-full">
       <%= render "shared/flash_notice" %>
       <%= render "shared/top_nav" %>
       
@@ -19,7 +18,7 @@
 
 
       <main>
-        <div class="max-w-full mx-auto">
+        <div class="max-w-full mx-auto ">
           <!-- Replace with your content -->
           <div class="px-4 sm:px-0">
             <%= yield %>
@@ -28,6 +27,5 @@
         </div>
       </main>
       <% debug session%>
-    </div>
   </body>
 </html>

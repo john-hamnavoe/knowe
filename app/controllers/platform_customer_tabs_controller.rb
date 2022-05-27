@@ -9,6 +9,9 @@ class PlatformCustomerTabsController < ApplicationController
     tab = params[:tab]
 
     case tab
+    when "lifts"
+      @path = platform_customer_lift_events_path(@platform_customer)
+      @target_frame = "lifts"      
     when "sites"
       @path = platform_customer_customer_sites_path(@platform_customer)
       @target_frame = "sites"

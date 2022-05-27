@@ -13,13 +13,29 @@ Rails.application.routes.draw do
 
   resources :platform_customers, only: [:index, :create, :show] do
     resources :tabs, only: [:index], controller: "platform_customer_tabs"
+    resources :contacts, only: [:index], controller: "platform_customer_contacts"
     resources :customer_sites, only: [:index], controller: "platform_customer_customer_sites"
+    resources :item_rentals, only: [:index], controller: "platform_customer_item_rentals"
+    resources :lift_events, only: [:index], controller: "platform_customer_lift_events"
+    resources :order_items, only: [:index], controller: "platform_customer_order_items"
     resources :orders, only: [:index], controller: "platform_customer_orders"
     resources :route_assignments, only: [:index], controller: "platform_customer_route_assignments"
-    resources :item_rentals, only: [:index], controller: "platform_customer_item_rentals"
-    resources :order_items, only: [:index], controller: "platform_customer_order_items"
-    resources :contacts, only: [:index], controller: "platform_customer_contacts"    
+    namespace :customer_dashboard do 
+      resources :lift_events, only: [:index]
+    end
   end
+
+  namespace :dashboard do
+    namespace :customer do
+      resources :counts, only: [:index]
+    end
+    namespace :lift_event do
+      resources :counts, only: [:index]
+      resources :activities, only: [:index]
+    end
+  end
+
+
 
   namespace :platform_settings do
     resources :actions, only: [:index]
