@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_26_143816) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_26_155915) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -597,6 +597,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_143816) do
     t.uuid "guid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "next_planned_date"
     t.index ["guid", "project_id"], name: "index_platform_route_template_on_guid_project", unique: true
     t.index ["platform_company_outlet_id"], name: "index_platform_route_templates_on_platform_company_outlet_id"
     t.index ["project_id"], name: "index_platform_route_templates_on_project_id"

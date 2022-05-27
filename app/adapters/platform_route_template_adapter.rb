@@ -35,6 +35,7 @@ class PlatformRouteTemplateAdapter < ApplicationAdapter
                    description: route_template[:resource][:Description],
                    route_no: route_template[:resource][:RouteNo],
                    is_deleted: route_template[:resource][:IsDeleted],
+                   next_planned_date: route_template[:resource][:NextPlannedDate]&.to_date,
                    platform_company_outlet_id: company_outlet_id }
     end
     records

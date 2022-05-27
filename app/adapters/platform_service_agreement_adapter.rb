@@ -69,7 +69,6 @@ class PlatformServiceAgreementAdapter < ApplicationAdapter
     response_data[:resource].each do |service_agreement|
       company_outlet_id = @company_outlets.find { |c| c.guid == service_agreement[:resource][:OutletListItem][:Guid] }&.id
       agreements << { project_id: project.id,
-                      
                       guid: service_agreement[:resource][:GUID],
                       description: service_agreement[:resource][:Description],
                       platform_company_outlet_id: company_outlet_id }
@@ -79,7 +78,6 @@ class PlatformServiceAgreementAdapter < ApplicationAdapter
         material_id = price[:MaterialListItem].present? ? @materials.find { |c| c.guid == price[:MaterialListItem][:Guid] }&.id : nil
         container_type_id = price[:ContainerTypeListItem].present? ? @container_types.find { |c| c.guid == price[:ContainerTypeListItem][:Guid] }&.id : nil
         prices << { project_id: project.id,
-                    
                     guid: price[:Guid],
                     description: price[:DefaultActionExternalDescription],
                     platform_action_id: action_id,
@@ -87,8 +85,8 @@ class PlatformServiceAgreementAdapter < ApplicationAdapter
                     platform_container_type_id: container_type_id,
                     platform_service_id: service_id,
                     amount: price[:Amount][:Price],
-                    effective_from: price[:EffectiveFrom],
-                    effective_to: price[:EffectiveTo],
+                    effective_from: price[:EffectiveFrom]&.to_date,
+                    effective_to: price[:EffectiveTo]&.to_date,
                     platform_service_agreement_id: service_agreement[:resource][:GUID] }
       end
     end

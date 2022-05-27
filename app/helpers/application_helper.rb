@@ -16,4 +16,8 @@ module ApplicationHelper
   def next_page
     @pagy.next || @pagy.last
   end
+
+  def ldate(date, hash = {})
+    date ? l(date, **hash) : nil
+  end
 end
