@@ -28,7 +28,7 @@
                   <% if current_user.current_project.nil? %>
                     <h1 class="text-white text-sm font-medium italic">No Project Selected</h1>
                   <% else %>
-                    <h1 class="text-white text-sm font-medium">Current Project: <%= current_user.current_project.name %></h1>
+                    <h1 class="text-gray-200 text-sm font-medium">Current Project: <%= current_user.current_project.name %></h1>
                   <% end %>
               </div>
             </div>
