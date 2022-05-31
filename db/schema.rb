@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_27_081132) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_31_152538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,7 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_27_081132) do
     t.string "tel_no"
     t.string "email"
     t.bigint "platform_customer_id", null: false
-    t.bigint "platform_contact_type_id", null: false
+    t.bigint "platform_contact_type_id"
     t.text "last_response_body"
     t.integer "last_response_code"
     t.uuid "guid"

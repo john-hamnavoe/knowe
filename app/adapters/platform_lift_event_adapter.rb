@@ -5,7 +5,16 @@ class PlatformLiftEventAdapter < ApplicationAdapter
     import_all_lift_events(bookmark_repo.find(PlatformBookmark::LIFT_EVENT), pages)
   end
 
+  def fetch_by_order_item(order_item_guid)
+    import_lift_events(order_item_guid)
+  end
+
   private
+
+  def import_lift_events(order_item_guid)
+    response = query_with_filter("/integrator/erp/transport/liftEvents", "filter=RelatedSiteOrderContainerGuid eq '#{order_item_guid}'")
+    lift_event_repo.import(lift_events_from_response(response.data)) if response.success?
+  end
 
   def import_all_lift_events(bookmark, pages)
     page = 1

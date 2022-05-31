@@ -47,6 +47,7 @@ class PlatformCustomerAdapter < ApplicationAdapter
     import_customers(account_numbers)
     PlatformCustomerSiteAdapter.new(user, project).fetch_by_account_number(account_numbers)
     PlatformOrderAdapter.new(user, project).fetch_by_account_number(account_numbers)
+    PlatformContactAdapter.new(user, project).fetch_by_account_number(account_numbers)
   end
 
   def fetch_all(pages = nil)
@@ -66,7 +67,7 @@ class PlatformCustomerAdapter < ApplicationAdapter
   def import_customers(ar_account_codes)
     records = []
     ar_account_codes.each do |ar_account_code|
-      response = query_with_filter("integrator/erp/accounting/accountCustomers", "filter=ARAccountCode eq #{ar_account_code.strip}")
+      response = query_with_filter("integrator/erp/accounting/accountCustomers", "filter=ARAccountCode eq '#{ar_account_code.strip}'")
       records += customers_from_response(response.data) if response.success?
     end
     customer_repo.import(records)

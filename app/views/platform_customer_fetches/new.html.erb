@@ -1,0 +1,15 @@
+<div class="max-w-xl mx-auto my-8">
+  <div class="bg-white border border-gray-300 rounded-lg px-8 pt-6 pb-8 w-full">
+    <h2 class="pt-4 mb-8 text-4xl font-bold heading">Fetch Platform Customers</h2>
+      <%= form_for :platform_customer_fetch, url: platform_customer_fetches_path, method: :create do |f| %>
+        <div class="my-5">
+          <%= f.label :account_codes %>
+          <%= f.text_field :account_codes, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+          <span class="text-xs italic text-green-500">Enter comma seperated list of account codes</span>
+        </div>
+        <div class="inline">
+          <%= f.submit "Fetch Customers", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+        </div>
+      <% end %>
+  </div>
+</div>

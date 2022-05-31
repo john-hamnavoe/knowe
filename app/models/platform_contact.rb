@@ -2,7 +2,7 @@
 
 class PlatformContact < ApplicationRecord
   belongs_to :project
-  belongs_to :platform_contact_type
+  belongs_to :platform_contact_type, optional: true
   belongs_to :platform_customer
 
   def as_platform_json

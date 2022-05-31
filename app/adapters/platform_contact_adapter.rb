@@ -18,7 +18,24 @@ class PlatformContactAdapter < ApplicationAdapter
     import_all_contacts(bookmark_repo.find(PlatformBookmark::CONTACT), pages)
   end
 
+  def fetch_by_account_number(account_numbers)
+    load_standing_data
+    import_contacts(account_numbers)
+  end
+
   private
+
+  def import_contacts(ar_account_codes)
+    records = []
+    ar_account_codes.each do |ar_account_code|
+      customer = customer_repo.load_by_account_code(ar_account_code.strip)
+      next if customer.nil?
+
+      response = query_with_filter("integrator/erp/directory/contacts", "filter=RelatedCustomerGuid eq '#{customer.guid}'")
+      records += contacts_from_response(response.data, customer.id) if response.success?
+    end
+    contact_repo.import(records) if records
+  end
 
   def import_all_contacts(bookmark, pages)
     page = 1
@@ -35,7 +52,7 @@ class PlatformContactAdapter < ApplicationAdapter
   end
 
   def contacts_from_response(response_data, parent_customer_id = nil)
-    customers = customer_repo.all({guid: response_data[:resource].map { |r| r[:resource][:RelatedCustomerGuid] }})
+    customers = customer_repo.all({ guid: response_data[:resource].map { |r| r[:resource][:RelatedCustomerGuid] } }) if parent_customer_id.nil?
     records = []
     response_data[:resource].each do |contact|
       customer_id = parent_customer_id || customers.find { |c| c.guid == contact[:resource][:RelatedCustomerGuid] }&.id
@@ -49,7 +66,7 @@ class PlatformContactAdapter < ApplicationAdapter
   end
 
   def contact_from_resource(contact, customer_id)
-    contact_type_id = @contact_types.find { |ct| ct.guid == contact[:resource][:ContactTypeListItems][0][:ContactTypeListItem][:Guid] }&.id
+    contact_type_id = @contact_types.find { |ct| ct.guid == contact[:resource][:ContactTypeListItems][0][:ContactTypeListItem][:Guid] }&.id if contact[:resource][:ContactTypeListItems].length.positive?
 
     {
       project_id: project.id,
