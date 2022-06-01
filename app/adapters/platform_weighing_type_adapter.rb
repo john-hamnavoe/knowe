@@ -13,10 +13,11 @@ class PlatformWeighingTypeAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |weighing_type|
       records << { project_id: project.id,
-                   
                    guid: weighing_type[:resource][:GUID],
                    description: weighing_type[:resource][:Description] }
     end
     PlatformWeighingTypeRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformWeighingType", response.code)
   end
 end

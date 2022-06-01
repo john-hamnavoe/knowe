@@ -13,10 +13,11 @@ class PlatformZoneAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |zone|
       records << { project_id: project.id,
-                   
                    guid: zone[:resource][:GUID],
                    description: zone[:resource][:Description] }
     end
     PlatformZoneRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformZone", response.code)
   end
 end

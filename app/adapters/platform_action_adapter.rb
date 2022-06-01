@@ -21,5 +21,7 @@ class PlatformActionAdapter < ApplicationAdapter
                    equivalent_haul: action[:resource][:EquivalentHaul] }
     end
     PlatformActionRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformAction", response.code)
   end
 end

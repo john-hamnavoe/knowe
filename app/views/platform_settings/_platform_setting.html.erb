@@ -1,0 +1,7 @@
+<%= content_tag :tr, id: dom_id(platform_setting) do %>
+  <%= render "shared/table/table_data_cell", data: platform_setting.class_name %>
+  <%= render "shared/table/table_data_cell", data: platform_setting.position %>
+  <%= render "shared/table/table_data_cell", data: platform_setting.last_request %>    
+  <%= render "shared/table/table_data_cell", data: platform_setting.last_response_code %>
+  <%= render "shared/table/table_data_cell", data: platform_setting.rows %> 
+<% end %>

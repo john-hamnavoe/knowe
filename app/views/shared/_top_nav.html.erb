@@ -43,7 +43,7 @@
                 <div class="flex items-baseline space-x-4">
                   <%= link_to 'Dashboard', dashboards_path, class: nav_link_class(["/dashboards"]) %>
 
-                  <%= link_to 'Settings', settings_path, class: nav_link_class(["/settings", "/platform_settings"]) %>
+                  <%= link_to 'Settings', platform_settings_path, class: nav_link_class(["/platform_settings"]) %>
 
                   <div id="customers_menu" data-controller="dropdown" class="<%= nav_link_class(["/customers"])%>" >
                     <div data-action="click->dropdown#toggle click@window->dropdown#hide" class="" role="button" data-dropdown-target="button" tabindex="0" >

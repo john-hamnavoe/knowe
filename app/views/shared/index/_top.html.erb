@@ -13,10 +13,15 @@
       </div>
     </div>
   </div>
+
   <div class="p-1 pr-16 ">
+    <%= content_for?(:toolbar_col_1) ? yield(:toolbar_col_1) : "" %>
+    <%= content_for?(:toolbar_col_2) ? yield(:toolbar_col_2) : "" %>
+    <%= content_for?(:toolbar_col_3) ? yield(:toolbar_col_3) : "" %>  
     <% unless hide_new ||= false %>
       <%= link_to 'New', new_path, class: "rounded-lg py-1 px-2 bg-blue-600 text-white block font-medium" %>
     <% end %>
+
   </div>
 </div>
 <%= form.hidden_field :s, value: current_sort(params) %>

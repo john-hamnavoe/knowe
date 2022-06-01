@@ -13,7 +13,6 @@ class PlatformCurrencyAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |currency|
       records << { project_id: project.id,
-                   
                    guid: currency[:resource][:GUID],
                    description: currency[:resource][:Description],
                    symbol: currency[:resource][:Symbol],
@@ -21,5 +20,7 @@ class PlatformCurrencyAdapter < ApplicationAdapter
                    is_deleted: currency[:resource][:IsDeleted] }
     end
     PlatformCurrencyRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformCurrency", response.code)
   end
 end

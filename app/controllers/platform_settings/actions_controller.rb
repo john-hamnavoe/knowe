@@ -4,7 +4,6 @@ class PlatformSettings::ActionsController < ApplicationController
   layout "application_settings"
   before_action :authenticate_user!
   before_action :set_title
-  before_action :reload_actions_from_platform
 
   def index
     @query, page = ransack_query(PlatformAction, "description asc")
@@ -13,13 +12,6 @@ class PlatformSettings::ActionsController < ApplicationController
   end
 
   private
-
-  def reload_actions_from_platform
-    return if repo.all({}).count.positive?
-
-    flash[:notice] = "Actions are being fetched!"
-    ImportPlatformSettingsJob.perform_later(current_user, current_user.current_project)
-  end
 
   def repo
     @repo ||= PlatformActionRepository.new(current_user)

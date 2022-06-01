@@ -53,6 +53,7 @@ class PlatformServiceAgreementAdapter < ApplicationAdapter
 
     service_agreement_repo.import(agreements)
 
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformServiceAgreement", response.code)
     # after agreements saved set the platform_service_agreement_id to be new ID
     saved_agreements = service_agreement_repo.all
     prices.each do |price|

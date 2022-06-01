@@ -13,7 +13,6 @@ class PlatformServiceAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |service|
       records << { project_id: project.id,
-                   
                    guid: service[:resource][:GUID],
                    description: service[:resource][:Description],
                    short_name: service[:resource][:ShortName],
@@ -22,5 +21,7 @@ class PlatformServiceAdapter < ApplicationAdapter
                    external_description: service[:resource][:ExternalDescription] }
     end
     PlatformServiceRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformService", response.code)
   end
 end

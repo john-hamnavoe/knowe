@@ -13,11 +13,12 @@ class PlatformCustomerSiteStateAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |customer_site_state|
       records << { project_id: project.id,
-                   
                    guid: customer_site_state[:resource][:GUID],
                    description: customer_site_state[:resource][:Description],
                    is_deleted: customer_site_state[:resource][:IsDeleted] }
     end
     PlatformCustomerSiteStateRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformCustomerSiteState", response.code)
   end
 end

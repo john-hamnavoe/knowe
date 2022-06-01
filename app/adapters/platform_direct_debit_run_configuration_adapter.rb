@@ -19,5 +19,7 @@ class PlatformDirectDebitRunConfigurationAdapter < ApplicationAdapter
                    is_deleted: direct_debit_run_configuration[:resource][:IsDeleted] }
     end
     PlatformDirectDebitRunConfigurationRepository.new(nil, project).import(records)
+  
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformDirectDebitRunConfiguration", response.code)
   end
 end

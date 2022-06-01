@@ -14,7 +14,6 @@ class PlatformCompanyOutletAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |company|
       records << { project_id: project.id,
-                   
                    guid: company[:resource][:GUID],
                    description: company[:resource][:Description],
                    is_deleted: company[:resource][:IsDeleted],
@@ -31,7 +30,6 @@ class PlatformCompanyOutletAdapter < ApplicationAdapter
     response_data[:resource].each do |outlet|
       company_id = company_repo.load_by_guid(outlet[:resource][:CompanyListItem][:Guid]).id
       records << { project_id: project.id,
-                   
                    guid: outlet[:resource][:GUID],
                    location_guid: outlet_location_guid(outlet[:resource][:GUID]),
                    description: outlet[:resource][:Description],
@@ -41,6 +39,8 @@ class PlatformCompanyOutletAdapter < ApplicationAdapter
                    platform_company_id: company_id }
     end
     company_outlet_repo.import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformCompanyOutlet", response.code)
   end
 
   def outlet_location_guid(guid)

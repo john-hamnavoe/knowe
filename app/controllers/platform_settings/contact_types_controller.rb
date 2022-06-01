@@ -5,8 +5,6 @@ class PlatformSettings::ContactTypesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_title
 
-  before_action :reload_contact_types_from_platform
-
   def index
     @query, page = ransack_query(PlatformContactType, "description asc")
 
@@ -14,13 +12,6 @@ class PlatformSettings::ContactTypesController < ApplicationController
   end
 
   private
-
-  def reload_contact_types_from_platform
-    return if repo.all({}).count.positive?
-
-    flash[:notice] = "ContactTypes are being fetched!"
-    ImportPlatformSettingsJob.perform_later(current_user, current_user.current_project)
-  end
 
   def repo
     @repo ||= PlatformContactTypeRepository.new(current_user)

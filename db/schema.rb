@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_152538) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_01_080035) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -658,6 +658,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_152538) do
     t.index ["project_id"], name: "index_platform_services_on_project_id"
   end
 
+  create_table "platform_settings", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "class_name"
+    t.datetime "last_request"
+    t.string "last_response_code"
+    t.integer "position"
+    t.integer "rows"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_platform_settings_on_project_id"
+  end
+
   create_table "platform_vats", force: :cascade do |t|
     t.uuid "guid"
     t.string "description"
@@ -813,6 +825,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_152538) do
   add_foreign_key "platform_service_agreements", "platform_company_outlets"
   add_foreign_key "platform_service_agreements", "projects"
   add_foreign_key "platform_services", "projects"
+  add_foreign_key "platform_settings", "projects"
   add_foreign_key "platform_vats", "projects"
   add_foreign_key "platform_weighing_types", "projects"
   add_foreign_key "platform_zones", "projects"

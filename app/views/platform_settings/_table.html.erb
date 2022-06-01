@@ -1,0 +1,24 @@
+<table class="min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
+    <tr>
+      <%= render "shared/table/sort_table_header", query: @query, column: "class_name", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "position", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "last_request", current_sort: current_sort %>     
+      <%= render "shared/table/sort_table_header", query: @query, column: "last_response_code", current_sort: current_sort %>     
+      <%= render "shared/table/sort_table_header", query: @query, column: "rows", current_sort: current_sort %>                
+    </tr>
+    <tr>
+      <%= render "shared/table/search_table_header", form: form, search_field: "class_name_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: nil %>
+      <%= render "shared/table/search_table_header", form: form, search_field: nil %>   
+      <%= render "shared/table/search_table_header", form: form, search_field: "last_response_code_cont" %>         
+      <%= render "shared/table/search_table_header", form: form, search_field: nil %>   
+    </tr>    
+  </thead>
+
+  <tbody class="divide-y divide-gray-200 bg-white">
+    <% @platform_settings.each do |platform_setting| %>
+      <%= render platform_setting %>
+    <% end %>
+  </tbody>
+</table>

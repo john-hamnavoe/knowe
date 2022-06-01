@@ -5,8 +5,6 @@ class PlatformSettings::PaymentPointsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_title
 
-  before_action :reload_payment_points_from_platform
-
   def index
     @query, page = ransack_query(PlatformPaymentPoint, "description asc")
 
@@ -14,13 +12,6 @@ class PlatformSettings::PaymentPointsController < ApplicationController
   end
 
   private
-
-  def reload_payment_points_from_platform
-    return if repo.all().count.positive?
-
-    flash[:notice] = "PaymentPoints are being fetched!"
-    ImportPlatformSettingsJob.perform_later(current_user, current_user.current_project)
-  end
 
   def repo
     @repo ||= PlatformPaymentPointRepository.new(current_user)

@@ -5,8 +5,6 @@ class PlatformSettings::ExternalVehiclesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_title
 
-  before_action :reload_external_vehicles_from_platform
-
   def index
     @query, page = ransack_query(PlatformExternalVehicle, "description asc")
 
@@ -14,13 +12,6 @@ class PlatformSettings::ExternalVehiclesController < ApplicationController
   end
 
   private
-
-  def reload_external_vehicles_from_platform
-    return if repo.all().count.positive?
-
-    flash[:notice] = "ExternalVehicles are being fetched!"
-    ImportPlatformSettingsJob.perform_later(current_user, current_user.current_project)
-  end
 
   def repo
     @repo ||= PlatformExternalVehicleRepository.new(current_user)

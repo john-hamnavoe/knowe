@@ -1,0 +1,27 @@
+<%= turbo_frame_tag "dashboard_service_agreement_counts" do %>
+  <div class="bg-white overflow-hidden shadow rounded-lg">
+    <div class="p-5">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <!-- Heroicon name: outline/currency-bangladeshi  -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11 11V9a2 2 0 00-2-2m2 4v4a2 2 0 104 0v-1m-4-3H9m2 0h4m6 1a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        </div>
+        <div class="ml-5 w-0 flex-1">
+          <dl>
+            <dt class="text-sm font-medium text-gray-500 truncate">Service Agreements</dt>
+            <dd>
+              <div class="text-lg font-medium text-gray-900"><%=@count%></div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 px-5 py-3">
+      <div class="text-sm">
+        <%= link_to "View all", platform_settings_service_agreements_path, target: "_top", class: "font-medium text-cyan-700 hover:text-cyan-900" %>
+      </div>
+    </div>
+  </div>
+<% end %>

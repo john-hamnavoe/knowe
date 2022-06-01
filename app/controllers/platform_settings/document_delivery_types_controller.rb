@@ -5,8 +5,6 @@ class PlatformSettings::DocumentDeliveryTypesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_title
 
-  before_action :reload_document_delivery_types_from_platform
-
   def index
     @query, page = ransack_query(PlatformDocumentDeliveryType, "description asc")
 
@@ -14,13 +12,6 @@ class PlatformSettings::DocumentDeliveryTypesController < ApplicationController
   end
 
   private
-
-  def reload_document_delivery_types_from_platform
-    return if repo.all().count.positive?
-
-    flash[:notice] = "DocumentDeliveryTypes are being fetched!"
-    ImportPlatformSettingsJob.perform_later(current_user, current_user.current_project)
-  end
 
   def repo
     @repo ||= PlatformDocumentDeliveryTypeRepository.new(current_user)

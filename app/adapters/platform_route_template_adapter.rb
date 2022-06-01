@@ -24,6 +24,8 @@ class PlatformRouteTemplateAdapter < ApplicationAdapter
     end
 
     PlatformRouteTemplateRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformRouteTemplate", response.code)
   end
 
   def route_templates_from_response(response_data)

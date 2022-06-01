@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  class_name: MyString
+  last_request: 2022-06-01 09:00:35
+  last_response_code: MyString
+  position: 1
+  rows: 1
+
+two:
+  project: two
+  class_name: MyString
+  last_request: 2022-06-01 09:00:35
+  last_response_code: MyString
+  position: 1
+  rows: 1

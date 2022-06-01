@@ -5,8 +5,6 @@ class PlatformSettings::DayOfWeeksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_title
 
-  before_action :reload_day_of_weeks_from_platform
-
   def index
     @query, page = ransack_query(PlatformDayOfWeek, "day_of_week asc")
 
@@ -14,13 +12,6 @@ class PlatformSettings::DayOfWeeksController < ApplicationController
   end
 
   private
-
-  def reload_day_of_weeks_from_platform
-    return if repo.all().count.positive?
-
-    flash[:notice] = "DayOfWeeks are being fetched!"
-    ImportPlatformSettingsJob.perform_later(current_user, current_user.current_project)
-  end
 
   def repo
     @repo ||= PlatformDayOfWeekRepository.new(current_user)

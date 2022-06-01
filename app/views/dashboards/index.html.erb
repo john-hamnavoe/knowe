@@ -90,6 +90,40 @@
           </div>
         <% end %>   
 
+        <%= turbo_frame_tag "dashboard_service_agreement_counts", src: dashboard_service_agreement_counts_path, loading: "lazy" do %>
+          <div class="p-5">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <div class="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt class="text-sm font-medium text-gray-500 truncate">Service Agreements</dt>
+                    <dd>
+                      <div class="text-lg font-medium text-gray-900">Loading...</div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>   
+
+
+        <%= turbo_frame_tag "dashboard_setting_counts", src: dashboard_setting_counts_path, loading: "lazy" do %>
+          <div class="p-5">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <div class="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt class="text-sm font-medium text-gray-500 truncate">Settings</dt>
+                    <dd>
+                      <div class="text-lg font-medium text-gray-900">Loading...</div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>          
 
         <!-- More items... -->
       </div>

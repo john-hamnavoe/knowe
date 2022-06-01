@@ -13,11 +13,12 @@ class PlatformCustomerTemplateAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |customer_template|
       records << { project_id: project.id,
-                   
                    guid: customer_template[:resource][:GUID],
                    description: customer_template[:resource][:Description],
                    is_deleted: customer_template[:resource][:IsDeleted] }
     end
     PlatformCustomerTemplateRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformCustomerTemplate", response.code)  
   end
 end

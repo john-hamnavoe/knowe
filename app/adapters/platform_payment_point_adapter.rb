@@ -18,5 +18,7 @@ class PlatformPaymentPointAdapter < ApplicationAdapter
                    description: payment_point[:resource][:Description] }
     end
     PlatformPaymentPointRepository.new(nil, project).import(records)
+  
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformPaymentPoint", response.code)
   end
 end

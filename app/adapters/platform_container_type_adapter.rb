@@ -13,7 +13,6 @@ class PlatformContainerTypeAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |container_type|
       records << { project_id: project.id,
-                   
                    guid: container_type[:resource][:GUID],
                    description: container_type[:resource][:Description],
                    short_name: container_type[:resource][:ShortName],
@@ -24,5 +23,7 @@ class PlatformContainerTypeAdapter < ApplicationAdapter
                    external_description: container_type[:resource][:ExternalDescription] }
     end
     PlatformContainerTypeRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformContainerType", response.code)
   end
 end

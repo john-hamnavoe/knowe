@@ -13,10 +13,11 @@ class PlatformContactTypeAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |contact_type|
       records << { project_id: project.id,
-                   
                    guid: contact_type[:resource][:GUID],
                    description: contact_type[:resource][:Description] }
     end
     PlatformContactTypeRepository.new(nil, project).import(records)
+    
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformContactType", response.code)
   end
 end

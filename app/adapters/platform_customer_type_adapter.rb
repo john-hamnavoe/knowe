@@ -13,11 +13,12 @@ class PlatformCustomerTypeAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |customer_type|
       records << { project_id: project.id,
-                   
                    guid: customer_type[:resource][:GUID],
                    description: customer_type[:resource][:Description],
                    is_deleted: customer_type[:resource][:IsDeleted] }
     end
     PlatformCustomerTypeRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformCustomerType", response.code)
   end
 end

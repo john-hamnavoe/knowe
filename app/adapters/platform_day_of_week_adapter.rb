@@ -13,10 +13,11 @@ class PlatformDayOfWeekAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |day_of_week|
       records << { project_id: project.id,
-                   
                    guid: day_of_week[:resource][:GUID],
                    day_of_week: day_of_week[:resource][:DayOfWeek] }
     end
     PlatformDayOfWeekRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformDayOfWeek", response.code)
   end
 end

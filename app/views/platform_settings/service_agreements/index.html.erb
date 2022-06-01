@@ -1,3 +1,7 @@
+<% content_for :toolbar_col_1 do %>
+<%= link_to "Fetch All", new_platform_settings_service_agreement_path, class: "rounded-lg py-1 px-2 bg-indigo-600 text-white block font-medium" %>
+<% end %>
+
 <%= turbo_stream_from :platform_service_agreements %>
 <div class="w-full">
   <%= search_form_for(@query, url: request.path , method: :get) do |f| %>  

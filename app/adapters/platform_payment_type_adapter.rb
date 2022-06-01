@@ -13,7 +13,6 @@ class PlatformPaymentTypeAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |payment_type|
       records << { project_id: project.id,
-                   
                    guid: payment_type[:resource][:GUID],
                    description: payment_type[:resource][:Description],
                    is_direct_debit: payment_type[:resource][:IsDirectDebit],
@@ -31,5 +30,7 @@ class PlatformPaymentTypeAdapter < ApplicationAdapter
                    is_deleted: payment_type[:resource][:IsDeleted] }
     end
     PlatformPaymentTypeRepository.new(nil, project).import(records)
+    
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformPaymentType", response.code)
   end
 end

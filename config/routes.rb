@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :dashboards, only: [:index]
-  resources :settings, only: [:index]
   resources :projects, except: [:destroy]
 
   resources :platform_customer_fetches, only: [:new, :create]
@@ -34,10 +33,15 @@ Rails.application.routes.draw do
       resources :counts, only: [:index]
       resources :activities, only: [:index]
     end
+    namespace :setting do
+      resources :counts, only: [:index]
+    end
+    namespace :service_agreement do
+      resources :counts, only: [:index]
+    end    
   end
 
-
-
+  resources :platform_settings, only: [:index, :new]
   namespace :platform_settings do
     resources :actions, only: [:index]
     resources :business_types, only: [:index]
@@ -65,7 +69,7 @@ Rails.application.routes.draw do
     resources :pickup_intervals, only: [:index]
     resources :priorities, only: [:index]
     resources :route_templates, only: [:index]
-    resources :service_agreements, only: [:index, :show, :create]
+    resources :service_agreements, only: [:index, :show, :new]
     resources :services, only: [:index]
     resources :vats, only: [:index]
     resources :weighing_types, only: [:index]

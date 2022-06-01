@@ -5,8 +5,6 @@ class PlatformSettings::CustomerSiteStatesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_title
 
-  before_action :reload_customer_site_states_from_platform
-
   def index
     @query, page = ransack_query(PlatformCustomerSiteState, "description asc")
 
@@ -14,13 +12,6 @@ class PlatformSettings::CustomerSiteStatesController < ApplicationController
   end
 
   private
-
-  def reload_customer_site_states_from_platform
-    return if repo.all().count.positive?
-
-    flash[:notice] = "Customer Site States are being fetched!"
-    ImportPlatformSettingsJob.perform_later(current_user, current_user.current_project)
-  end
 
   def repo
     @repo ||= PlatformCustomerSiteStateRepository.new(current_user)

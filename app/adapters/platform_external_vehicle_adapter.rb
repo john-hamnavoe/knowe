@@ -13,11 +13,12 @@ class PlatformExternalVehicleAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |external_vehicle|
       records << { project_id: project.id,
-                   
                    guid: external_vehicle[:resource][:GUID],
                    registration: external_vehicle[:resource][:Registration],
                    description: external_vehicle[:resource][:Description] }
     end
     PlatformExternalVehicleRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformExternalVehicle", response.code)
   end
 end

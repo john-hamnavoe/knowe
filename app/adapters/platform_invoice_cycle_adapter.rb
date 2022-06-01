@@ -13,11 +13,12 @@ class PlatformInvoiceCycleAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |invoice_cycle|
       records << { project_id: project.id,
-                   
                    guid: invoice_cycle[:resource][:GUID],
                    description: invoice_cycle[:resource][:Description],
                    is_deleted: invoice_cycle[:resource][:IsDeleted] }
     end
     PlatformInvoiceCycleRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformInvoiceCycle", response.code)
   end
 end

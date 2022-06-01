@@ -13,11 +13,12 @@ class PlatformBusinessTypeAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |business_type|
       records << { project_id: project.id,
-                   
                    guid: business_type[:resource][:GUID],
                    description: business_type[:resource][:Description],
                    is_deleted: business_type[:resource][:IsDeleted] }
     end
     PlatformBusinessTypeRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformBusinessType", response.code)
   end
 end

@@ -13,11 +13,12 @@ class PlatformPaymentTermAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |payment_term|
       records << { project_id: project.id,
-                   
                    guid: payment_term[:resource][:GUID],
                    description: payment_term[:resource][:Description],
                    is_deleted: payment_term[:resource][:IsDeleted] }
     end
     PlatformPaymentTermRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformPaymentTerm", response.code)
   end
 end

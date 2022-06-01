@@ -21,5 +21,7 @@ class PlatformMaterialAdapter < ApplicationAdapter
                    analysis_code: material[:resource][:AnalysisCode] }
     end
     PlatformMaterialRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformMaterial", response.code)
   end
 end

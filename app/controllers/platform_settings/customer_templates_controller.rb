@@ -5,8 +5,6 @@ class PlatformSettings::CustomerTemplatesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_title
 
-  before_action :reload_customer_templates_from_platform
-
   def index
     @query, page = ransack_query(PlatformCustomerTemplate, "description asc")
 
@@ -14,13 +12,6 @@ class PlatformSettings::CustomerTemplatesController < ApplicationController
   end
 
   private
-
-  def reload_customer_templates_from_platform
-    return if repo.all().count.positive?
-
-    flash[:notice] = "CustomerTemplates are being fetched!"
-    ImportPlatformSettingsJob.perform_later(current_user, current_user.current_project)
-  end
 
   def repo
     @repo ||= PlatformCustomerTemplateRepository.new(current_user)

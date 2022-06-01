@@ -13,12 +13,13 @@ class PlatformVatAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |vat|
       records << { project_id: project.id,
-                   
                    guid: vat[:resource][:GUID],
                    description: vat[:resource][:Description],
                    rate: vat[:resource][:Rate],
                    is_deleted: vat[:resource][:IsDeleted] }
     end
     PlatformVatRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformVat", response.code)
   end
 end

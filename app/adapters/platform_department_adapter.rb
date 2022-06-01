@@ -13,11 +13,12 @@ class PlatformDepartmentAdapter < ApplicationAdapter
     records = []
     response_data[:resource].each do |department|
       records << { project_id: project.id,
-                   
                    guid: department[:resource][:GUID],
                    description: department[:resource][:Description],
                    is_deleted: department[:resource][:IsDeleted] }
     end
     PlatformDepartmentRepository.new(nil, project).import(records)
+
+    PlatformSettingRepository.new(nil, project).update_last_response("PlatformDepartment", response.code)
   end
 end
