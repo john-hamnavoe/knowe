@@ -1,5 +1,6 @@
 class PlatformBookmark < ApplicationRecord
   CONTACT = "PlatformContact".freeze
+  CONTAINER = "PlatformContainer".freeze  
   CUSTOMER = "PlatformCustomer".freeze
   CUSTOMER_SITE = "PlatformCutomerSite".freeze
   LIFT_EVENT = "PlatformLiftEvent".freeze

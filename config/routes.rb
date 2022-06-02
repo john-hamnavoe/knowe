@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :dashboards, only: [:index]
   resources :projects, except: [:destroy]
 
-  resources :platform_customer_fetches, only: [:new, :create]
+  resources :platform_customer_fetches, only: [:new, :create, :update]
   resources :platform_customers, only: [:index, :show] do
     resources :tabs, only: [:index], controller: "platform_customer_tabs"
     resources :contacts, only: [:index], controller: "platform_customer_contacts"
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :order_items, only: [:index], controller: "platform_customer_order_items"
     resources :orders, only: [:index], controller: "platform_customer_orders"
     resources :route_assignments, only: [:index], controller: "platform_customer_route_assignments"
-    namespace :customer_dashboard do 
+    namespace :customer_dashboard do
       resources :lift_events, only: [:index]
     end
   end
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     end
     namespace :service_agreement do
       resources :counts, only: [:index]
-    end    
+    end
   end
 
   resources :platform_settings, only: [:index, :new]

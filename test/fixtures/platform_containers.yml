@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  tag: MyString
+  serial_no: MyString
+  note: MyString
+  latitude: 9.99
+  longitude: 9.99
+  is_stoplisted: false
+  is_commercial: false
+  platform_container_status: one
+  platform_container_type: one
+  platform_company_outlet: one
+  guid: 
+
+two:
+  project: two
+  tag: MyString
+  serial_no: MyString
+  note: MyString
+  latitude: 9.99
+  longitude: 9.99
+  is_stoplisted: false
+  is_commercial: false
+  platform_container_status: two
+  platform_container_type: two
+  platform_company_outlet: two
+  guid: 

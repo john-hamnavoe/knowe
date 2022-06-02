@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_114223) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_02_160014) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -131,6 +131,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_114223) do
     t.datetime "updated_at", null: false
     t.index ["guid", "project_id"], name: "index_platform_container_types_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_container_types_on_project_id"
+  end
+
+  create_table "platform_containers", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "tag"
+    t.string "serial_no"
+    t.string "note"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.boolean "is_stoplisted"
+    t.boolean "is_commercial"
+    t.bigint "platform_container_status_id"
+    t.bigint "platform_container_type_id", null: false
+    t.bigint "platform_company_outlet_id"
+    t.text "last_response_body"
+    t.integer "last_response_code"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_containers_on_guid_project", unique: true
+    t.index ["platform_company_outlet_id"], name: "index_platform_containers_on_platform_company_outlet_id"
+    t.index ["platform_container_status_id"], name: "index_platform_containers_on_platform_container_status_id"
+    t.index ["platform_container_type_id"], name: "index_platform_containers_on_platform_container_type_id"
+    t.index ["project_id"], name: "index_platform_containers_on_project_id"
   end
 
   create_table "platform_contract_statuses", force: :cascade do |t|
@@ -468,7 +492,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_114223) do
     t.uuid "guid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "related_container_guid"
+    t.bigint "platform_container_id"
     t.index ["guid", "project_id"], name: "index_platform_order_item_on_guid_project", unique: true
+    t.index ["platform_container_id"], name: "index_platform_order_items_on_platform_container_id"
     t.index ["platform_container_status_id"], name: "index_platform_order_items_on_platform_container_status_id"
     t.index ["platform_container_type_id"], name: "index_platform_order_items_on_platform_container_type_id"
     t.index ["platform_order_id"], name: "index_platform_order_items_on_platform_order_id"
@@ -746,6 +773,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_114223) do
   add_foreign_key "platform_contacts", "projects"
   add_foreign_key "platform_container_statuses", "projects"
   add_foreign_key "platform_container_types", "projects"
+  add_foreign_key "platform_containers", "platform_company_outlets"
+  add_foreign_key "platform_containers", "platform_container_statuses"
+  add_foreign_key "platform_containers", "platform_container_types"
+  add_foreign_key "platform_containers", "projects"
   add_foreign_key "platform_contract_statuses", "projects"
   add_foreign_key "platform_currencies", "projects"
   add_foreign_key "platform_customer_document_deliveries", "platform_customers"

@@ -106,9 +106,14 @@ class PlatformOrderAdapter < ApplicationAdapter
     assignment_repo.import(assignments)
     item_repo.import(items)
 
-    lift_event_adaptor = PlatformLiftEventAdapter.new(user, project)
+    lift_event_adapter = PlatformLiftEventAdapter.new(user, project)
     items.each do |item|
-      lift_event_adaptor.fetch_by_order_item(item[:guid])
+      lift_event_adapter.fetch_by_order_item(item[:guid])
+    end
+
+    container_adapter = PlatformContainerAdapter.new(user, project)
+    items.each do |item|
+      container_adapter.fetch_by_guid(item[:related_container_guid]) if item[:related_container_guid].present?
     end
   end
 
@@ -244,6 +249,7 @@ class PlatformOrderAdapter < ApplicationAdapter
         guid: container[:Guid],
         platform_container_type_id: container_type_id,
         platform_container_status_id: container_status_id,
+        related_container_guid: container[:RelatedContainerGuid],
         platform_order_id: order[:resource][:GUID]
       }
     end

@@ -3,6 +3,7 @@ class PlatformOrderItem < ApplicationRecord
   belongs_to :platform_order
   belongs_to :platform_container_type
   belongs_to :platform_container_status
+  belongs_to :platform_container, optional: true
 
   has_many :platform_lift_events, dependent: :destroy
 
