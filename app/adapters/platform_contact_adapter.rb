@@ -2,7 +2,7 @@
 
 class PlatformContactAdapter < ApplicationAdapter
   def create(platform_contact)
-    return unless platform_contact.guid.nil?
+   # return unless platform_contact.guid.nil?
 
     response = post("integrator/erp/directory/contacts", platform_contact.as_platform_json)
     if response.success?
