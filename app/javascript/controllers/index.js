@@ -5,6 +5,7 @@
 import { application } from "./application"
 
 import HelloController from "./hello_controller"
+import NestedFormController from "./nested_form_controller"
 import StimulusReflex from 'stimulus_reflex'
 import consumer from '../channels/consumer'
 import controller from '../controllers/application_controller'
@@ -14,6 +15,7 @@ import debounced from 'debounced'
 debounced.initialize()
 
 application.register("hello", HelloController)
+application.register("nested-form", NestedFormController)
 
 application.consumer = consumer
 StimulusReflex.initialize(application, { controller, isolate: true })

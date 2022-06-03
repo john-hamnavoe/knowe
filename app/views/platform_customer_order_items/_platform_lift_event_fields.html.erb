@@ -1,0 +1,24 @@
+<%= content_tag :div, class: "nested-fields grid grid-cols-6 max-w-4xl border border-gray-200 divide-x divide-gray-200", data: { new_record: form.object.new_record? } do %>
+
+  <div >
+    <%= form.date_field :collection_date, class: "text-xs w-full border-0", required: true, autofocus: true %>
+  </div>
+  <div >
+    <%= form.text_field :vehicle_code, class: "text-xs w-full  border-0", required: true %>
+  </div>  
+  <div >
+    <%= form.number_field :net_weight, class: "text-xs  w-full  border-0", required: true %>
+  </div>
+  <div >
+    <%= form.number_field :longitude, class: "text-xs  w-full  border-0" %>
+  </div>
+  <div >
+    <%= form.number_field :latitude, class: "text-xs  w-full  border-0" %>
+  </div>
+  <div class="text-center align-middle">
+    <small><%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" }, class: "text-red-600" %></small>
+    <%= form.hidden_field :_destroy %>
+  </div>  
+
+
+<% end %>

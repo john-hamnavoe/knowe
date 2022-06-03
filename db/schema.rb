@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_160014) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_03_125035) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -590,6 +590,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_160014) do
     t.index ["project_id"], name: "index_platform_pickup_intervals_on_project_id"
   end
 
+  create_table "platform_posts", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "class_name"
+    t.integer "position"
+    t.datetime "last_request"
+    t.string "last_response_code"
+    t.integer "rows"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_platform_posts_on_project_id"
+  end
+
   create_table "platform_prices", force: :cascade do |t|
     t.bigint "project_id", null: false
     t.string "description"
@@ -839,6 +851,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_160014) do
   add_foreign_key "platform_payment_terms", "projects"
   add_foreign_key "platform_payment_types", "projects"
   add_foreign_key "platform_pickup_intervals", "projects"
+  add_foreign_key "platform_posts", "projects"
   add_foreign_key "platform_prices", "platform_actions"
   add_foreign_key "platform_prices", "platform_container_types"
   add_foreign_key "platform_prices", "platform_materials"

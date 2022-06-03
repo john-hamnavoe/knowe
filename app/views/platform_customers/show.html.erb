@@ -35,6 +35,7 @@
         <!-- Start main area-->
         <div class="relative h-full" style="min-height: 36rem">
           <div class="absolute inset-0  rounded-lg">
+          
             <%= turbo_frame_tag "customer_tabs", src: platform_customer_tabs_path(@customer, params: {tab: @tab}) do %>
             <% end %>
           </div>

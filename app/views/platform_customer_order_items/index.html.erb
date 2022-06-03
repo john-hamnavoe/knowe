@@ -8,6 +8,7 @@
         <%= render "shared/table/static_table_header", title: "Container Status" %>            
         <%= render "shared/table/static_table_header", title: "Tag" %>
         <%= render "shared/table/static_table_header", title: "Guid" %>
+        <th></th>
       </tr>
     </thead>
     <tbody class="divide-y divide-gray-200">
@@ -18,7 +19,12 @@
         <%= render "shared/table/table_data_cell", data: platform_order_item.platform_order.platform_material&.description %>
         <%= render "shared/table/table_data_cell", data: platform_order_item.platform_container_status&.description %>                 
         <%= render "shared/table/table_data_cell", data: platform_order_item.tag %>
-        <%= render "shared/table/table_data_cell", data: platform_order_item.guid %>        
+        <%= render "shared/table/table_data_cell", data: platform_order_item.guid %>
+        <td>
+          <% if platform_order_item.tag.present? %>
+            <%= link_to "Add Lifts", platform_customer_tabs_path(@platform_customer, params: { tab: "editor", path: edit_platform_customer_order_item_path(@platform_customer.id, platform_order_item), target_frame: "edit_item" } ), data: { turbo_frame: "customer_tabs" }, class: "text-blue-600" %>  
+          <% end %>
+        </td>
       </tr>
      <% end %>
     </tbody>

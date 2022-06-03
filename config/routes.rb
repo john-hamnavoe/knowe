@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :dashboards, only: [:index]
   resources :projects, except: [:destroy]
+  resources :platform_posts, only: [:index] do
+    member do 
+      get :post_to_platform
+    end
+  end
+
 
   resources :platform_customer_fetches, only: [:new, :create, :update]
   resources :platform_customers, only: [:index, :show] do
@@ -17,7 +23,7 @@ Rails.application.routes.draw do
     resources :customer_sites, only: [:index], controller: "platform_customer_customer_sites"
     resources :item_rentals, only: [:index], controller: "platform_customer_item_rentals"
     resources :lift_events, only: [:index], controller: "platform_customer_lift_events"
-    resources :order_items, only: [:index], controller: "platform_customer_order_items"
+    resources :order_items, only: [:index, :edit, :update], controller: "platform_customer_order_items"
     resources :orders, only: [:index], controller: "platform_customer_orders"
     resources :route_assignments, only: [:index], controller: "platform_customer_route_assignments"
     namespace :customer_dashboard do

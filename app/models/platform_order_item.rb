@@ -7,5 +7,5 @@ class PlatformOrderItem < ApplicationRecord
 
   has_many :platform_lift_events, dependent: :destroy
 
-  accepts_nested_attributes_for :platform_lift_events
+  accepts_nested_attributes_for :platform_lift_events, allow_destroy: true
 end

@@ -10,6 +10,7 @@ class PlatformLiftEventAdapter < ApplicationAdapter
     else
       platform_lift_event.update(last_response_body: response.body, last_response_code: response.code)
     end
+    PlatformPostRepository.new(nil, project).update_last_response("PlatformLiftEvent", response.code)
     response
   end
 

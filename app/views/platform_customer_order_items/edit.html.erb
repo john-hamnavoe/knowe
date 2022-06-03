@@ -1,0 +1,46 @@
+<%= turbo_frame_tag "edit_item" do %>
+
+  <div class="space-x-8 space-y-8 divide-y divide-gray-200">
+    <div>
+      <div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900"><%= "Order Item - #{@platform_order_item.platform_container_type&.description} - #{@platform_order_item.platform_order.platform_material&.description} - #{@platform_order_item.tag}" %> </h3>
+        <p class="mt-1 text-sm text-gray-500 mb-3">Use this form to add lifts for this order item.</p>
+      </div>
+
+
+      <%= form_for(@platform_order_item, url: platform_customer_order_item_path(@platform_customer, @platform_order_item), data: { turbo_frame: "customer_tabs" }) do |f|  %>
+        <%= f.hidden_field :tag %>
+
+        <div data-controller="nested-form">
+          <template data-target="nested-form.template">
+            <%= f.fields_for :platform_lift_events, PlatformLiftEvent.new, child_index: 'NEW_RECORD' do |platform_lift_event| %>
+              <%= render "platform_lift_event_fields", form: platform_lift_event %>
+            <% end %>
+          </template>
+
+
+          <div class="grid grid-cols-6 max-w-4xl border border-gray-300 divide-x divide-gray-200">
+            <div><p class="pl-1 font-semibold text-gray-700">Date</p></div>
+            <div><p class="pl-1 font-semibold text-gray-700">Vehicle Code</p></div>
+            <div><p class="pl-1 font-semibold text-gray-700">Net Weight</p></div>
+            <div><p class="pl-1 font-semibold text-gray-700">Lat</p></div>       
+            <div><p class="pl-1 font-semibold text-gray-700">Long</p></div>         
+            <div><p></p></div>
+          </div>                 
+          <%= f.fields_for :platform_lift_events do |platform_lift_event| %>
+            <%= render "platform_lift_event_fields", form: platform_lift_event if platform_lift_event.object.guid.nil? %>
+          <% end %>
+
+
+          <div class="mt-3 mb-3" data-target="nested-form.links">
+            <%= link_to "Add Lift", "#", class: " font-semibold text-indigo-600", data: { action: "click->nested-form#add_association" } %>
+          </div>
+        </div>
+
+        <%= f.submit "Save", class: "rounded-lg py-2 px-2 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+        <%= link_to "Cancel", platform_customer_tabs_path(@platform_customer, params: {tab: "items"}), data: { turbo_frame: "customer_tabs" }, class: "pl-4" %>        
+      <% end %>
+    </div>
+  </div>
+
+<% end %>

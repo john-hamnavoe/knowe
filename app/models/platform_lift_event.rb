@@ -5,9 +5,9 @@ class PlatformLiftEvent < ApplicationRecord
   def as_platform_json
     chargable_weight = charge_weight.nil? ? net_weight : charge_weight
 
-    site_order_item_guid = related_site_order_container_guid.nil? ? platform_order_item&.guid : related_site_order_container_guiid
+    site_order_item_guid = related_site_order_container_guid.nil? ? platform_order_item&.guid : related_site_order_container_guid
 
-    {
+    lift_event = {
       "IsAutoGPSMatching": false,
       "IsAutoGPSMatchingResult": false,
       "IsBilled": false,
@@ -42,10 +42,6 @@ class PlatformLiftEvent < ApplicationRecord
       },
       "WeightChangeReasonListItem": {
       },
-      "Location": {
-        "Lat": latitude.to_f,
-        "Long": longitude.to_f
-      },
       "VehicleCode": vehicle_code,
       "InformationText": information_text,
       "LiftText": lift_text,
@@ -58,6 +54,14 @@ class PlatformLiftEvent < ApplicationRecord
       "RelatedSiteOrderContainerGuid": site_order_item_guid,
       "IsDeleted": is_deleted,
       "GUID": guid
-    }.to_json
+    }
+
+    lift_event = if latitude&.nonzero? && longitude&.nonzero?
+                   lift_event.merge({ "Location": { "Lat": latitude.to_f, "Long": longitude.to_f } })
+                 else
+                   lift_event.merge({ "Location": {} })
+                 end
+
+    lift_event.to_json
   end
 end

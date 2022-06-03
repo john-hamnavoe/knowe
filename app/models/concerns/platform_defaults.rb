@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-module PlatformSettingsDefaults
+module PlatformDefaults
   extend ActiveSupport::Concern
 
   def create_default_platform_settings(project)
-
     PlatformSetting.create(project: project, class_name: "PlatformAction", position: 1) unless PlatformSetting.where(class_name: "PlatformAction", project: project).exists?
     PlatformSetting.create(project: project, class_name: "PlatformBusinessType", position: 2) unless PlatformSetting.where(class_name: "PlatformBusinessType", project: project).exists?
     PlatformSetting.create(project: project, class_name: "PlatformContactType", position: 3) unless PlatformSetting.where(class_name: "PlatformContactType", project: project).exists?
@@ -35,5 +34,9 @@ module PlatformSettingsDefaults
     PlatformSetting.create(project: project, class_name: "PlatformCompanyOutlet", position: 28) unless PlatformSetting.where(class_name: "PlatformCompanyOutlet", project: project).exists?
     PlatformSetting.create(project: project, class_name: "PlatformRouteTemplate", position: 29) unless PlatformSetting.where(class_name: "PlatformRouteTemplate", project: project).exists?
   end
+
+  def create_default_platform_posts(project)
+    PlatformPost.create(project: project, class_name: "PlatformLiftEvent", position: 1) unless PlatformPost.where(class_name: "PlatformLiftEvent", project: project).exists? 
+  end 
 end
 

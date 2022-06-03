@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  include PlatformSettingsDefaults
+  include PlatformDefaults
 
   broadcasts_to ->(project) { :projects }
   belongs_to :user
@@ -11,11 +11,12 @@ class Project < ApplicationRecord
   has_many :platform_actions, dependent: :destroy
   has_many :platform_business_types, dependent: :destroy
 
-  after_commit :settings_configure
+  after_commit :defaults_configure
 
   private
 
-  def settings_configure
+  def defaults_configure
     create_default_platform_settings(self)
+    create_default_platform_posts(self)
   end
 end

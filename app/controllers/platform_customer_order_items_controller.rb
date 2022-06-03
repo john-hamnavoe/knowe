@@ -8,4 +8,24 @@ class PlatformCustomerOrderItemsController < ApplicationController
   def index
     @platform_order_items = @platform_customer.platform_order_items.order(:id)
   end
+
+  def edit 
+    @platform_order_item = @platform_customer.platform_order_items.find(params[:id])
+    @platform_order_item.platform_lift_events.build
+  end
+
+  def update
+    repo.update(params[:id], platform_order_item_params)
+    redirect_to platform_customer_tabs_path(@platform_customer, params: {tab: "items"})
+  end
+
+  private
+
+  def platform_order_item_params
+    params.require(:platform_order_item).permit(:tag, platform_lift_events_attributes: [:id, :net_weight, :vehicle_code, :collection_date, :latitude, :longitude, :_destroy])
+  end
+
+  def repo
+    @repo ||= PlatformOrderItemRepository.new(current_user)
+  end
 end
