@@ -6,7 +6,7 @@ class Users::CurrentProjectsController < ApplicationController
   def update
     project = repo.load(params[:id])
     current_user.update current_project: project if project
-    redirect_to dashboards_path
+    redirect_to dashboards_path, status: :see_other # 303
   end
 
   protected

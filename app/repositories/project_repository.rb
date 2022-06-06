@@ -11,6 +11,9 @@ class ProjectRepository < ApplicationRepository
     project = Project.new(params)
     project.user = user
     project.save
+
+    user.update(current_project: project) if user.current_project.nil?
+
     project
   end
 
