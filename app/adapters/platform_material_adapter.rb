@@ -8,22 +8,38 @@ class PlatformMaterialAdapter < ApplicationAdapter
   private
 
   def import_materials
-    response = platform_client.query("integrator/erp/lists/materials")
+    page = 1
 
-    if response.success?
-      response_data = JSON.parse("[#{response.body}]", symbolize_names: true)[0]
-      records = []
-      response_data[:resource].each do |material|
-        records << { project_id: project.id,
-                     guid: material[:resource][:GUID],
-                     description: material[:resource][:Description],
-                     short_name: material[:resource][:ShortName],
-                     is_deleted: material[:resource][:IsDeleted],
-                     analysis_code: material[:resource][:AnalysisCode] }
+    loop do
+      response = platform_client.query("integrator/erp/lists/materials?max=200&page=#{page}")
+
+      if response.success?
+        response_data = JSON.parse("[#{response.body}]", symbolize_names: true)[0]
+        records = []
+        response_data[:resource].each do |material|
+          records << { project_id: project.id,
+                       guid: material[:resource][:GUID],
+                       description: material[:resource][:Description],
+                       short_name: material[:resource][:ShortName],
+                       is_deleted: material[:resource][:IsDeleted],
+                       analysis_code: material[:resource][:AnalysisCode] }
+        end
+        platform_material_repository.import(records)
       end
-      PlatformMaterialRepository.new(nil, project).import(records)
-    end
 
-    PlatformSettingRepository.new(nil, project).update_last_response("PlatformMaterial", response.code)
+      page += 1
+
+      platform_setting_repository.update_last_response("PlatformMaterial", response.code)
+
+      break if !response.success? || response_data[:resource].empty?
+    end
+  end
+
+  def platform_material_repository
+    @platform_material_repository ||= PlatformMaterialRepository.new(nil, project)
+  end
+
+  def platform_setting_repository
+    @platform_setting_repository ||= PlatformSettingRepository.new(nil, project)
   end
 end
