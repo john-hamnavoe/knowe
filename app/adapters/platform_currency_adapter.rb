@@ -9,17 +9,20 @@ class PlatformCurrencyAdapter < ApplicationAdapter
 
   def import_currencies
     response = platform_client.query("integrator/erp/lists/currencies")
-    response_data = JSON.parse("[#{response.body}]", symbolize_names: true)[0]
-    records = []
-    response_data[:resource].each do |currency|
-      records << { project_id: project.id,
-                   guid: currency[:resource][:GUID],
-                   description: currency[:resource][:Description],
-                   symbol: currency[:resource][:Symbol],
-                   integration_code: currency[:resource][:IntegrationCode],
-                   is_deleted: currency[:resource][:IsDeleted] }
+
+    if response.success?
+      response_data = JSON.parse("[#{response.body}]", symbolize_names: true)[0]
+      records = []
+      response_data[:resource].each do |currency|
+        records << { project_id: project.id,
+                     guid: currency[:resource][:GUID],
+                     description: currency[:resource][:Description],
+                     symbol: currency[:resource][:Symbol],
+                     integration_code: currency[:resource][:IntegrationCode],
+                     is_deleted: currency[:resource][:IsDeleted] }
+      end
+      PlatformCurrencyRepository.new(nil, project).import(records)
     end
-    PlatformCurrencyRepository.new(nil, project).import(records)
 
     PlatformSettingRepository.new(nil, project).update_last_response("PlatformCurrency", response.code)
   end

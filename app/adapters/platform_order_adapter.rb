@@ -137,7 +137,7 @@ class PlatformOrderAdapter < ApplicationAdapter
     order_repo.import(orders)
 
     # after orders saved set the platform_order_id to be new id on detail records
-    saved_orders = order_repo.all({guid: orders.map { |o| o[:guid] }})
+    saved_orders = order_repo.all({ guid: orders.map { |o| o[:guid] } })
     rentals.each do |rental|
       platform_order_id = saved_orders.find { |c| c.guid == rental[:platform_order_id] }&.id
       rental[:platform_order_id] = platform_order_id
@@ -157,7 +157,7 @@ class PlatformOrderAdapter < ApplicationAdapter
   end
 
   def orders_from_response(response_data, parent_customer_site_id = nil)
-    customer_sites = customer_site_repo.all({guid: response_data[:resource].map { |r| r[:resource][:RelatedSiteGuid] }})
+    customer_sites = customer_site_repo.all({ guid: response_data[:resource].map { |r| r[:resource][:RelatedSiteGuid] } })
     records = []
     rentals = []
     assignments = []
@@ -304,7 +304,7 @@ class PlatformOrderAdapter < ApplicationAdapter
     @item_repo ||= PlatformOrderItemRepository.new(user, project)
   end
 
-  def bookmark_repo 
+  def bookmark_repo
     @bookmark_repo ||= PlatformBookmarkRepository.new(user, project)
   end
 end

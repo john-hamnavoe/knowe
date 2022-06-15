@@ -71,7 +71,7 @@ class PlatformContainerAdapter < ApplicationAdapter
     @container_types = PlatformContainerTypeRepository.new(user, project).all
     @container_status = PlatformContainerStatusRepository.new(user, project).all
   end
-  
+
   def container_repo
     @container_repo ||= PlatformContainerRepository.new(user, project)
   end

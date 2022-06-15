@@ -58,7 +58,7 @@ group :development, :test do
   # lint
   gem "rubocop-github"
   gem "rubocop-performance", require: false
-  gem "rubocop-rails", require: false  
+  gem "rubocop-rails", require: false
 end
 
 group :development do

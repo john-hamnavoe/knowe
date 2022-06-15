@@ -21,7 +21,7 @@ class PlatformSettingRepository < ApplicationRepository
   end
 
   def update_last_response(class_name, response_code)
-    setting = PlatformSetting.find_by(class_name: class_name)
+    setting = PlatformSetting.find_by(class_name: class_name, project: project)
     return nil unless setting
 
     row_count = class_name.constantize.where(project: project).count

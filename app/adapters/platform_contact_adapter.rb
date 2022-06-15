@@ -2,7 +2,7 @@
 
 class PlatformContactAdapter < ApplicationAdapter
   def create(platform_contact)
-   # return unless platform_contact.guid.nil?
+    # return unless platform_contact.guid.nil?
 
     response = post("integrator/erp/directory/contacts", platform_contact.as_platform_json)
     if response.success?
@@ -92,7 +92,7 @@ class PlatformContactAdapter < ApplicationAdapter
     @customer_repo ||= PlatformCustomerRepository.new(user, project)
   end
 
-  def bookmark_repo 
+  def bookmark_repo
     @bookmark_repo ||= PlatformBookmarkRepository.new(user, project)
   end
 end

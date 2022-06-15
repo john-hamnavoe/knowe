@@ -18,11 +18,8 @@ class PlatformLiftEventAdapter < ApplicationAdapter
     return if platform_lift_event.guid.blank?
 
     response = put("integrator/erp/transport/liftevents", platform_lift_event.guid, platform_lift_event.as_platform_json)
-    if response.success?
-      platform_lift_event.update(last_response_body: response.body, last_response_code: response.code)
-    else
-      platform_lift_event.update(last_response_body: response.body, last_response_code: response.code)
-    end
+    platform_lift_event.update(last_response_body: response.body, last_response_code: response.code)
+
     response
   end
 

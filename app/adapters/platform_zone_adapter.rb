@@ -9,14 +9,17 @@ class PlatformZoneAdapter < ApplicationAdapter
 
   def import_zones
     response = platform_client.query("integrator/erp/lists/zones")
-    response_data = JSON.parse("[#{response.body}]", symbolize_names: true)[0]
-    records = []
-    response_data[:resource].each do |zone|
-      records << { project_id: project.id,
-                   guid: zone[:resource][:GUID],
-                   description: zone[:resource][:Description] }
+
+    if response.success?
+      response_data = JSON.parse("[#{response.body}]", symbolize_names: true)[0]
+      records = []
+      response_data[:resource].each do |zone|
+        records << { project_id: project.id,
+                     guid: zone[:resource][:GUID],
+                     description: zone[:resource][:Description] }
+      end
+      PlatformZoneRepository.new(nil, project).import(records)
     end
-    PlatformZoneRepository.new(nil, project).import(records)
 
     PlatformSettingRepository.new(nil, project).update_last_response("PlatformZone", response.code)
   end

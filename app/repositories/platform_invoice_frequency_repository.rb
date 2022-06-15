@@ -3,7 +3,6 @@
 class PlatformInvoiceFrequencyRepository < ApplicationRepository
   def all(args = {}, order_by = "description", direction = "asc")
     query = PlatformInvoiceFrequency.where( project: project).where(args)
-    
 
     query.order(order_by => direction)
   end

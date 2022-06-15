@@ -43,7 +43,7 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
     load_standing_data
     import_all_customer_sites(bookmark_repo.find(PlatformBookmark::CUSTOMER_SITE), pages)
   end
-  
+
   def fetch_all_locations(pages = nil)
     load_standing_data
     import_all_locations(bookmark_repo.find(PlatformBookmark::LOCATION), pages)

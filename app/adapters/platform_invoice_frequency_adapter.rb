@@ -9,15 +9,18 @@ class PlatformInvoiceFrequencyAdapter < ApplicationAdapter
 
   def import_invoice_frequencys
     response = platform_client.query("integrator/erp/lists/invoiceFrequencies")
-    response_data = JSON.parse("[#{response.body}]", symbolize_names: true)[0]
-    records = []
-    response_data[:resource].each do |invoice_frequency|
-      records << { project_id: project.id,
-                   guid: invoice_frequency[:resource][:GUID],
-                   description: invoice_frequency[:resource][:Description],
-                   is_deleted: invoice_frequency[:resource][:IsDeleted] }
+
+    if response.success?
+      response_data = JSON.parse("[#{response.body}]", symbolize_names: true)[0]
+      records = []
+      response_data[:resource].each do |invoice_frequency|
+        records << { project_id: project.id,
+                     guid: invoice_frequency[:resource][:GUID],
+                     description: invoice_frequency[:resource][:Description],
+                     is_deleted: invoice_frequency[:resource][:IsDeleted] }
+      end
+      PlatformInvoiceFrequencyRepository.new(nil, project).import(records)
     end
-    PlatformInvoiceFrequencyRepository.new(nil, project).import(records)
 
     PlatformSettingRepository.new(nil, project).update_last_response("PlatformInvoiceFrequency", response.code)
   end
