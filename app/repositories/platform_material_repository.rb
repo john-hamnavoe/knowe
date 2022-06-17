@@ -22,6 +22,6 @@ class PlatformMaterialRepository < ApplicationRepository
   end
 
   def import(records)
-    PlatformMaterial.import records, on_duplicate_key_update: { conflict_target: [:guid, :project_id], columns: [:description, :short_name, :analysis_code, :is_deleted] }, returning: :guid
+    PlatformMaterial.import records, on_duplicate_key_update: { conflict_target: [:guid, :project_id], columns: [:description, :short_name, :analysis_code, :is_deleted, :material_class_guid, :material_class_description] }, returning: :guid
   end
 end

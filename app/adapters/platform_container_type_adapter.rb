@@ -8,7 +8,7 @@ class PlatformContainerTypeAdapter < ApplicationAdapter
   private
 
   def import_container_types
-    page = 1
+    page = 0
 
     loop do
       response = platform_client.query("integrator/erp/lists/containerTypes?max=200&page=#{page}")

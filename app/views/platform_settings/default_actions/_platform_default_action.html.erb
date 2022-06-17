@@ -1,0 +1,9 @@
+<%= content_tag :tr, id: dom_id(platform_default_action) do %>
+  <%= render "shared/table/table_data_cell", data: platform_default_action.platform_service_description %>
+  <%= render "shared/table/table_data_cell", data: platform_default_action.platform_action_description %>
+  <%= render "shared/table/table_data_cell", data: platform_default_action.platform_pricing_basis_description %>
+  <%= render "shared/table/table_data_cell", data: platform_default_action.platform_vat_description %>
+  <%= render "shared/table/table_data_cell", data: platform_default_action.platform_material_class_description %>
+  <%= render "shared/table/table_data_cell", data: platform_default_action.platform_uom_description %>
+  <%= render "shared/table/table_data_cell", data: platform_default_action.guid %>    
+<% end %>

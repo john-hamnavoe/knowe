@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_03_125035) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_15_175006) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -327,6 +327,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_125035) do
     t.index ["project_id"], name: "index_platform_day_of_weeks_on_project_id"
   end
 
+  create_table "platform_default_actions", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.uuid "platform_action_guid"
+    t.string "platform_action_description"
+    t.uuid "platform_service_guid"
+    t.string "platform_service_description"
+    t.uuid "platform_vat_guid"
+    t.string "platform_vat_description"
+    t.uuid "platform_pricing_basis_guid"
+    t.string "platform_pricing_basis_description"
+    t.uuid "platform_uom_guid"
+    t.string "platform_uom_description"
+    t.uuid "platform_material_class_guid"
+    t.string "platform_material_class_description"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_default_actions_on_guid_project", unique: true
+    t.index ["project_id"], name: "index_platform_default_actions_on_project_id"
+  end
+
   create_table "platform_departments", force: :cascade do |t|
     t.bigint "project_id", null: false
     t.string "description"
@@ -479,6 +500,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_125035) do
     t.uuid "guid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "material_class_guid"
+    t.string "material_class_description"
     t.index ["guid", "project_id"], name: "index_platform_materials_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_materials_on_project_id"
   end
@@ -819,6 +842,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_125035) do
   add_foreign_key "platform_customers", "platform_payment_types"
   add_foreign_key "platform_customers", "projects"
   add_foreign_key "platform_day_of_weeks", "projects"
+  add_foreign_key "platform_default_actions", "projects"
   add_foreign_key "platform_departments", "projects"
   add_foreign_key "platform_direct_debit_run_configurations", "projects"
   add_foreign_key "platform_document_delivery_types", "projects"

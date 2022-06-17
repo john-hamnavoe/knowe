@@ -8,7 +8,7 @@ class PlatformMaterialAdapter < ApplicationAdapter
   private
 
   def import_materials
-    page = 1
+    page = 0
 
     loop do
       response = platform_client.query("integrator/erp/lists/materials?max=200&page=#{page}")
@@ -22,7 +22,9 @@ class PlatformMaterialAdapter < ApplicationAdapter
                        description: material[:resource][:Description],
                        short_name: material[:resource][:ShortName],
                        is_deleted: material[:resource][:IsDeleted],
-                       analysis_code: material[:resource][:AnalysisCode] }
+                       analysis_code: material[:resource][:AnalysisCode],
+                       material_class_guid: material[:resource][:MaterialClassListItem][:Guid],
+                       material_class_description: material[:resource][:MaterialClassListItem][:Description] }
         end
         platform_material_repository.import(records)
       end

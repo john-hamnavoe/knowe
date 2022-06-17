@@ -2,6 +2,7 @@
   <thead class="bg-gray-50">
     <tr>
       <%= render "shared/table/sort_table_header", query: @query, column: "description", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "material_class_description", current_sort: current_sort %>      
       <%= render "shared/table/sort_table_header", query: @query, column: "short_name", current_sort: current_sort %>
       <%= render "shared/table/sort_table_header", query: @query, column: "is_deleted", current_sort: current_sort %>      
       <%= render "shared/table/sort_table_header", query: @query, column: "guid", current_sort: current_sort %>           
@@ -9,6 +10,7 @@
     </tr>
     <tr>
       <%= render "shared/table/search_table_header", form: form, search_field: "description_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "material_class_description_cont" %>      
       <%= render "shared/table/search_table_header", form: form, search_field: "short_name_cont" %>
       <%= render "shared/table/search_table_header", form: form, search_field: "is_deleted_true" %>   
       <%= render "shared/table/search_table_header", form: form, search_field: "guid_eq" %>         

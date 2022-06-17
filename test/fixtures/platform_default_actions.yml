@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  platform_action_guid: 
+  platform_action_description: MyString
+  platform_service_guid: 
+  platform_service_description: MyString
+  platform_vat_guid: 
+  platform_vat_description: MyString
+  platform_pricing_basis_guid: 
+  platform_pricing_basis_description: MyString
+  platform_uom_guid: 
+  platform_uom_description: MyString
+  guid: 
+
+two:
+  project: two
+  platform_action_guid: 
+  platform_action_description: MyString
+  platform_service_guid: 
+  platform_service_description: MyString
+  platform_vat_guid: 
+  platform_vat_description: MyString
+  platform_pricing_basis_guid: 
+  platform_pricing_basis_description: MyString
+  platform_uom_guid: 
+  platform_uom_description: MyString
+  guid: 

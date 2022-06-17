@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     resources :customer_types, only: [:index]
     resources :day_of_weeks, only: [:index]
     resources :departments, only: [:index]
+    resources :default_actions, only: [:index]    
     resources :direct_debit_run_configurations, only: [:index]
     resources :document_delivery_types, only: [:index]
     resources :external_vehicles, only: [:index]

@@ -1,5 +1,6 @@
 <%= content_tag :tr, id: dom_id(platform_material) do %>
   <%= render "shared/table/table_data_cell", data: platform_material.description %>
+  <%= render "shared/table/table_data_cell", data: platform_material.material_class_description %>  
   <%= render "shared/table/table_data_cell", data: platform_material.short_name %>
   <%= render "shared/table/table_data_cell", data: platform_material.is_deleted %>    
   <%= render "shared/table/table_data_cell", data: platform_material.guid %>    

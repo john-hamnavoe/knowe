@@ -1,0 +1,30 @@
+<table class="min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
+    <tr>
+      <%= render "shared/table/sort_table_header", query: @query, column: "platform_service_description", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "platform_action_description", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "platform_pricing_basis_description", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "platform_vat_description", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "platform_material_class_description", current_sort: current_sort %>    
+      <%= render "shared/table/sort_table_header", query: @query, column: "platform_uom_description", current_sort: current_sort %>                               
+      <%= render "shared/table/sort_table_header", query: @query, column: "guid", current_sort: current_sort %>           
+
+    </tr>
+    <tr>
+      <%= render "shared/table/search_table_header", form: form, search_field: "platform_service_description_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "platform_action_description_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "platform_pricing_basis_description_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "platform_vat_description_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "platform_material_class_description_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "platform_uom_description_cont" %>                              
+      <%= render "shared/table/search_table_header", form: form, search_field: "guid_eq" %>         
+
+    </tr>    
+  </thead>
+
+  <tbody class="divide-y divide-gray-200 bg-white">
+    <% @platform_default_actions.each do |platform_default_action| %>
+      <%= render "platform_default_action", platform_default_action: platform_default_action %>
+    <% end %>
+  </tbody>
+</table>
