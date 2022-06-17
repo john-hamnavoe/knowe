@@ -34,6 +34,7 @@ module PlatformDefaults
     PlatformSetting.create(project: project, class_name: "PlatformCompanyOutlet", position: 28) unless PlatformSetting.where(class_name: "PlatformCompanyOutlet", project: project).exists?
     PlatformSetting.create(project: project, class_name: "PlatformRouteTemplate", position: 29) unless PlatformSetting.where(class_name: "PlatformRouteTemplate", project: project).exists?
     PlatformSetting.create(project: project, class_name: "PlatformDefaultAction", position: 30) unless PlatformSetting.where(class_name: "PlatformDefaultAction", project: project).exists?
+    PlatformSetting.create(project: project, class_name: "PlatformSicCode", position: 31) unless PlatformSetting.where(class_name: "PlatformSicCode", project: project).exists?
   end
 
   def create_default_platform_posts(project)
