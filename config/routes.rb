@@ -78,6 +78,7 @@ Rails.application.routes.draw do
     resources :route_templates, only: [:index]
     resources :service_agreements, only: [:index, :show, :new]
     resources :services, only: [:index]
+    resources :sic_codes, only: [:index]    
     resources :vats, only: [:index]
     resources :weighing_types, only: [:index]
     resources :zones, only: [:index]

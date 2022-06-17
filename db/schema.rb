@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_15_175006) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_17_092734) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -734,6 +734,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_15_175006) do
     t.index ["project_id"], name: "index_platform_settings_on_project_id"
   end
 
+  create_table "platform_sic_codes", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "description_2007"
+    t.string "code_2007"
+    t.string "description_2003"
+    t.string "code_2003"
+    t.boolean "is_deleted"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_sic_codes_on_guid_project", unique: true
+    t.index ["project_id"], name: "index_platform_sic_codes_on_project_id"
+  end
+
   create_table "platform_vats", force: :cascade do |t|
     t.uuid "guid"
     t.string "description"
@@ -896,6 +910,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_15_175006) do
   add_foreign_key "platform_service_agreements", "projects"
   add_foreign_key "platform_services", "projects"
   add_foreign_key "platform_settings", "projects"
+  add_foreign_key "platform_sic_codes", "projects"
   add_foreign_key "platform_vats", "projects"
   add_foreign_key "platform_weighing_types", "projects"
   add_foreign_key "platform_zones", "projects"

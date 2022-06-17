@@ -13,7 +13,7 @@ class CreatePlatformDefaultActions < ActiveRecord::Migration[7.0]
       t.uuid :platform_uom_guid
       t.string :platform_uom_description
       t.uuid :platform_material_class_guid
-      t.string :platform_material_class_description      
+      t.string :platform_material_class_description
       t.uuid :guid
 
       t.timestamps

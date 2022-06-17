@@ -1,0 +1,28 @@
+<table class="min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
+    <tr>
+      <%= render "shared/table/sort_table_header", query: @query, column: "code_2007", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "description_2007", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "code_2003", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "description_2003", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "is_deleted", current_sort: current_sort %>                         
+      <%= render "shared/table/sort_table_header", query: @query, column: "guid", current_sort: current_sort %>           
+
+    </tr>
+    <tr>
+      <%= render "shared/table/search_table_header", form: form, search_field: "code_2007_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "description_2007_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "code_2003_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "description_2003_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "is_deleted_true" %>                        
+      <%= render "shared/table/search_table_header", form: form, search_field: "guid_eq" %>         
+
+    </tr>    
+  </thead>
+
+  <tbody class="divide-y divide-gray-200 bg-white">
+    <% @platform_sic_codes.each do |platform_sic_code| %>
+      <%= render "platform_sic_code", platform_sic_code: platform_sic_code %>
+    <% end %>
+  </tbody>
+</table>

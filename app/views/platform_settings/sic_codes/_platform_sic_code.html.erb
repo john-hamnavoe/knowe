@@ -1,0 +1,8 @@
+<%= content_tag :tr, id: dom_id(platform_sic_code) do %>
+  <%= render "shared/table/table_data_cell", data: platform_sic_code.code_2007 %>
+  <%= render "shared/table/table_data_cell", data: platform_sic_code.description_2007 %>
+  <%= render "shared/table/table_data_cell", data: platform_sic_code.code_2003 %>
+  <%= render "shared/table/table_data_cell", data: platform_sic_code.description_2003 %>
+  <%= render "shared/table/table_data_cell", data: platform_sic_code.is_deleted %>
+  <%= render "shared/table/table_data_cell", data: platform_sic_code.guid %>    
+<% end %>
