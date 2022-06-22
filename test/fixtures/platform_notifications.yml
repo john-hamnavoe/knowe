@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  generated_time_stamp: 2022-06-20 22:41:20
+  is_sent: false
+  subject: MyString
+  message: MyString
+  destination_address: MyString
+  guid: 
+
+two:
+  project: two
+  generated_time_stamp: 2022-06-20 22:41:20
+  is_sent: false
+  subject: MyString
+  message: MyString
+  destination_address: MyString
+  guid: 

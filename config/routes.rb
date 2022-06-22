@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :platform_notifications, only: [:index, :new]
+
   namespace :dashboard do
     namespace :customer do
       resources :counts, only: [:index]

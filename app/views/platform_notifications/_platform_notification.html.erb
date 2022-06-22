@@ -1,0 +1,8 @@
+<%= content_tag :tr, id: dom_id(platform_notification) do %>
+  <%= render "shared/table/table_data_cell", data: platform_notification.destination_address %>
+  <%= render "shared/table/table_data_cell", data: platform_notification.subject %>    
+  <%= render "shared/table/table_data_cell", data: platform_notification.message %>    
+  <%= render "shared/table/table_data_cell", data: platform_notification.notification_class %>    
+  <%= render "shared/table/table_data_cell", data: platform_notification.generated_time_stamp %>     
+  <%= render "shared/table/table_data_cell", data: platform_notification.guid %>    
+<% end %>

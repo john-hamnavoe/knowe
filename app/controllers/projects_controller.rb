@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def project_params
-    params.require(:project).permit(:name, :active, :base_url, :pat_token, :auth_cookie, :expiry_minutes, :auth_cookie_updated_at, :version, :user_id)
+    params.require(:project).permit(:name, :active, :base_url, :pat_token, :auth_cookie, :expiry_minutes, :auth_cookie_updated_at, :version, :user_id, :sms_third_party_key, :email_third_party_key)
   end
 
   def repo

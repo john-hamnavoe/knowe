@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_17_092734) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_21_213749) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_17_092734) do
     t.string "cursor_bookmark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "page"
     t.index ["project_id"], name: "index_platform_bookmarks_on_project_id"
   end
 
@@ -506,6 +507,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_17_092734) do
     t.index ["project_id"], name: "index_platform_materials_on_project_id"
   end
 
+  create_table "platform_notifications", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.datetime "generated_time_stamp"
+    t.boolean "is_sent"
+    t.string "subject"
+    t.string "message"
+    t.string "destination_address"
+    t.string "notification_class"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_notifications_on_guid_project", unique: true
+    t.index ["project_id"], name: "index_platform_notifications_on_project_id"
+  end
+
   create_table "platform_order_items", force: :cascade do |t|
     t.bigint "project_id", null: false
     t.bigint "platform_order_id", null: false
@@ -793,6 +809,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_17_092734) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "sms_third_party_key"
+    t.uuid "email_third_party_key"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -873,6 +891,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_17_092734) do
   add_foreign_key "platform_locations", "platform_zones"
   add_foreign_key "platform_locations", "projects"
   add_foreign_key "platform_materials", "projects"
+  add_foreign_key "platform_notifications", "projects"
   add_foreign_key "platform_order_items", "platform_container_statuses"
   add_foreign_key "platform_order_items", "platform_container_types"
   add_foreign_key "platform_order_items", "platform_orders"

@@ -6,6 +6,10 @@ class PlatformBookmarkRepository < ApplicationRepository
   end
 
   def create_or_update(table_name, until_bookmark, cursor_bookmark)
-    PlatformBookmark.find_or_create_by(table_name: table_name,  project: project).update(until_bookmark: until_bookmark, cursor_bookmark: cursor_bookmark)
+    PlatformBookmark.find_or_create_by(table_name: table_name, project: project).update(until_bookmark: until_bookmark, cursor_bookmark: cursor_bookmark)
+  end
+
+  def create_or_update_page(table_name, page)
+    PlatformBookmark.find_or_create_by(table_name: table_name, project: project).update(page: page)
   end
 end

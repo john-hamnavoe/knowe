@@ -1,0 +1,26 @@
+<table class="min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
+    <tr>
+      <%= render "shared/table/sort_table_header", query: @query, column: "destination_address", current_sort: current_sort %>
+      <%= render "shared/table/sort_table_header", query: @query, column: "subject", current_sort: current_sort %>      
+      <%= render "shared/table/sort_table_header", query: @query, column: "message", current_sort: current_sort %>     
+      <%= render "shared/table/sort_table_header", query: @query, column: "notification_class", current_sort: current_sort %>   
+      <%= render "shared/table/sort_table_header", query: @query, column: "generated_time_stamp", current_sort: current_sort %>                   
+      <%= render "shared/table/sort_table_header", query: @query, column: "guid", current_sort: current_sort %>           
+    </tr>
+    <tr>
+      <%= render "shared/table/search_table_header", form: form, search_field: "destination_address_cont" %>
+      <%= render "shared/table/search_table_header", form: form, search_field: "subject_cont" %>   
+      <%= render "shared/table/search_table_header", form: form, search_field: "message_cont" %>    
+      <%= render "shared/table/search_table_header", form: form, search_field: "notification_class_cont" %>      
+      <%= render "shared/table/search_table_header", form: form, search_field: nil %>                       
+      <%= render "shared/table/search_table_header", form: form, search_field: "guid_eq" %>         
+    </tr>    
+  </thead>
+
+  <tbody class="divide-y divide-gray-200 bg-white">
+    <% @platform_notifications.each do |platform_notification| %>
+      <%= render "platform_notification", platform_notification: platform_notification %>
+    <% end %>
+  </tbody>
+</table>
