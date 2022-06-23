@@ -84,37 +84,8 @@ class PlatformOrderAdapter < ApplicationAdapter
         items += site_items
       end
     end
-    order_repo.import(orders)
 
-    # after agreements saved set the platform_order_id to be new id on detail records
-    ar_account_codes.each do |ar_account_code|
-      customer = customer_repo.load_by_account_code(ar_account_code.strip)
-      rentals.each do |rental|
-        platform_order_id = customer.platform_orders.find { |c| c.guid == rental[:platform_order_id] }&.id
-        rental[:platform_order_id] = platform_order_id
-      end
-      assignments.each do |assignment|
-        platform_order_id = customer.platform_orders.find { |c| c.guid == assignment[:platform_order_id] }&.id
-        assignment[:platform_order_id] = platform_order_id
-      end
-      items.each do |item|
-        platform_order_id = customer.platform_orders.find { |c| c.guid == item[:platform_order_id] }&.id
-        item[:platform_order_id] = platform_order_id
-      end
-    end
-    rental_repo.import(rentals)
-    assignment_repo.import(assignments)
-    item_repo.import(items)
-
-    lift_event_adapter = PlatformLiftEventAdapter.new(user, project)
-    items.each do |item|
-      lift_event_adapter.fetch_by_order_item(item[:guid])
-    end
-
-    container_adapter = PlatformContainerAdapter.new(user, project)
-    items.each do |item|
-      container_adapter.fetch_by_guid(item[:related_container_guid]) if item[:related_container_guid].present?
-    end
+    create_orders(orders, rentals, assignments, items)
   end
 
   def import_all_orders(bookmark, pages = nil)
@@ -154,6 +125,16 @@ class PlatformOrderAdapter < ApplicationAdapter
     rental_repo.import(rentals)
     assignment_repo.import(assignments)
     item_repo.import(items)
+
+    lift_event_adapter = PlatformLiftEventAdapter.new(user, project)
+    items.each do |item|
+      lift_event_adapter.fetch_by_order_item(item[:guid])
+    end
+
+    container_adapter = PlatformContainerAdapter.new(user, project)
+    items.each do |item|
+      container_adapter.fetch_by_guid(item[:related_container_guid]) if item[:related_container_guid].present?
+    end
   end
 
   def orders_from_response(response_data, parent_customer_site_id = nil)

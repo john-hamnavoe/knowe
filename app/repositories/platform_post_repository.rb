@@ -15,13 +15,13 @@ class PlatformPostRepository < ApplicationRepository
   end
 
   def update(id, params)
-    post = PlatformPost.find_by(id: id)
+    post = PlatformPost.find_by(project: project, id: id)
     post&.update(params)
     post
   end
 
   def update_last_response(class_name, response_code)
-    post = PlatformPost.find_by(class_name: class_name)
+    post = PlatformPost.find_by(project: project, class_name: class_name)
     return nil unless post
 
     row_count = class_name.constantize.where(project: project, guid: nil).count
@@ -30,7 +30,7 @@ class PlatformPostRepository < ApplicationRepository
   end
 
   def update_row_count(class_name)
-    post = PlatformPost.find_by(class_name: class_name)
+    post = PlatformPost.find_by(project: project, class_name: class_name)
     return nil unless post
 
     row_count = class_name.constantize.where(project: project, guid: nil).count
@@ -39,6 +39,6 @@ class PlatformPostRepository < ApplicationRepository
   end
 
   def load(id)
-    PlatformPost.find_by(id: id)
+    PlatformPost.find_by(project: project, id: id)
   end
 end

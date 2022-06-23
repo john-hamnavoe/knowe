@@ -9,9 +9,10 @@ class PlatformCustomerOrderItemsController < ApplicationController
     @platform_order_items = @platform_customer.platform_order_items.order(:id)
   end
 
-  def edit 
+  def edit
     @platform_order_item = @platform_customer.platform_order_items.find(params[:id])
-    @platform_order_item.platform_lift_events.build
+    @platform_location = @platform_order_item.platform_order.platform_customer_site.platform_location
+    @platform_order_item.platform_lift_events.build(latitude: @platform_location&.latitude, longitude: @platform_location&.longitude )
   end
 
   def update

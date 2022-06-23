@@ -13,7 +13,7 @@
 
         <div data-controller="nested-form">
           <template data-target="nested-form.template">
-            <%= f.fields_for :platform_lift_events, PlatformLiftEvent.new, child_index: 'NEW_RECORD' do |platform_lift_event| %>
+            <%= f.fields_for :platform_lift_events, PlatformLiftEvent.new(latitude: @platform_location&.latitude, longitude: @platform_location&.longitude ), child_index: 'NEW_RECORD' do |platform_lift_event| %>
               <%= render "platform_lift_event_fields", form: platform_lift_event %>
             <% end %>
           </template>
