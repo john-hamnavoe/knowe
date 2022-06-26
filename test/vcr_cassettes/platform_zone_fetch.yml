@@ -1,0 +1,252 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 11:47:23 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyNDIyNDMsImV4cCI6MTY1NjI0NTg0MywiaWF0IjoxNjU2MjQ0MDQzfQ.0PqOVhJ1v9RgnIFO1LxaPHfoxWszJfl7-0sHvZxdcdgbO2ywFcFPN2z1dBXVKr7uuhmy_KhjJqGYz2qfZ6ixKA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sun, 26 Jun 2022 11:47:23 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/zones
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyNDIyNDMsImV4cCI6MTY1NjI0NTg0MywiaWF0IjoxNjU2MjQ0MDQzfQ.0PqOVhJ1v9RgnIFO1LxaPHfoxWszJfl7-0sHvZxdcdgbO2ywFcFPN2z1dBXVKr7uuhmy_KhjJqGYz2qfZ6ixKA;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '933'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 11:47:23 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyNDIyNDQsImV4cCI6MTY1NjI0NTg0NCwiaWF0IjoxNjU2MjQ0MDQ0fQ.DyV37ssQSrNJ--GKfh4l4bdx8KvcawXTBPO9khojLy8TaHM2-S1u7bfX7le5kwiMz6waRZI3mRH-_EAZ-Cb8Ag;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"resource":[{"resource":{"Description":"Default Zone","GUID":"65042b02-e039-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Zone1
+        ","GUID":"5c301e6e-a4df-403c-a9f9-e5de2d8523af"}},{"resource":{"Description":"Zone2
+        ","GUID":"214aed08-f59b-46ce-a316-ffd3e3b73ba7"}},{"resource":{"Description":"Zone3
+        ","GUID":"32ef3484-d787-40b4-8f6b-b7f5e80cfd87"}},{"resource":{"Description":"Zone4
+        ","GUID":"ba79578c-daa7-48ea-8227-0e9529c47868"}},{"resource":{"Description":"Zone5
+        ","GUID":"9a156364-fea2-4a65-80cf-19cf87b3f557"}},{"resource":{"Description":"Zone6
+        ","GUID":"afc636b4-5ec0-4717-a94c-d089a481563e"}},{"resource":{"Description":"Zone7
+        ","GUID":"772fdc92-f571-4999-bca2-a17ae86bac25"}},{"resource":{"Description":"Zone8
+        ","GUID":"960467d9-9288-479f-b230-69264b1f573e"}},{"resource":{"Description":"Zone9
+        ","GUID":"357904e5-d3fb-4c67-b271-deccff2baac1"}},{"resource":{"Description":"Zone10
+        ","GUID":"858caf7b-37af-4c06-98dd-c6b985499a14"}},{"resource":{"Description":"Zone11
+        ","GUID":"b89567f3-1d05-455b-9af5-65298464174e"}},{"resource":{"Description":"Zone12
+        ","GUID":"b01be147-9788-4b4a-a0b1-de40e0b960dd"}},{"resource":{"Description":"Zone13
+        ","GUID":"ec2d5efd-0324-4770-8a27-3a5b4092676f"}},{"resource":{"Description":"Zone14
+        ","GUID":"e977ab81-b4af-44a5-b947-05a7fdf49f1a"}},{"resource":{"Description":"Zone15
+        ","GUID":"8a4b1df6-6e4a-4d1b-a54d-2f7fb25db88e"}}]}'
+  recorded_at: Sun, 26 Jun 2022 11:47:24 GMT
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 11:47:23 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyNDIyNDQsImV4cCI6MTY1NjI0NTg0NCwiaWF0IjoxNjU2MjQ0MDQ0fQ.DyV37ssQSrNJ--GKfh4l4bdx8KvcawXTBPO9khojLy8TaHM2-S1u7bfX7le5kwiMz6waRZI3mRH-_EAZ-Cb8Ag;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sun, 26 Jun 2022 11:47:24 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/zones
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyNDIyNDQsImV4cCI6MTY1NjI0NTg0NCwiaWF0IjoxNjU2MjQ0MDQ0fQ.DyV37ssQSrNJ--GKfh4l4bdx8KvcawXTBPO9khojLy8TaHM2-S1u7bfX7le5kwiMz6waRZI3mRH-_EAZ-Cb8Ag;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '933'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 11:47:24 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyNDIyNDUsImV4cCI6MTY1NjI0NTg0NSwiaWF0IjoxNjU2MjQ0MDQ1fQ.P_gneXNnXO5p9LycTMpJ03LXuQkiYQOb6AAd3KSMO3HUWk4yk6ScM5HPmKd-aVoNFm7ufW0tBwnmozsofEuLpw;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"resource":[{"resource":{"Description":"Default Zone","GUID":"65042b02-e039-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Zone1
+        ","GUID":"5c301e6e-a4df-403c-a9f9-e5de2d8523af"}},{"resource":{"Description":"Zone2
+        ","GUID":"214aed08-f59b-46ce-a316-ffd3e3b73ba7"}},{"resource":{"Description":"Zone3
+        ","GUID":"32ef3484-d787-40b4-8f6b-b7f5e80cfd87"}},{"resource":{"Description":"Zone4
+        ","GUID":"ba79578c-daa7-48ea-8227-0e9529c47868"}},{"resource":{"Description":"Zone5
+        ","GUID":"9a156364-fea2-4a65-80cf-19cf87b3f557"}},{"resource":{"Description":"Zone6
+        ","GUID":"afc636b4-5ec0-4717-a94c-d089a481563e"}},{"resource":{"Description":"Zone7
+        ","GUID":"772fdc92-f571-4999-bca2-a17ae86bac25"}},{"resource":{"Description":"Zone8
+        ","GUID":"960467d9-9288-479f-b230-69264b1f573e"}},{"resource":{"Description":"Zone9
+        ","GUID":"357904e5-d3fb-4c67-b271-deccff2baac1"}},{"resource":{"Description":"Zone10
+        ","GUID":"858caf7b-37af-4c06-98dd-c6b985499a14"}},{"resource":{"Description":"Zone11
+        ","GUID":"b89567f3-1d05-455b-9af5-65298464174e"}},{"resource":{"Description":"Zone12
+        ","GUID":"b01be147-9788-4b4a-a0b1-de40e0b960dd"}},{"resource":{"Description":"Zone13
+        ","GUID":"ec2d5efd-0324-4770-8a27-3a5b4092676f"}},{"resource":{"Description":"Zone14
+        ","GUID":"e977ab81-b4af-44a5-b947-05a7fdf49f1a"}},{"resource":{"Description":"Zone15
+        ","GUID":"8a4b1df6-6e4a-4d1b-a54d-2f7fb25db88e"}},{"resource":{"Description":"Zone16
+        ","GUID":"578b54ec-df94-4c5c-a95b-17201c6ac126"}}]}'
+  recorded_at: Sun, 26 Jun 2022 11:47:25 GMT
+recorded_with: VCR 6.1.0

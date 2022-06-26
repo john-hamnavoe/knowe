@@ -1,0 +1,247 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 14:38:44 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjYxMjUsImV4cCI6MTY1NjE2OTcyNSwiaWF0IjoxNjU2MTY3OTI1fQ.Et54Vy8rtMBkCbTodrjFNNqa2eq8KFoUochqvRS1Tpu_61nSmRSTuCnS_UYSKt0hww0xncBcbbUGKevAB5DlIg;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sat, 25 Jun 2022 14:38:45 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/actions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjYxMjUsImV4cCI6MTY1NjE2OTcyNSwiaWF0IjoxNjU2MTY3OTI1fQ.Et54Vy8rtMBkCbTodrjFNNqa2eq8KFoUochqvRS1Tpu_61nSmRSTuCnS_UYSKt0hww0xncBcbbUGKevAB5DlIg;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '5686'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 14:38:45 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjYxMjUsImV4cCI6MTY1NjE2OTcyNSwiaWF0IjoxNjU2MTY3OTI1fQ.Et54Vy8rtMBkCbTodrjFNNqa2eq8KFoUochqvRS1Tpu_61nSmRSTuCnS_UYSKt0hww0xncBcbbUGKevAB5DlIg;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Description":"Drop","IsDeleted":false,"AnalysisCode":null,"ShortAction":"JDrp","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"b2c487c4-5599-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Create
+        Job From","Guid":"653e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"b3c487c4-5599-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Start
+        of Cycle","Guid":"683e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"0ef5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Exchange","IsDeleted":false,"AnalysisCode":null,"ShortAction":"JExc","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"b0c487c4-5599-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Create
+        Job From","Guid":"653e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"b1c487c4-5599-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Initiates
+        Weighing","Guid":"673e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"0ff5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Pickup","IsDeleted":false,"AnalysisCode":null,"ShortAction":"JPck","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"812e5491-5699-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Create
+        Job From","Guid":"653e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"832e5491-5699-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Initiates
+        Weighing","Guid":"673e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"822e5491-5699-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"End
+        of Cycle","Guid":"693e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"10f5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Processing","IsDeleted":false,"AnalysisCode":null,"ShortAction":"Prc","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"6a3c4867-f99b-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Processing","Guid":"6c3e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"11f5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"One
+        Off Charge","IsDeleted":false,"AnalysisCode":null,"ShortAction":"Chrg","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"a2f6eb46-5899-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"One
+        off Charge","Guid":"6a3e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"12f5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Gate
+        Arrival","IsDeleted":false,"AnalysisCode":null,"ShortAction":"Gar","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"44f5709c-de39-e911-85b3-00155d675d9a","ActionTypeListItem":{"Description":"Initiates
+        Weighing","Guid":"673e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"43f5709c-de39-e911-85b3-00155d675d9a","ActionTypeListItem":{"Description":"Gate
+        Arrival","Guid":"6e3e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"13f5709c-de39-e911-85b3-00155d675d9a"}}]}'
+  recorded_at: Sat, 25 Jun 2022 14:38:46 GMT
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 14:38:45 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjYxMjYsImV4cCI6MTY1NjE2OTcyNiwiaWF0IjoxNjU2MTY3OTI2fQ.4FWYDZpp-JhI57OnvyYVEpsQJodPG6DpdZXckSha9zgTRD36O4GX_k4nmx3RbqDQyiCH_35eHw6AquLO024V7w;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sat, 25 Jun 2022 14:38:46 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/actions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjYxMjYsImV4cCI6MTY1NjE2OTcyNiwiaWF0IjoxNjU2MTY3OTI2fQ.4FWYDZpp-JhI57OnvyYVEpsQJodPG6DpdZXckSha9zgTRD36O4GX_k4nmx3RbqDQyiCH_35eHw6AquLO024V7w;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '5686'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 14:38:45 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjYxMjYsImV4cCI6MTY1NjE2OTcyNiwiaWF0IjoxNjU2MTY3OTI2fQ.4FWYDZpp-JhI57OnvyYVEpsQJodPG6DpdZXckSha9zgTRD36O4GX_k4nmx3RbqDQyiCH_35eHw6AquLO024V7w;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Description":"Drop Drop","IsDeleted":false,"AnalysisCode":null,"ShortAction":"JDrp","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"b2c487c4-5599-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Create
+        Job From","Guid":"653e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"b3c487c4-5599-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Start
+        of Cycle","Guid":"683e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"0ef5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Exchange","IsDeleted":false,"AnalysisCode":null,"ShortAction":"JExc","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"b0c487c4-5599-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Create
+        Job From","Guid":"653e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"b1c487c4-5599-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Initiates
+        Weighing","Guid":"673e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"0ff5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Pickup","IsDeleted":false,"AnalysisCode":null,"ShortAction":"JPck","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"812e5491-5699-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Create
+        Job From","Guid":"653e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"832e5491-5699-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Initiates
+        Weighing","Guid":"673e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"822e5491-5699-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"End
+        of Cycle","Guid":"693e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"10f5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Processing","IsDeleted":false,"AnalysisCode":null,"ShortAction":"Prc","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"6a3c4867-f99b-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"Processing","Guid":"6c3e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"11f5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"One
+        Off Charge","IsDeleted":false,"AnalysisCode":null,"ShortAction":"Chrg","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"a2f6eb46-5899-ea11-96d2-000d3ab13a58","ActionTypeListItem":{"Description":"One
+        off Charge","Guid":"6a3e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"12f5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Gate
+        Arrival","IsDeleted":false,"AnalysisCode":null,"ShortAction":"Gar","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"44f5709c-de39-e911-85b3-00155d675d9a","ActionTypeListItem":{"Description":"Initiates
+        Weighing","Guid":"673e0772-de39-e911-85b3-00155d675d9a"}},{"Guid":"43f5709c-de39-e911-85b3-00155d675d9a","ActionTypeListItem":{"Description":"Gate
+        Arrival","Guid":"6e3e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"13f5709c-de39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Landfill
+        Tax","IsDeleted":false,"AnalysisCode":null,"ShortAction":"Ltx","EquivalentHaul":0.00,"ActionTypes":[{"Guid":"45f5709c-de39-e911-85b3-00155d675d9a","ActionTypeListItem":{"Description":"Landfill
+        Tax","Guid":"6d3e0772-de39-e911-85b3-00155d675d9a"}}],"GUID":"14f5709c-de39-e911-85b3-00155d675d9a"}}]}'
+  recorded_at: Sat, 25 Jun 2022 14:38:46 GMT
+recorded_with: VCR 6.1.0

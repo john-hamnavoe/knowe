@@ -2,7 +2,7 @@ require "test_helper"
 
 class ProjectTest < ActiveSupport::TestCase
   def setup
-    @project = Project.new(name: "new", user: users(:one))
+    @project = Project.new(name: "new", user: users(:bob))
   end
 
   test "the validation" do

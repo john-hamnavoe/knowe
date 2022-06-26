@@ -1,0 +1,221 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:36:21 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjk1ODIsImV4cCI6MTY1NjE3MzE4MiwiaWF0IjoxNjU2MTcxMzgyfQ.uplWQtaCnukEO5kHvYw5pxpA19uz8fbO4ze-vV_vjN46UP9NyM4OSuKY9_gLfUNbbgMnivJLuIKC2i-okmSM4Q;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sat, 25 Jun 2022 15:36:22 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/contractStatuses
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjk1ODIsImV4cCI6MTY1NjE3MzE4MiwiaWF0IjoxNjU2MTcxMzgyfQ.uplWQtaCnukEO5kHvYw5pxpA19uz8fbO4ze-vV_vjN46UP9NyM4OSuKY9_gLfUNbbgMnivJLuIKC2i-okmSM4Q;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '294'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:36:22 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjk1ODIsImV4cCI6MTY1NjE3MzE4MiwiaWF0IjoxNjU2MTcxMzgyfQ.uplWQtaCnukEO5kHvYw5pxpA19uz8fbO4ze-vV_vjN46UP9NyM4OSuKY9_gLfUNbbgMnivJLuIKC2i-okmSM4Q;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"resource":[{"resource":{"Description":"Un-Approved","IsDeleted":false,"GUID":"f77bce04-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Pending","IsDeleted":false,"GUID":"f87bce04-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Approved","IsDeleted":false,"GUID":"f97bce04-df39-e911-85b3-00155d675d9a"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:36:22 GMT
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:36:22 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjk1ODMsImV4cCI6MTY1NjE3MzE4MywiaWF0IjoxNjU2MTcxMzgzfQ.HzjAlIkrNrtC0RMrk64d4bRFvVBv0OxXXjBgUTjrOHQdQoG30yBh1RZzneOAAh6qUabldj6DPlO8uOFpIvOLkA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sat, 25 Jun 2022 15:36:23 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/contractStatuses
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjk1ODMsImV4cCI6MTY1NjE3MzE4MywiaWF0IjoxNjU2MTcxMzgzfQ.HzjAlIkrNrtC0RMrk64d4bRFvVBv0OxXXjBgUTjrOHQdQoG30yBh1RZzneOAAh6qUabldj6DPlO8uOFpIvOLkA;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '294'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:36:23 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjk1ODMsImV4cCI6MTY1NjE3MzE4MywiaWF0IjoxNjU2MTcxMzgzfQ.HzjAlIkrNrtC0RMrk64d4bRFvVBv0OxXXjBgUTjrOHQdQoG30yBh1RZzneOAAh6qUabldj6DPlO8uOFpIvOLkA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"resource":[{"resource":{"Description":"Un-Approved","IsDeleted":true,"GUID":"f77bce04-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Pending","IsDeleted":false,"GUID":"f87bce04-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Approved","IsDeleted":false,"GUID":"f97bce04-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Rejected","IsDeleted":false,"GUID":"bfe26e53-0a69-4a6c-aa17-a13e8470c9db"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:36:23 GMT
+recorded_with: VCR 6.1.0

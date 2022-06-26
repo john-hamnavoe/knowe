@@ -1,0 +1,115 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 09:12:05 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyMzI5MjYsImV4cCI6MTY1NjIzNjUyNiwiaWF0IjoxNjU2MjM0NzI2fQ.T_T7LvOBPwIV99DQCOrPh-qc7BezOa8WcljVcFwWLa4XsjjCPfjw3h0EdrgBMmpzAwHALcNEY86rj5VSx49LMA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sun, 26 Jun 2022 09:12:06 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/documentDeliveryTypes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyMzI5MjYsImV4cCI6MTY1NjIzNjUyNiwiaWF0IjoxNjU2MjM0NzI2fQ.T_T7LvOBPwIV99DQCOrPh-qc7BezOa8WcljVcFwWLa4XsjjCPfjw3h0EdrgBMmpzAwHALcNEY86rj5VSx49LMA;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '323'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 09:12:07 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyMzI5MjYsImV4cCI6MTY1NjIzNjUyNiwiaWF0IjoxNjU2MjM0NzI2fQ.T_T7LvOBPwIV99DQCOrPh-qc7BezOa8WcljVcFwWLa4XsjjCPfjw3h0EdrgBMmpzAwHALcNEY86rj5VSx49LMA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"resource":[{"resource":{"Description":"Print","IsActive":true,"GUID":"f326c90a-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Email","IsActive":true,"GUID":"f426c90a-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Web","IsActive":true,"GUID":"f526c90a-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Not
+        Required","IsActive":true,"GUID":"f626c90a-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Print
+        Central","IsActive":false,"GUID":"f726c90a-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"E
+        Invoicing","IsActive":false,"GUID":"2f373ba3-fc98-e911-abc4-0003ffeae230"}}]}'
+  recorded_at: Sun, 26 Jun 2022 09:12:07 GMT
+recorded_with: VCR 6.1.0

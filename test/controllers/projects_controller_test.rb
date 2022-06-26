@@ -6,7 +6,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   def setup
-    @bob = users(:one)
+    @bob = users(:bob)
     @project = projects(:one)
   end
 

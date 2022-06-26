@@ -9,7 +9,7 @@ one:
   expiry_minutes: 1
   auth_cookie_updated_at: 2022-05-10 12:02:20
   version: MyString
-  user: one
+  user: bob
 
 two:
   name: MyString
@@ -20,4 +20,15 @@ two:
   expiry_minutes: 1
   auth_cookie_updated_at: 2022-05-10 12:02:20
   version: MyString
-  user: two
+  user: sarah
+
+vcr:
+  name: Project For VCR Testing
+  active: true
+  base_url: example.amcsplatform.com/erp/api
+  pat_token: HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+  auth_cookie: MyString
+  expiry_minutes: 1
+  auth_cookie_updated_at: 2022-05-10 12:02:20
+  version: "8.8"
+  user: bob

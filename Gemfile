@@ -18,10 +18,10 @@ gem "puma", "~> 5.0"
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+# Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+# Hotwire"s modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -79,6 +79,10 @@ group :test do
   gem "webdrivers"
 
   gem "rails-controller-testing"
+  gem "simplecov", require: false
+
+  gem "vcr"
+  gem "webmock"
 end
 
 gem "activerecord-import"
@@ -90,6 +94,6 @@ gem "ransack"
 gem "sysrandom"
 gem "tailwindcss-rails", "~> 2.0"
 
-gem "all_futures", github: "leastbad/all_futures", branch: "master"
+gem 'all_futures', github: 'leastbad/all_futures', branch: 'master'
 gem "cable_ready", "= 5.0.0.pre8"
 gem "stimulus_reflex", "= 3.5.0.pre8"

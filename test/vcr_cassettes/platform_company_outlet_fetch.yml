@@ -1,0 +1,1081 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:24 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDQsImV4cCI6MTY1NjE3MTIwNCwiaWF0IjoxNjU2MTY5NDA0fQ.JnDAMIdgXaEJHGPkcvGgZGdk0eQZhTDakfefFiH9gMhWtpQqjvx1S3eP05yFF-8o3F7xv5xuYKriU6G0y-umfw;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sat, 25 Jun 2022 15:03:24 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/companies
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDQsImV4cCI6MTY1NjE3MTIwNCwiaWF0IjoxNjU2MTY5NDA0fQ.JnDAMIdgXaEJHGPkcvGgZGdk0eQZhTDakfefFiH9gMhWtpQqjvx1S3eP05yFF-8o3F7xv5xuYKriU6G0y-umfw;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '280'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:24 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDQsImV4cCI6MTY1NjE3MTIwNCwiaWF0IjoxNjU2MTY5NDA0fQ.JnDAMIdgXaEJHGPkcvGgZGdk0eQZhTDakfefFiH9gMhWtpQqjvx1S3eP05yFF-8o3F7xv5xuYKriU6G0y-umfw;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Description":"Example Company","IsDeleted":false,"AnalysisCode":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"GUID":"187cce04-df39-e911-85b3-00155d675d9a"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:24 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/outlets
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDQsImV4cCI6MTY1NjE3MTIwNCwiaWF0IjoxNjU2MTY5NDA0fQ.JnDAMIdgXaEJHGPkcvGgZGdk0eQZhTDakfefFiH9gMhWtpQqjvx1S3eP05yFF-8o3F7xv5xuYKriU6G0y-umfw;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '8301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:24 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDQsImV4cCI6MTY1NjE3MTIwNCwiaWF0IjoxNjU2MTY5NDA0fQ.JnDAMIdgXaEJHGPkcvGgZGdk0eQZhTDakfefFiH9gMhWtpQqjvx1S3eP05yFF-8o3F7xv5xuYKriU6G0y-umfw;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Description":"Head Office","IsDeleted":false,"AbbreviatedDescription":"TRA","AnalysisCode":"TRA","CompanyListItem":{"Description":"The
+         Bin Co.","Guid":"187cce04-df39-e911-85b3-00155d675d9a"},"OutletTypeListItem":{"Description":"Office","Guid":"d01799b3-51a5-48cd-bf6b-174f44a51164"},"Address":{"HouseNumber":null,"Address1":"Acme
+        Business Park","Address2":null,"Address3":"Acme","Address4":"Head","Address5":null,"Postcode":"G61
+        X4F5"},"DepartmentListItems":[{"Description":"Green","Guid":"e5400280-ee93-420a-b200-4e7b9b3aae50"},{"Description":"Blue","Guid":"b42add88-3f7a-479e-baee-f513fd248114"},{"Description":"Casual
+        Customer","Guid":"cfae31a2-04db-40b9-880d-df655ec796a9"}],"AcceptedMaterials":[{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Administration","Guid":"90f48713-df39-e911-85b3-00155d675d9a"},"IsDeleted":false,"Guid":"7f042b02-e039-e911-85b3-00155d675d9a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Skip
+        Cricket","Guid":"80c47fcf-93c6-430f-af15-60d03525c253"},"IsDeleted":false,"Guid":"7e25891c-80cf-4ce1-8bc5-c4ba6283b4aa"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"General
+        Cricket","Guid":"0acd040a-b1d7-466d-88cd-488b13016120"},"IsDeleted":false,"Guid":"1e413c82-dfd8-4ca1-b6d0-3f9cef7d5c85"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mixed
+        Dry Grass","Guid":"d0764474-f9e9-49ba-8b9e-15ed8fbca9a2"},"IsDeleted":false,"Guid":"32390f9b-aa81-467e-92a2-8e765ba2979b"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Organic","Guid":"68aa3de3-11c8-4a3c-a9bc-dbd991cbf0a4"},"IsDeleted":false,"Guid":"2e649a38-77db-45fb-a791-74edbd1656e9"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Timber","Guid":"9851c180-281a-4079-99c6-9d67f484adcc"},"IsDeleted":false,"Guid":"e05b5b1f-5c18-498b-be86-abe133ff3e21"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Metal","Guid":"0a45698c-2366-4650-a685-f4394310afd5"},"IsDeleted":false,"Guid":"4d053464-a210-43d2-ad35-2cb71d51cc77"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Rubble","Guid":"be7f7e76-5322-473a-8764-5039245d9fb4"},"IsDeleted":false,"Guid":"1017b0ce-25f0-44ae-9881-1755a087d167"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Construction
+        Cricket","Guid":"59d05ae0-b0aa-4447-9002-5a10a5c776d6"},"IsDeleted":false,"Guid":"bb7035a6-b872-4d71-9aeb-34b0e46eb7e7"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Wet
+        Cricket","Guid":"df23792d-1b4b-47e1-b429-96a17cfa4a19"},"IsDeleted":false,"Guid":"e8a391c7-7fa3-46fd-bb68-07df45e7294f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket","Guid":"9111a6e2-6bc6-4dfa-9b47-06b29dfb94fe"},"IsDeleted":false,"Guid":"c35649cb-befa-4805-b4a2-46365a77b266"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Compost","Guid":"8258caf0-6344-4ff3-b6dc-20e1455e962f"},"IsDeleted":false,"Guid":"16de8e1b-c4ce-49c7-b858-14bd615cc570"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Confidential
+        paper","Guid":"c354d810-54f4-4304-bd1c-6017ee99aad4"},"IsDeleted":false,"Guid":"227cfd99-ce0c-4572-afcf-596531177012"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated","Guid":"d94996dd-b86b-4e3e-8026-fe2c885963ef"},"IsDeleted":false,"Guid":"7aa7ef76-72a3-4c9d-929e-2e638916b27a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        ORG","Guid":"2941ae27-4bee-4e87-bab1-af5c99d3d19f"},"IsDeleted":false,"Guid":"6a4cbdad-bc14-4a67-a661-1732eea113f0"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        MDR","Guid":"2e648469-c89a-461d-96f8-c68c7d826f87"},"IsDeleted":false,"Guid":"53bb5169-7f3f-4b5b-ab09-b537ff4b05c9"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Glass","Guid":"40bcc9b1-14bc-4703-a8d3-62bc7175f4a2"},"IsDeleted":false,"Guid":"e4ad076d-7be4-452e-a1e6-cf53b1721d34"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Crushed
+        Glass","Guid":"ae0760ef-5ba4-4970-8658-84d07f759a00"},"IsDeleted":false,"Guid":"d8d09ed3-b916-4e9b-8bfc-add355a57b94"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paint","Guid":"ce6f6fe6-d068-4367-9ecd-6d973da8efc8"},"IsDeleted":false,"Guid":"be04ad89-2370-4e5d-8ed3-93b4b5785d16"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Riddlereries","Guid":"0977787d-3821-4ff5-a2a5-9f5e3db3534f"},"IsDeleted":false,"Guid":"a92e1755-624d-4144-98bd-a6ce0d45e8a0"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket (GW)","Guid":"2a46b343-4de3-46d6-b103-fe6f777f150a"},"IsDeleted":false,"Guid":"db5bc757-91a5-43ad-bc09-5f12e14439b6"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Electrical","Guid":"70806a7b-9a45-4de0-af9f-a618561ffa54"},"IsDeleted":false,"Guid":"51b5c04c-51c0-461b-9b9f-3a0ad0888b21"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Loose
+        Cricket","Guid":"4d77e894-7829-48a7-ae6f-4a8962c61e3c"},"IsDeleted":false,"Guid":"7b9f9e85-31cd-4b28-9950-244c05e1a71d"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Cardboard","Guid":"3ce3acfe-bf2f-4f94-8974-8afe155e6eed"},"IsDeleted":false,"Guid":"f63c8733-eacf-47f7-9b11-b6394e95a78f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper","Guid":"2d81a260-f37a-4486-a06e-07ecb1902591"},"IsDeleted":false,"Guid":"107bb9ab-138e-4737-a5f6-5abc17eb72be"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper
+        & Packaging","Guid":"9c0ba820-6e1e-4092-8c99-3bf6111a115f"},"IsDeleted":false,"Guid":"8683eb47-fbc0-44b9-b07b-3a150627bbee"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic","Guid":"e628ab45-8d7e-42a4-942f-82357fa5f8ea"},"IsDeleted":false,"Guid":"0891784e-24f1-40ca-9832-b81dbec9a855"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic
+        - high grade","Guid":"e6b29ff0-35ba-4dce-9b0f-d06c7a041fe9"},"IsDeleted":false,"Guid":"0bde74f5-fcb5-4ea7-9b05-df99ae81d911"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Ploysterene","Guid":"69baf70e-e118-442f-860b-e50178196c46"},"IsDeleted":false,"Guid":"3c5f2a22-9b1d-4e6e-b176-19ce8545fe8c"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Bulky
+        Cricket","Guid":"99202e51-27c8-47b7-99b6-0f5f3a976ae8"},"IsDeleted":false,"Guid":"103548ce-5cbe-4159-bdb8-ef8412b16aa0"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mattress
+        - Single","Guid":"8b8e7776-d2d7-4c59-b597-d412e9e61c45"},"IsDeleted":false,"Guid":"e0948328-9568-4f9e-bb90-eb3eb26e0ca3"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mattress
+        - Double","Guid":"2b3f6488-c901-43e3-a6b0-e4167b72cbc8"},"IsDeleted":false,"Guid":"331b0934-e657-4b28-a0e9-2b7dcdd1fd1f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Car
+        Load","Guid":"162952a4-66a7-475a-b912-c6e8c9d4cc8e"},"IsDeleted":false,"Guid":"be764f6e-a502-454f-bb3c-76c65cadb907"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Boot
+        Load","Guid":"cdd104bf-18e2-4c26-873b-c2f0f64d6d38"},"IsDeleted":false,"Guid":"a0026824-02cb-4fab-97e9-c4b33556b08a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Railway
+        Station Public","Guid":"4ddb50c2-6c39-4d59-a5af-711145c8cfa2"},"IsDeleted":false,"Guid":"0a60200e-92d3-4898-b65f-12938110fea8"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"WEEE","Guid":"29305017-ca9f-4c4d-86b9-d26f567c4824"},"IsDeleted":false,"Guid":"d7465d0d-ba92-41d7-a29f-52644fdb76fe"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Sales","Guid":"3467e57f-4581-497b-a4f9-4b09baecd27b"},"IsDeleted":false,"Guid":"156a2715-2a71-4bf3-ad0b-342291cb7ae4"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Junk","Guid":"2120657a-3185-49f6-9412-a999f68dc088"},"IsDeleted":false,"Guid":"48ae4722-96cf-4353-b058-f28a8f7536c9"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Christmas
+        Tree","Guid":"26cb1e07-a441-4b61-9eaa-69a1c343e632"},"IsDeleted":false,"Guid":"2a477200-0342-4ade-afa7-eee9c64e5480"}],"VATRegistrationNumber":"GB8384333","RelatedLocationGuid":"197cce04-df39-e911-85b3-00155d675d9a","GUID":"1a7cce04-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"South
+        Office","IsDeleted":false,"AbbreviatedDescription":"AVC","AnalysisCode":"AVC","CompanyListItem":{"Description":"The
+         Bin Co.","Guid":"187cce04-df39-e911-85b3-00155d675d9a"},"OutletTypeListItem":{"Description":"Office","Guid":"d01799b3-51a5-48cd-bf6b-174f44a51164"},"Address":{"HouseNumber":"15","Address1":"The
+        Exchange","Address2":"Evolve Road","Address3":null,"Address4":"South","Address5":"Scotland","Postcode":"G62
+        4NA"},"DepartmentListItems":[{"Description":"Green","Guid":"e5400280-ee93-420a-b200-4e7b9b3aae50"},{"Description":"Blue","Guid":"b42add88-3f7a-479e-baee-f513fd248114"},{"Description":"Casual
+        Customer","Guid":"cfae31a2-04db-40b9-880d-df655ec796a9"}],"AcceptedMaterials":[{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Administration","Guid":"90f48713-df39-e911-85b3-00155d675d9a"},"IsDeleted":false,"Guid":"80042b02-e039-e911-85b3-00155d675d9a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Skip
+        Cricket","Guid":"80c47fcf-93c6-430f-af15-60d03525c253"},"IsDeleted":false,"Guid":"f0ed3626-a38e-4c02-be32-7ce158b2d746"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"General
+        Cricket","Guid":"0acd040a-b1d7-466d-88cd-488b13016120"},"IsDeleted":false,"Guid":"f37855ec-5d70-466a-bcb0-526ec6a5778b"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mixed
+        Dry Grass","Guid":"d0764474-f9e9-49ba-8b9e-15ed8fbca9a2"},"IsDeleted":false,"Guid":"6f1edc8b-a10f-4698-b7e1-ec8cee43e230"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Organic","Guid":"68aa3de3-11c8-4a3c-a9bc-dbd991cbf0a4"},"IsDeleted":false,"Guid":"6dc1d937-bf0a-4271-ba50-9057f0dd2df2"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Timber","Guid":"9851c180-281a-4079-99c6-9d67f484adcc"},"IsDeleted":false,"Guid":"b0a17b88-803a-4853-a816-1ba1ecd4bdfb"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Metal","Guid":"0a45698c-2366-4650-a685-f4394310afd5"},"IsDeleted":false,"Guid":"31e69843-20c8-4600-8323-587ce0df1539"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Rubble","Guid":"be7f7e76-5322-473a-8764-5039245d9fb4"},"IsDeleted":false,"Guid":"65b3af8d-bc1d-45a7-86cd-11af1e812f5d"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Construction
+        Cricket","Guid":"59d05ae0-b0aa-4447-9002-5a10a5c776d6"},"IsDeleted":false,"Guid":"cd08491e-3037-436f-ac45-8d7607526245"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Wet
+        Cricket","Guid":"df23792d-1b4b-47e1-b429-96a17cfa4a19"},"IsDeleted":false,"Guid":"905f14df-9f44-4fde-b74d-023270769cea"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket","Guid":"9111a6e2-6bc6-4dfa-9b47-06b29dfb94fe"},"IsDeleted":false,"Guid":"07e3def2-b969-41ae-ba1e-24b732274aa8"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Confidential
+        paper","Guid":"c354d810-54f4-4304-bd1c-6017ee99aad4"},"IsDeleted":false,"Guid":"34e1c12e-6de2-4c8a-9f18-4efc3faf7804"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated","Guid":"d94996dd-b86b-4e3e-8026-fe2c885963ef"},"IsDeleted":false,"Guid":"9f75898a-5d3a-4ed1-aac3-d55af7100412"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        ORG","Guid":"2941ae27-4bee-4e87-bab1-af5c99d3d19f"},"IsDeleted":false,"Guid":"38af08b2-22e7-4149-8f01-682917da23d1"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        MDR","Guid":"2e648469-c89a-461d-96f8-c68c7d826f87"},"IsDeleted":false,"Guid":"30a3ff43-e66c-4425-bcab-df246847b156"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Glass","Guid":"40bcc9b1-14bc-4703-a8d3-62bc7175f4a2"},"IsDeleted":false,"Guid":"c3440d66-0368-4c40-b10b-2528553776cd"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Crushed
+        Glass","Guid":"ae0760ef-5ba4-4970-8658-84d07f759a00"},"IsDeleted":false,"Guid":"dcde325c-79a0-4354-955a-0b1aa2bb22be"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paint","Guid":"ce6f6fe6-d068-4367-9ecd-6d973da8efc8"},"IsDeleted":false,"Guid":"b1a83ee8-e072-44fc-aa01-e18f44577590"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Riddlereries","Guid":"0977787d-3821-4ff5-a2a5-9f5e3db3534f"},"IsDeleted":false,"Guid":"d828afc1-3658-4fee-9e54-c810ce287435"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket (GW)","Guid":"2a46b343-4de3-46d6-b103-fe6f777f150a"},"IsDeleted":false,"Guid":"9b85e7ba-d0eb-423e-b5f2-4b2b4a8ac820"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Electrical","Guid":"70806a7b-9a45-4de0-af9f-a618561ffa54"},"IsDeleted":false,"Guid":"90eaa516-7ff1-441d-9c1e-33ea76971270"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Loose
+        Cricket","Guid":"4d77e894-7829-48a7-ae6f-4a8962c61e3c"},"IsDeleted":false,"Guid":"c6b108e7-1054-42a5-a975-24ffc32d31ec"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Cardboard","Guid":"3ce3acfe-bf2f-4f94-8974-8afe155e6eed"},"IsDeleted":false,"Guid":"76a7c830-c758-42b1-ab1e-da907cd95aa3"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper","Guid":"2d81a260-f37a-4486-a06e-07ecb1902591"},"IsDeleted":false,"Guid":"894bf282-a9a4-4c13-a397-4538595c939d"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper
+        & Packaging","Guid":"9c0ba820-6e1e-4092-8c99-3bf6111a115f"},"IsDeleted":false,"Guid":"e8fb3bac-b197-4292-b5fe-da9c916079d1"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic","Guid":"e628ab45-8d7e-42a4-942f-82357fa5f8ea"},"IsDeleted":false,"Guid":"03bec8c7-4a47-41fb-8524-10011b35293a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic
+        - high grade","Guid":"e6b29ff0-35ba-4dce-9b0f-d06c7a041fe9"},"IsDeleted":false,"Guid":"77054535-1f5f-41c5-981e-dd5019afbb5b"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Ploysterene","Guid":"69baf70e-e118-442f-860b-e50178196c46"},"IsDeleted":false,"Guid":"a34a1fb0-667e-416d-9371-698b9354cad3"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Bulky
+        Cricket","Guid":"99202e51-27c8-47b7-99b6-0f5f3a976ae8"},"IsDeleted":false,"Guid":"e39ebd97-1b10-4954-b284-cb4141291361"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Junk","Guid":"2120657a-3185-49f6-9412-a999f68dc088"},"IsDeleted":false,"Guid":"4971b43d-cf91-46b9-aece-604d62ea603e"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Christmas
+        Tree","Guid":"26cb1e07-a441-4b61-9eaa-69a1c343e632"},"IsDeleted":false,"Guid":"55540a44-97ad-44f4-9366-2c1c03dac6db"}],"VATRegistrationNumber":"GB8384333","RelatedLocationGuid":"1b7cce04-df39-e911-85b3-00155d675d9a","GUID":"1c7cce04-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Railway
+        Station","IsDeleted":false,"AbbreviatedDescription":"TS","AnalysisCode":"TS","CompanyListItem":{"Description":"The
+         Bin Co.","Guid":"187cce04-df39-e911-85b3-00155d675d9a"},"OutletTypeListItem":{"Description":"Weighbridge","Guid":"d4aa7258-e537-47ca-a86f-88c1b03bd1b8"},"Address":{"HouseNumber":null,"Address1":"Outer Space","Address2":null,"Address3":null,"Address4":"Head","Address5":"Scotland","Postcode":"G61
+        2BA"},"DepartmentListItems":[{"Description":"Green","Guid":"e5400280-ee93-420a-b200-4e7b9b3aae50"},{"Description":"Blue","Guid":"b42add88-3f7a-479e-baee-f513fd248114"},{"Description":"Casual
+        Customer","Guid":"cfae31a2-04db-40b9-880d-df655ec796a9"}],"AcceptedMaterials":[{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Administration","Guid":"90f48713-df39-e911-85b3-00155d675d9a"},"IsDeleted":false,"Guid":"86fc594c-501f-4a13-8d30-5ea51af1e31e"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Skip
+        Cricket","Guid":"80c47fcf-93c6-430f-af15-60d03525c253"},"IsDeleted":false,"Guid":"0497efc7-6caf-4cc6-983b-0ff26b6bc2cb"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"General
+        Cricket","Guid":"0acd040a-b1d7-466d-88cd-488b13016120"},"IsDeleted":false,"Guid":"85fd91d4-208b-4a5e-acec-d37ff51ccdbd"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mixed
+        Dry Grass","Guid":"d0764474-f9e9-49ba-8b9e-15ed8fbca9a2"},"IsDeleted":false,"Guid":"47bfa363-6c85-48a1-b3f6-de8e72e95610"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Organic","Guid":"68aa3de3-11c8-4a3c-a9bc-dbd991cbf0a4"},"IsDeleted":false,"Guid":"79f75744-25ae-4fea-b9ff-792631019dc1"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Timber","Guid":"9851c180-281a-4079-99c6-9d67f484adcc"},"IsDeleted":false,"Guid":"4145b7b9-bb6e-4ef5-ad89-75b8a29695cc"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Metal","Guid":"0a45698c-2366-4650-a685-f4394310afd5"},"IsDeleted":false,"Guid":"2e2ce712-02b9-48d2-968e-406ef351deed"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Rubble","Guid":"be7f7e76-5322-473a-8764-5039245d9fb4"},"IsDeleted":false,"Guid":"f378668d-cf96-4bef-a687-9103915f753d"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Construction
+        Cricket","Guid":"59d05ae0-b0aa-4447-9002-5a10a5c776d6"},"IsDeleted":false,"Guid":"b77d3e37-8275-4a41-805a-cb1e8b4b2702"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Wet
+        Cricket","Guid":"df23792d-1b4b-47e1-b429-96a17cfa4a19"},"IsDeleted":false,"Guid":"23fd05f3-52c5-4d43-8dd0-5ac0bccbe032"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket","Guid":"9111a6e2-6bc6-4dfa-9b47-06b29dfb94fe"},"IsDeleted":false,"Guid":"0c183538-f375-49c3-b9c6-a5306d322904"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Compost","Guid":"8258caf0-6344-4ff3-b6dc-20e1455e962f"},"IsDeleted":false,"Guid":"9f8f3d4a-2dad-4c4a-b4c4-1dbf31e5ec97"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Confidential
+        paper","Guid":"c354d810-54f4-4304-bd1c-6017ee99aad4"},"IsDeleted":false,"Guid":"321809c3-b373-4a82-9ae4-cc279ee11a7f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated","Guid":"d94996dd-b86b-4e3e-8026-fe2c885963ef"},"IsDeleted":false,"Guid":"1246bd9c-00e4-4cd7-ac73-6a18a84b630e"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        ORG","Guid":"2941ae27-4bee-4e87-bab1-af5c99d3d19f"},"IsDeleted":false,"Guid":"e1033363-529b-4bae-96f5-ce33a9a2bdf3"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        MDR","Guid":"2e648469-c89a-461d-96f8-c68c7d826f87"},"IsDeleted":false,"Guid":"24f05206-f0ec-493e-a72a-3f969c80be37"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Glass","Guid":"40bcc9b1-14bc-4703-a8d3-62bc7175f4a2"},"IsDeleted":false,"Guid":"7f85abae-9434-48ab-be49-bb9437275ce4"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Crushed
+        Glass","Guid":"ae0760ef-5ba4-4970-8658-84d07f759a00"},"IsDeleted":false,"Guid":"e297f6d0-0f4a-47f1-b385-265995c739dc"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paint","Guid":"ce6f6fe6-d068-4367-9ecd-6d973da8efc8"},"IsDeleted":false,"Guid":"c9c6932f-5593-4f72-92dc-8aee06f247b4"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Riddlereries","Guid":"0977787d-3821-4ff5-a2a5-9f5e3db3534f"},"IsDeleted":false,"Guid":"024c13d6-1060-4fc8-af04-82596f543acb"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket (GW)","Guid":"2a46b343-4de3-46d6-b103-fe6f777f150a"},"IsDeleted":false,"Guid":"16e528ec-da00-4110-90eb-37f63abf91a0"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Electrical","Guid":"70806a7b-9a45-4de0-af9f-a618561ffa54"},"IsDeleted":false,"Guid":"bede717e-a5fc-4d81-851c-3028f5e2ae8f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Loose
+        Cricket","Guid":"4d77e894-7829-48a7-ae6f-4a8962c61e3c"},"IsDeleted":false,"Guid":"816d30d4-9dc9-431f-9df2-213bcb02ab29"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Cardboard","Guid":"3ce3acfe-bf2f-4f94-8974-8afe155e6eed"},"IsDeleted":false,"Guid":"9ec8bfef-decf-470e-b8f6-828a5a8a55bb"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper","Guid":"2d81a260-f37a-4486-a06e-07ecb1902591"},"IsDeleted":false,"Guid":"c9512742-a982-4a47-a623-dc00673142e1"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper
+        & Packaging","Guid":"9c0ba820-6e1e-4092-8c99-3bf6111a115f"},"IsDeleted":false,"Guid":"5764bada-8c32-47cf-86bb-c11e59adef89"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic","Guid":"e628ab45-8d7e-42a4-942f-82357fa5f8ea"},"IsDeleted":false,"Guid":"ab34d61d-ffe4-41dc-9092-a4c751b93324"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic
+        - high grade","Guid":"e6b29ff0-35ba-4dce-9b0f-d06c7a041fe9"},"IsDeleted":false,"Guid":"65ecec63-e39e-4ade-a538-3ff05f6b4b03"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Ploysterene","Guid":"69baf70e-e118-442f-860b-e50178196c46"},"IsDeleted":false,"Guid":"d415b989-d113-44f2-a4f0-ba73584b4e02"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Bulky
+        Cricket","Guid":"99202e51-27c8-47b7-99b6-0f5f3a976ae8"},"IsDeleted":false,"Guid":"4f0259d7-1972-4eb7-9f78-cbc5c8f949ab"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mattress
+        - Single","Guid":"8b8e7776-d2d7-4c59-b597-d412e9e61c45"},"IsDeleted":false,"Guid":"8538b5a0-6ae5-43da-8f24-7f9493c95353"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mattress
+        - Double","Guid":"2b3f6488-c901-43e3-a6b0-e4167b72cbc8"},"IsDeleted":false,"Guid":"475dbabb-a6b3-4333-8a86-ad1234027c13"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Car
+        Load","Guid":"162952a4-66a7-475a-b912-c6e8c9d4cc8e"},"IsDeleted":false,"Guid":"037fedaf-46f0-439b-9a97-2d6edcbbba42"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Boot
+        Load","Guid":"cdd104bf-18e2-4c26-873b-c2f0f64d6d38"},"IsDeleted":false,"Guid":"277d1c1e-711c-4949-acf9-107f82529e4c"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Railway
+        Station Public","Guid":"4ddb50c2-6c39-4d59-a5af-711145c8cfa2"},"IsDeleted":false,"Guid":"8c9bc604-5498-448e-bf95-f73268dd4757"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"WEEE","Guid":"29305017-ca9f-4c4d-86b9-d26f567c4824"},"IsDeleted":false,"Guid":"7b104307-e3eb-4dcf-80e7-f1f5f751c582"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Sales","Guid":"3467e57f-4581-497b-a4f9-4b09baecd27b"},"IsDeleted":false,"Guid":"f0a9d845-fcb9-442c-af51-2b53cadbb22a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Junk","Guid":"2120657a-3185-49f6-9412-a999f68dc088"},"IsDeleted":false,"Guid":"f23765fe-78bf-4d50-9b31-e476249f2321"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Christmas
+        Tree","Guid":"26cb1e07-a441-4b61-9eaa-69a1c343e632"},"IsDeleted":false,"Guid":"e98ce05c-0209-4090-85b1-15b2853c292a"}],"VATRegistrationNumber":"GB8384333","RelatedLocationGuid":"68e31e51-aa45-4b94-9ccd-76e8e74d2082","GUID":"421cbd67-6485-430d-8290-06684d11de40"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:24 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/directory/suppliers/changes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDQsImV4cCI6MTY1NjE3MTIwNCwiaWF0IjoxNjU2MTY5NDA0fQ.JnDAMIdgXaEJHGPkcvGgZGdk0eQZhTDakfefFiH9gMhWtpQqjvx1S3eP05yFF-8o3F7xv5xuYKriU6G0y-umfw;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2721'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:25 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDUsImV4cCI6MTY1NjE3MTIwNSwiaWF0IjoxNjU2MTY5NDA1fQ.Uho24mEAc9CJbZzS4_EMOrQ2Of8m05MdWF6ztUBX5S0nzBTUqlNLZe9NdutxgIlvx2cBd2fd7HlT_DI-Qf0beA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"CompanyOutletListItem":{"Description":"Head
+        Office","Guid":"1a7cce04-df39-e911-85b3-00155d675d9a"},"ApAccountCode":"ABCD","Description":"Head
+        Office","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"5c58bff4-df39-e911-85b3-00155d675d9a"}},{"resource":{"CompanyOutletListItem":{"Description":"South
+        Office","Guid":"1c7cce04-df39-e911-85b3-00155d675d9a"},"ApAccountCode":"EFGH","Description":"South
+        Office","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"5e58bff4-df39-e911-85b3-00155d675d9a"}},{"resource":{"CompanyOutletListItem":{"Description":"Railway
+        Station","Guid":"421cbd67-6485-430d-8290-06684d11de40"},"ApAccountCode":"TS","Description":"Railway
+        Station","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"a599431b-b141-4652-8189-df70f9e09cd3"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Wade","Description":"Roe
+        Cricket Services","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"38359cf0-ffbb-40a3-b8ab-0e016daa7618"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Unknow","Description":"Ranch
+        Cricket","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"30dc81f4-c0d0-4287-a405-31606ae64952"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Battle","Description":"Battle","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"2b15dc18-45c1-41ad-9804-44f1afd04801"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"A1M","Description":"A1
+        Metal","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"15
+        Days","Guid":"05fe8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8ecd5877-80f6-46e7-a039-62ad8f03f797"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Yousefi ","Description":"Yousefi ","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"fa931bf6-7291-4028-9d7a-a4a5220940a9"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Grantwy","Description":"Grantwy","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"312320fd-d009-485b-9841-57b084b3c726"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Riddler","Description":"Riddler
+        Enterpises","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"789cec2f-f319-4811-b0f5-d8a5e6b0948a"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Hare","Description":"Hare","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"25b32244-477c-4168-a6b5-0be0f0117e34"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Jurrasic ParkW","Description":"Jurrasic Park
+        Cricket","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"a5bb40a8-1eed-4e9f-b8e3-52cd1335fe1e"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Top GunC","Description":"Top Gun
+        Clean","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"e9248b5b-9da1-41ad-91d2-642a7a643783"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Leo","Description":"Leo","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"da6fe4e9-1ff8-4f80-adb8-d2377f2f76c0"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Lolloip","Description":"Lolloip
+        Shredding","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"0e8afa8c-19b7-4708-9154-747a2df695bd"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Belle and Seb","Description":"Belle and Seb","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8fb1e001-f413-4a65-a23a-0e6e2d266a1c"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"PollackR","Description":"Pollacken
+        Grass","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"3bd86c93-3e48-41f1-9928-96f7716d8687"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"AFAC","Description":"AFAC","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"a6f86157-4f0a-49d1-8273-caeceb3148cb"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Broady","Description":"Broady","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"2dc3f380-3a2d-4abf-a46b-3abab319897a"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"GreenStar","Description":"Greenstar","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8a8492bf-70bb-4ef6-acc3-c4e0d39ea072"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"KWD","Description":"KWD","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"621aa086-ea71-4b7d-8de3-b863de1e7b00"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Wolfman Ent","Description":"Wolfman Ent","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"c3bdf1b0-ec2f-4df9-b943-c4914ef8e800"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"MrBM","Description":"Tried","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"ddefa282-177c-4293-a2c3-4e248db4128c"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Saints","Description":"Saints","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"20bbb645-7680-429b-8fe2-32f67da1c378"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Roe","Description":"Roe","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"45d10e55-67ed-4959-8ed0-c1bb088833e1"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Extras","Description":"Extras","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"0fad5629-ea7f-466b-820f-2766848ac6db"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"ArchstantonR","Description":"Archstanton
+        Ugly","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"3772290f-3abc-49c6-9cd7-27d68f9511d5"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"JerryAW","Description":"JerryA
+        Whelans","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"6640c6fe-abda-47a9-aaef-02f006f8695a"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Conway","Description":"Conway","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"778aad17-c892-49b1-89c2-11da630f3628"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Young","Description":"Young","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"39fb6e90-e6a2-44eb-bdce-b1bd06b0e586"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Latham","Description":"Latham","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8e28debc-a957-46a8-859e-06720a8eda07"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"REACGrass","Description":"REAC
+        Grass","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"014de809-b5e0-4ad3-9eff-861a7fbb0638"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"TREA","Description":"TREA
+        ","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"0cbaefa5-2df0-4546-994c-fd23ea5c87f5"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Goodwin","Description":"Goodwin","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"2714fc47-3537-4375-a93f-5cb5b480729b"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"R","Description":"R
+        Grass","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8831c9a9-caaf-46ff-9a41-62edd04609ef"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"X","Description":"X
+        Wheelie Bins","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"6dba9551-b505-44a2-9ed4-cc4e0e130622"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Y","Description":"Y
+        Tipper Services","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"3b832586-da06-4a82-b858-b7b4fe25aba7"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Z","Description":"Z
+        ","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"23ead485-feda-4839-9121-51da38c0fc46"}}],"extra":{"until":"ey0zLX2571zozwnpJ8g0UWyQvEXFW0g6XvuQ0PNTHI9cO2hIWe+Ur7dl5SUarfhVkCcFAMo="},"links":{"next":"https://example.amcsplatform.com/erp/api/integrator/erp/directory/suppliers/changes?since=ey0zLX2571zozwnpJ8g0UWyQvEXFW0g6XvuQ0PNTHI9cO2hIWe%2BUr7dl5SUarfhVkCcFAMo%3D"}}'
+  recorded_at: Sat, 25 Jun 2022 15:03:25 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/directory/supplierSites?filter=RelatedSupplierGuid%20eq%20%275c58bff4-df39-e911-85b3-00155d675d9a%27
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDQsImV4cCI6MTY1NjE3MTIwNCwiaWF0IjoxNjU2MTY5NDA0fQ.JnDAMIdgXaEJHGPkcvGgZGdk0eQZhTDakfefFiH9gMhWtpQqjvx1S3eP05yFF-8o3F7xv5xuYKriU6G0y-umfw;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '346'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:25 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDUsImV4cCI6MTY1NjE3MTIwNSwiaWF0IjoxNjU2MTY5NDA1fQ.Uho24mEAc9CJbZzS4_EMOrQ2Of8m05MdWF6ztUBX5S0nzBTUqlNLZe9NdutxgIlvx2cBd2fd7HlT_DI-Qf0beA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Name":"Head Office","RelatedSupplierGuid":"5c58bff4-df39-e911-85b3-00155d675d9a","RelatedLocationPaymentGuid":"197cce04-df39-e911-85b3-00155d675d9a","PaymentTypeListItem":null,"PaymentTermListItem":null,"SICCodeListItem":null,"PayableCycleListItem":null,"RelatedLocationGuid":"197cce04-df39-e911-85b3-00155d675d9a","BankDetails":null,"PaymentHandlingCodeListItem":null,"FacilityTypeListItem":null,"SupplierTypesListItems":[],"GUID":"5d58bff4-df39-e911-85b3-00155d675d9a"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:25 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/directory/supplierSites?filter=RelatedSupplierGuid%20eq%20%275e58bff4-df39-e911-85b3-00155d675d9a%27
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDQsImV4cCI6MTY1NjE3MTIwNCwiaWF0IjoxNjU2MTY5NDA0fQ.JnDAMIdgXaEJHGPkcvGgZGdk0eQZhTDakfefFiH9gMhWtpQqjvx1S3eP05yFF-8o3F7xv5xuYKriU6G0y-umfw;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '345'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:25 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDUsImV4cCI6MTY1NjE3MTIwNSwiaWF0IjoxNjU2MTY5NDA1fQ.Uho24mEAc9CJbZzS4_EMOrQ2Of8m05MdWF6ztUBX5S0nzBTUqlNLZe9NdutxgIlvx2cBd2fd7HlT_DI-Qf0beA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Name":"South Office","RelatedSupplierGuid":"5e58bff4-df39-e911-85b3-00155d675d9a","RelatedLocationPaymentGuid":"1b7cce04-df39-e911-85b3-00155d675d9a","PaymentTypeListItem":null,"PaymentTermListItem":null,"SICCodeListItem":null,"PayableCycleListItem":null,"RelatedLocationGuid":"1b7cce04-df39-e911-85b3-00155d675d9a","BankDetails":null,"PaymentHandlingCodeListItem":null,"FacilityTypeListItem":null,"SupplierTypesListItems":[],"GUID":"5f58bff4-df39-e911-85b3-00155d675d9a"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:25 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/directory/supplierSites?filter=RelatedSupplierGuid%20eq%20%27a599431b-b141-4652-8189-df70f9e09cd3%27
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDQsImV4cCI6MTY1NjE3MTIwNCwiaWF0IjoxNjU2MTY5NDA0fQ.JnDAMIdgXaEJHGPkcvGgZGdk0eQZhTDakfefFiH9gMhWtpQqjvx1S3eP05yFF-8o3F7xv5xuYKriU6G0y-umfw;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '488'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:25 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDUsImV4cCI6MTY1NjE3MTIwNSwiaWF0IjoxNjU2MTY5NDA1fQ.Uho24mEAc9CJbZzS4_EMOrQ2Of8m05MdWF6ztUBX5S0nzBTUqlNLZe9NdutxgIlvx2cBd2fd7HlT_DI-Qf0beA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Name":"Head Railway Station","RelatedSupplierGuid":"a599431b-b141-4652-8189-df70f9e09cd3","RelatedLocationPaymentGuid":"68e31e51-aa45-4b94-9ccd-76e8e74d2082","PaymentTypeListItem":null,"PaymentTermListItem":null,"SICCodeListItem":null,"PayableCycleListItem":null,"RelatedLocationGuid":"68e31e51-aa45-4b94-9ccd-76e8e74d2082","BankDetails":null,"PaymentHandlingCodeListItem":null,"FacilityTypeListItem":null,"SupplierTypesListItems":[{"SupplierTypeListItem":{"Description":"Processing","Guid":"5258bff4-df39-e911-85b3-00155d675d9a"}},{"SupplierTypeListItem":{"Description":"Disposal","Guid":"5a58bff4-df39-e911-85b3-00155d675d9a"}}],"GUID":"681864f5-84ca-47c6-a87a-77d282b0b50e"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:26 GMT
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:26 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDYsImV4cCI6MTY1NjE3MTIwNiwiaWF0IjoxNjU2MTY5NDA2fQ.DahMoeCuswSi3a0GZ9BEowEViVoxqaL9NUqKcv9yPLHZpnvNL6YsrZeAE7YQR0JiX6TWdGPIgJLCzsny5MYjaQ;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sat, 25 Jun 2022 15:03:26 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/companies
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDYsImV4cCI6MTY1NjE3MTIwNiwiaWF0IjoxNjU2MTY5NDA2fQ.DahMoeCuswSi3a0GZ9BEowEViVoxqaL9NUqKcv9yPLHZpnvNL6YsrZeAE7YQR0JiX6TWdGPIgJLCzsny5MYjaQ;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '280'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:26 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDYsImV4cCI6MTY1NjE3MTIwNiwiaWF0IjoxNjU2MTY5NDA2fQ.DahMoeCuswSi3a0GZ9BEowEViVoxqaL9NUqKcv9yPLHZpnvNL6YsrZeAE7YQR0JiX6TWdGPIgJLCzsny5MYjaQ;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Description":"Example Company","IsDeleted":false,"AnalysisCode":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"GUID":"187cce04-df39-e911-85b3-00155d675d9a"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:26 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/outlets
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDYsImV4cCI6MTY1NjE3MTIwNiwiaWF0IjoxNjU2MTY5NDA2fQ.DahMoeCuswSi3a0GZ9BEowEViVoxqaL9NUqKcv9yPLHZpnvNL6YsrZeAE7YQR0JiX6TWdGPIgJLCzsny5MYjaQ;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '8301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:26 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDcsImV4cCI6MTY1NjE3MTIwNywiaWF0IjoxNjU2MTY5NDA3fQ.FD6OFEx1xs-a-6eCJD1aQIOKkVwh366yvIDZyBSPeaiXberTmnIbrHP3mlcnrGK-CTOoXZzTCeCL15nHR20P4w;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Description":"Head Office","IsDeleted":false,"AbbreviatedDescription":"TRA","AnalysisCode":"TRA","CompanyListItem":{"Description":"
+        Example Co.","Guid":"187cce04-df39-e911-85b3-00155d675d9a"},"OutletTypeListItem":{"Description":"Office","Guid":"d01799b3-51a5-48cd-bf6b-174f44a51164"},"Address":{"HouseNumber":null,"Address1":"Acme
+        Business Park","Address2":null,"Address3":"Acme","Address4":"Head","Address5":null,"Postcode":"G61
+        2CA"},"DepartmentListItems":[{"Description":"Green","Guid":"e5400280-ee93-420a-b200-4e7b9b3aae50"},{"Description":"Blue","Guid":"b42add88-3f7a-479e-baee-f513fd248114"},{"Description":"Casual
+        Customer","Guid":"cfae31a2-04db-40b9-880d-df655ec796a9"}],"AcceptedMaterials":[{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Administration","Guid":"90f48713-df39-e911-85b3-00155d675d9a"},"IsDeleted":false,"Guid":"7f042b02-e039-e911-85b3-00155d675d9a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Skip
+        Cricket","Guid":"80c47fcf-93c6-430f-af15-60d03525c253"},"IsDeleted":false,"Guid":"7e25891c-80cf-4ce1-8bc5-c4ba6283b4aa"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"General
+        Cricket","Guid":"0acd040a-b1d7-466d-88cd-488b13016120"},"IsDeleted":false,"Guid":"1e413c82-dfd8-4ca1-b6d0-3f9cef7d5c85"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mixed
+        Dry Grass","Guid":"d0764474-f9e9-49ba-8b9e-15ed8fbca9a2"},"IsDeleted":false,"Guid":"32390f9b-aa81-467e-92a2-8e765ba2979b"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Organic","Guid":"68aa3de3-11c8-4a3c-a9bc-dbd991cbf0a4"},"IsDeleted":false,"Guid":"2e649a38-77db-45fb-a791-74edbd1656e9"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Timber","Guid":"9851c180-281a-4079-99c6-9d67f484adcc"},"IsDeleted":false,"Guid":"e05b5b1f-5c18-498b-be86-abe133ff3e21"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Metal","Guid":"0a45698c-2366-4650-a685-f4394310afd5"},"IsDeleted":false,"Guid":"4d053464-a210-43d2-ad35-2cb71d51cc77"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Rubble","Guid":"be7f7e76-5322-473a-8764-5039245d9fb4"},"IsDeleted":false,"Guid":"1017b0ce-25f0-44ae-9881-1755a087d167"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Construction
+        Cricket","Guid":"59d05ae0-b0aa-4447-9002-5a10a5c776d6"},"IsDeleted":false,"Guid":"bb7035a6-b872-4d71-9aeb-34b0e46eb7e7"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Wet
+        Cricket","Guid":"df23792d-1b4b-47e1-b429-96a17cfa4a19"},"IsDeleted":false,"Guid":"e8a391c7-7fa3-46fd-bb68-07df45e7294f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket","Guid":"9111a6e2-6bc6-4dfa-9b47-06b29dfb94fe"},"IsDeleted":false,"Guid":"c35649cb-befa-4805-b4a2-46365a77b266"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Compost","Guid":"8258caf0-6344-4ff3-b6dc-20e1455e962f"},"IsDeleted":false,"Guid":"16de8e1b-c4ce-49c7-b858-14bd615cc570"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Confidential
+        paper","Guid":"c354d810-54f4-4304-bd1c-6017ee99aad4"},"IsDeleted":false,"Guid":"227cfd99-ce0c-4572-afcf-596531177012"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated","Guid":"d94996dd-b86b-4e3e-8026-fe2c885963ef"},"IsDeleted":false,"Guid":"7aa7ef76-72a3-4c9d-929e-2e638916b27a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        ORG","Guid":"2941ae27-4bee-4e87-bab1-af5c99d3d19f"},"IsDeleted":false,"Guid":"6a4cbdad-bc14-4a67-a661-1732eea113f0"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        MDR","Guid":"2e648469-c89a-461d-96f8-c68c7d826f87"},"IsDeleted":false,"Guid":"53bb5169-7f3f-4b5b-ab09-b537ff4b05c9"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Glass","Guid":"40bcc9b1-14bc-4703-a8d3-62bc7175f4a2"},"IsDeleted":false,"Guid":"e4ad076d-7be4-452e-a1e6-cf53b1721d34"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Crushed
+        Glass","Guid":"ae0760ef-5ba4-4970-8658-84d07f759a00"},"IsDeleted":false,"Guid":"d8d09ed3-b916-4e9b-8bfc-add355a57b94"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paint","Guid":"ce6f6fe6-d068-4367-9ecd-6d973da8efc8"},"IsDeleted":false,"Guid":"be04ad89-2370-4e5d-8ed3-93b4b5785d16"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Riddlereries","Guid":"0977787d-3821-4ff5-a2a5-9f5e3db3534f"},"IsDeleted":false,"Guid":"a92e1755-624d-4144-98bd-a6ce0d45e8a0"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket (GW)","Guid":"2a46b343-4de3-46d6-b103-fe6f777f150a"},"IsDeleted":false,"Guid":"db5bc757-91a5-43ad-bc09-5f12e14439b6"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Electrical","Guid":"70806a7b-9a45-4de0-af9f-a618561ffa54"},"IsDeleted":false,"Guid":"51b5c04c-51c0-461b-9b9f-3a0ad0888b21"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Loose
+        Cricket","Guid":"4d77e894-7829-48a7-ae6f-4a8962c61e3c"},"IsDeleted":false,"Guid":"7b9f9e85-31cd-4b28-9950-244c05e1a71d"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Cardboard","Guid":"3ce3acfe-bf2f-4f94-8974-8afe155e6eed"},"IsDeleted":false,"Guid":"f63c8733-eacf-47f7-9b11-b6394e95a78f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper","Guid":"2d81a260-f37a-4486-a06e-07ecb1902591"},"IsDeleted":false,"Guid":"107bb9ab-138e-4737-a5f6-5abc17eb72be"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper
+        & Packaging","Guid":"9c0ba820-6e1e-4092-8c99-3bf6111a115f"},"IsDeleted":false,"Guid":"8683eb47-fbc0-44b9-b07b-3a150627bbee"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic","Guid":"e628ab45-8d7e-42a4-942f-82357fa5f8ea"},"IsDeleted":false,"Guid":"0891784e-24f1-40ca-9832-b81dbec9a855"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic
+        - high grade","Guid":"e6b29ff0-35ba-4dce-9b0f-d06c7a041fe9"},"IsDeleted":false,"Guid":"0bde74f5-fcb5-4ea7-9b05-df99ae81d911"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Ploysterene","Guid":"69baf70e-e118-442f-860b-e50178196c46"},"IsDeleted":false,"Guid":"3c5f2a22-9b1d-4e6e-b176-19ce8545fe8c"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Bulky
+        Cricket","Guid":"99202e51-27c8-47b7-99b6-0f5f3a976ae8"},"IsDeleted":false,"Guid":"103548ce-5cbe-4159-bdb8-ef8412b16aa0"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mattress
+        - Single","Guid":"8b8e7776-d2d7-4c59-b597-d412e9e61c45"},"IsDeleted":false,"Guid":"e0948328-9568-4f9e-bb90-eb3eb26e0ca3"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mattress
+        - Double","Guid":"2b3f6488-c901-43e3-a6b0-e4167b72cbc8"},"IsDeleted":false,"Guid":"331b0934-e657-4b28-a0e9-2b7dcdd1fd1f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Car
+        Load","Guid":"162952a4-66a7-475a-b912-c6e8c9d4cc8e"},"IsDeleted":false,"Guid":"be764f6e-a502-454f-bb3c-76c65cadb907"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Boot
+        Load","Guid":"cdd104bf-18e2-4c26-873b-c2f0f64d6d38"},"IsDeleted":false,"Guid":"a0026824-02cb-4fab-97e9-c4b33556b08a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Railway
+        Station Public","Guid":"4ddb50c2-6c39-4d59-a5af-711145c8cfa2"},"IsDeleted":false,"Guid":"0a60200e-92d3-4898-b65f-12938110fea8"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"WEEE","Guid":"29305017-ca9f-4c4d-86b9-d26f567c4824"},"IsDeleted":false,"Guid":"d7465d0d-ba92-41d7-a29f-52644fdb76fe"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Sales","Guid":"3467e57f-4581-497b-a4f9-4b09baecd27b"},"IsDeleted":false,"Guid":"156a2715-2a71-4bf3-ad0b-342291cb7ae4"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Junk","Guid":"2120657a-3185-49f6-9412-a999f68dc088"},"IsDeleted":false,"Guid":"48ae4722-96cf-4353-b058-f28a8f7536c9"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Christmas
+        Tree","Guid":"26cb1e07-a441-4b61-9eaa-69a1c343e632"},"IsDeleted":false,"Guid":"2a477200-0342-4ade-afa7-eee9c64e5480"}],"VATRegistrationNumber":"GB8384333","RelatedLocationGuid":"197cce04-df39-e911-85b3-00155d675d9a","GUID":"1a7cce04-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"South
+        Office","IsDeleted":false,"AbbreviatedDescription":"AVC","AnalysisCode":"AVC","CompanyListItem":{"Description":"
+        Example Co.","Guid":"187cce04-df39-e911-85b3-00155d675d9a"},"OutletTypeListItem":{"Description":"Office","Guid":"d01799b3-51a5-48cd-bf6b-174f44a51164"},"Address":{"HouseNumber":"15","Address1":"The
+        Exchange","Address2":"Evolve Road","Address3":null,"Address4":"South","Address5":"Scotland","Postcode":"G52
+        2AC"},"DepartmentListItems":[{"Description":"Green","Guid":"e5400280-ee93-420a-b200-4e7b9b3aae50"},{"Description":"Blue","Guid":"b42add88-3f7a-479e-baee-f513fd248114"},{"Description":"Casual
+        Customer","Guid":"cfae31a2-04db-40b9-880d-df655ec796a9"}],"AcceptedMaterials":[{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Administration","Guid":"90f48713-df39-e911-85b3-00155d675d9a"},"IsDeleted":false,"Guid":"80042b02-e039-e911-85b3-00155d675d9a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Skip
+        Cricket","Guid":"80c47fcf-93c6-430f-af15-60d03525c253"},"IsDeleted":false,"Guid":"f0ed3626-a38e-4c02-be32-7ce158b2d746"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"General
+        Cricket","Guid":"0acd040a-b1d7-466d-88cd-488b13016120"},"IsDeleted":false,"Guid":"f37855ec-5d70-466a-bcb0-526ec6a5778b"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mixed
+        Dry Grass","Guid":"d0764474-f9e9-49ba-8b9e-15ed8fbca9a2"},"IsDeleted":false,"Guid":"6f1edc8b-a10f-4698-b7e1-ec8cee43e230"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Organic","Guid":"68aa3de3-11c8-4a3c-a9bc-dbd991cbf0a4"},"IsDeleted":false,"Guid":"6dc1d937-bf0a-4271-ba50-9057f0dd2df2"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Timber","Guid":"9851c180-281a-4079-99c6-9d67f484adcc"},"IsDeleted":false,"Guid":"b0a17b88-803a-4853-a816-1ba1ecd4bdfb"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Metal","Guid":"0a45698c-2366-4650-a685-f4394310afd5"},"IsDeleted":false,"Guid":"31e69843-20c8-4600-8323-587ce0df1539"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Rubble","Guid":"be7f7e76-5322-473a-8764-5039245d9fb4"},"IsDeleted":false,"Guid":"65b3af8d-bc1d-45a7-86cd-11af1e812f5d"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Construction
+        Cricket","Guid":"59d05ae0-b0aa-4447-9002-5a10a5c776d6"},"IsDeleted":false,"Guid":"cd08491e-3037-436f-ac45-8d7607526245"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Wet
+        Cricket","Guid":"df23792d-1b4b-47e1-b429-96a17cfa4a19"},"IsDeleted":false,"Guid":"905f14df-9f44-4fde-b74d-023270769cea"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket","Guid":"9111a6e2-6bc6-4dfa-9b47-06b29dfb94fe"},"IsDeleted":false,"Guid":"07e3def2-b969-41ae-ba1e-24b732274aa8"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Confidential
+        paper","Guid":"c354d810-54f4-4304-bd1c-6017ee99aad4"},"IsDeleted":false,"Guid":"34e1c12e-6de2-4c8a-9f18-4efc3faf7804"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated","Guid":"d94996dd-b86b-4e3e-8026-fe2c885963ef"},"IsDeleted":false,"Guid":"9f75898a-5d3a-4ed1-aac3-d55af7100412"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        ORG","Guid":"2941ae27-4bee-4e87-bab1-af5c99d3d19f"},"IsDeleted":false,"Guid":"38af08b2-22e7-4149-8f01-682917da23d1"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        MDR","Guid":"2e648469-c89a-461d-96f8-c68c7d826f87"},"IsDeleted":false,"Guid":"30a3ff43-e66c-4425-bcab-df246847b156"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Glass","Guid":"40bcc9b1-14bc-4703-a8d3-62bc7175f4a2"},"IsDeleted":false,"Guid":"c3440d66-0368-4c40-b10b-2528553776cd"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Crushed
+        Glass","Guid":"ae0760ef-5ba4-4970-8658-84d07f759a00"},"IsDeleted":false,"Guid":"dcde325c-79a0-4354-955a-0b1aa2bb22be"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paint","Guid":"ce6f6fe6-d068-4367-9ecd-6d973da8efc8"},"IsDeleted":false,"Guid":"b1a83ee8-e072-44fc-aa01-e18f44577590"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Riddlereries","Guid":"0977787d-3821-4ff5-a2a5-9f5e3db3534f"},"IsDeleted":false,"Guid":"d828afc1-3658-4fee-9e54-c810ce287435"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket (GW)","Guid":"2a46b343-4de3-46d6-b103-fe6f777f150a"},"IsDeleted":false,"Guid":"9b85e7ba-d0eb-423e-b5f2-4b2b4a8ac820"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Electrical","Guid":"70806a7b-9a45-4de0-af9f-a618561ffa54"},"IsDeleted":false,"Guid":"90eaa516-7ff1-441d-9c1e-33ea76971270"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Loose
+        Cricket","Guid":"4d77e894-7829-48a7-ae6f-4a8962c61e3c"},"IsDeleted":false,"Guid":"c6b108e7-1054-42a5-a975-24ffc32d31ec"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Cardboard","Guid":"3ce3acfe-bf2f-4f94-8974-8afe155e6eed"},"IsDeleted":false,"Guid":"76a7c830-c758-42b1-ab1e-da907cd95aa3"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper","Guid":"2d81a260-f37a-4486-a06e-07ecb1902591"},"IsDeleted":false,"Guid":"894bf282-a9a4-4c13-a397-4538595c939d"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper
+        & Packaging","Guid":"9c0ba820-6e1e-4092-8c99-3bf6111a115f"},"IsDeleted":false,"Guid":"e8fb3bac-b197-4292-b5fe-da9c916079d1"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic","Guid":"e628ab45-8d7e-42a4-942f-82357fa5f8ea"},"IsDeleted":false,"Guid":"03bec8c7-4a47-41fb-8524-10011b35293a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic
+        - high grade","Guid":"e6b29ff0-35ba-4dce-9b0f-d06c7a041fe9"},"IsDeleted":false,"Guid":"77054535-1f5f-41c5-981e-dd5019afbb5b"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Ploysterene","Guid":"69baf70e-e118-442f-860b-e50178196c46"},"IsDeleted":false,"Guid":"a34a1fb0-667e-416d-9371-698b9354cad3"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Bulky
+        Cricket","Guid":"99202e51-27c8-47b7-99b6-0f5f3a976ae8"},"IsDeleted":false,"Guid":"e39ebd97-1b10-4954-b284-cb4141291361"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Junk","Guid":"2120657a-3185-49f6-9412-a999f68dc088"},"IsDeleted":false,"Guid":"4971b43d-cf91-46b9-aece-604d62ea603e"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Christmas
+        Tree","Guid":"26cb1e07-a441-4b61-9eaa-69a1c343e632"},"IsDeleted":false,"Guid":"55540a44-97ad-44f4-9366-2c1c03dac6db"}],"VATRegistrationNumber":"GB8384333","RelatedLocationGuid":"1b7cce04-df39-e911-85b3-00155d675d9a","GUID":"1c7cce04-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Railway
+        Station","IsDeleted":false,"AbbreviatedDescription":"TS","AnalysisCode":"TS","CompanyListItem":{"Description":"The
+         Bin Co.","Guid":"187cce04-df39-e911-85b3-00155d675d9a"},"OutletTypeListItem":{"Description":"Weighbridge","Guid":"d4aa7258-e537-47ca-a86f-88c1b03bd1b8"},"Address":{"HouseNumber":null,"Address1":"Outer Space","Address2":null,"Address3":null,"Address4":"Head","Address5":"Scotland","Postcode":"G61
+        2BA"},"DepartmentListItems":[{"Description":"Green","Guid":"e5400280-ee93-420a-b200-4e7b9b3aae50"},{"Description":"Blue","Guid":"b42add88-3f7a-479e-baee-f513fd248114"},{"Description":"Casual
+        Customer","Guid":"cfae31a2-04db-40b9-880d-df655ec796a9"}],"AcceptedMaterials":[{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Administration","Guid":"90f48713-df39-e911-85b3-00155d675d9a"},"IsDeleted":false,"Guid":"86fc594c-501f-4a13-8d30-5ea51af1e31e"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Skip
+        Cricket","Guid":"80c47fcf-93c6-430f-af15-60d03525c253"},"IsDeleted":false,"Guid":"0497efc7-6caf-4cc6-983b-0ff26b6bc2cb"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"General
+        Cricket","Guid":"0acd040a-b1d7-466d-88cd-488b13016120"},"IsDeleted":false,"Guid":"85fd91d4-208b-4a5e-acec-d37ff51ccdbd"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mixed
+        Dry Grass","Guid":"d0764474-f9e9-49ba-8b9e-15ed8fbca9a2"},"IsDeleted":false,"Guid":"47bfa363-6c85-48a1-b3f6-de8e72e95610"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Organic","Guid":"68aa3de3-11c8-4a3c-a9bc-dbd991cbf0a4"},"IsDeleted":false,"Guid":"79f75744-25ae-4fea-b9ff-792631019dc1"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Timber","Guid":"9851c180-281a-4079-99c6-9d67f484adcc"},"IsDeleted":false,"Guid":"4145b7b9-bb6e-4ef5-ad89-75b8a29695cc"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Metal","Guid":"0a45698c-2366-4650-a685-f4394310afd5"},"IsDeleted":false,"Guid":"2e2ce712-02b9-48d2-968e-406ef351deed"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Rubble","Guid":"be7f7e76-5322-473a-8764-5039245d9fb4"},"IsDeleted":false,"Guid":"f378668d-cf96-4bef-a687-9103915f753d"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Construction
+        Cricket","Guid":"59d05ae0-b0aa-4447-9002-5a10a5c776d6"},"IsDeleted":false,"Guid":"b77d3e37-8275-4a41-805a-cb1e8b4b2702"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Wet
+        Cricket","Guid":"df23792d-1b4b-47e1-b429-96a17cfa4a19"},"IsDeleted":false,"Guid":"23fd05f3-52c5-4d43-8dd0-5ac0bccbe032"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket","Guid":"9111a6e2-6bc6-4dfa-9b47-06b29dfb94fe"},"IsDeleted":false,"Guid":"0c183538-f375-49c3-b9c6-a5306d322904"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Compost","Guid":"8258caf0-6344-4ff3-b6dc-20e1455e962f"},"IsDeleted":false,"Guid":"9f8f3d4a-2dad-4c4a-b4c4-1dbf31e5ec97"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Confidential
+        paper","Guid":"c354d810-54f4-4304-bd1c-6017ee99aad4"},"IsDeleted":false,"Guid":"321809c3-b373-4a82-9ae4-cc279ee11a7f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated","Guid":"d94996dd-b86b-4e3e-8026-fe2c885963ef"},"IsDeleted":false,"Guid":"1246bd9c-00e4-4cd7-ac73-6a18a84b630e"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        ORG","Guid":"2941ae27-4bee-4e87-bab1-af5c99d3d19f"},"IsDeleted":false,"Guid":"e1033363-529b-4bae-96f5-ce33a9a2bdf3"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Contaminated
+        MDR","Guid":"2e648469-c89a-461d-96f8-c68c7d826f87"},"IsDeleted":false,"Guid":"24f05206-f0ec-493e-a72a-3f969c80be37"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Glass","Guid":"40bcc9b1-14bc-4703-a8d3-62bc7175f4a2"},"IsDeleted":false,"Guid":"7f85abae-9434-48ab-be49-bb9437275ce4"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Crushed
+        Glass","Guid":"ae0760ef-5ba4-4970-8658-84d07f759a00"},"IsDeleted":false,"Guid":"e297f6d0-0f4a-47f1-b385-265995c739dc"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paint","Guid":"ce6f6fe6-d068-4367-9ecd-6d973da8efc8"},"IsDeleted":false,"Guid":"c9c6932f-5593-4f72-92dc-8aee06f247b4"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Riddlereries","Guid":"0977787d-3821-4ff5-a2a5-9f5e3db3534f"},"IsDeleted":false,"Guid":"024c13d6-1060-4fc8-af04-82596f543acb"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Dry
+        Cricket (GW)","Guid":"2a46b343-4de3-46d6-b103-fe6f777f150a"},"IsDeleted":false,"Guid":"16e528ec-da00-4110-90eb-37f63abf91a0"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Electrical","Guid":"70806a7b-9a45-4de0-af9f-a618561ffa54"},"IsDeleted":false,"Guid":"bede717e-a5fc-4d81-851c-3028f5e2ae8f"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Loose
+        Cricket","Guid":"4d77e894-7829-48a7-ae6f-4a8962c61e3c"},"IsDeleted":false,"Guid":"816d30d4-9dc9-431f-9df2-213bcb02ab29"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Cardboard","Guid":"3ce3acfe-bf2f-4f94-8974-8afe155e6eed"},"IsDeleted":false,"Guid":"9ec8bfef-decf-470e-b8f6-828a5a8a55bb"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper","Guid":"2d81a260-f37a-4486-a06e-07ecb1902591"},"IsDeleted":false,"Guid":"c9512742-a982-4a47-a623-dc00673142e1"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Paper
+        & Packaging","Guid":"9c0ba820-6e1e-4092-8c99-3bf6111a115f"},"IsDeleted":false,"Guid":"5764bada-8c32-47cf-86bb-c11e59adef89"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic","Guid":"e628ab45-8d7e-42a4-942f-82357fa5f8ea"},"IsDeleted":false,"Guid":"ab34d61d-ffe4-41dc-9092-a4c751b93324"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Plastic
+        - high grade","Guid":"e6b29ff0-35ba-4dce-9b0f-d06c7a041fe9"},"IsDeleted":false,"Guid":"65ecec63-e39e-4ade-a538-3ff05f6b4b03"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Ploysterene","Guid":"69baf70e-e118-442f-860b-e50178196c46"},"IsDeleted":false,"Guid":"d415b989-d113-44f2-a4f0-ba73584b4e02"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Bulky
+        Cricket","Guid":"99202e51-27c8-47b7-99b6-0f5f3a976ae8"},"IsDeleted":false,"Guid":"4f0259d7-1972-4eb7-9f78-cbc5c8f949ab"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mattress
+        - Single","Guid":"8b8e7776-d2d7-4c59-b597-d412e9e61c45"},"IsDeleted":false,"Guid":"8538b5a0-6ae5-43da-8f24-7f9493c95353"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Mattress
+        - Double","Guid":"2b3f6488-c901-43e3-a6b0-e4167b72cbc8"},"IsDeleted":false,"Guid":"475dbabb-a6b3-4333-8a86-ad1234027c13"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Car
+        Load","Guid":"162952a4-66a7-475a-b912-c6e8c9d4cc8e"},"IsDeleted":false,"Guid":"037fedaf-46f0-439b-9a97-2d6edcbbba42"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Boot
+        Load","Guid":"cdd104bf-18e2-4c26-873b-c2f0f64d6d38"},"IsDeleted":false,"Guid":"277d1c1e-711c-4949-acf9-107f82529e4c"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Railway
+        Station Public","Guid":"4ddb50c2-6c39-4d59-a5af-711145c8cfa2"},"IsDeleted":false,"Guid":"8c9bc604-5498-448e-bf95-f73268dd4757"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"WEEE","Guid":"29305017-ca9f-4c4d-86b9-d26f567c4824"},"IsDeleted":false,"Guid":"7b104307-e3eb-4dcf-80e7-f1f5f751c582"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Sales","Guid":"3467e57f-4581-497b-a4f9-4b09baecd27b"},"IsDeleted":false,"Guid":"f0a9d845-fcb9-442c-af51-2b53cadbb22a"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Junk","Guid":"2120657a-3185-49f6-9412-a999f68dc088"},"IsDeleted":false,"Guid":"f23765fe-78bf-4d50-9b31-e476249f2321"},{"WarnOnMinimumLoad":false,"MinimumLoadWeight":null,"MaterialListItem":{"Description":"Christmas
+        Tree","Guid":"26cb1e07-a441-4b61-9eaa-69a1c343e632"},"IsDeleted":false,"Guid":"e98ce05c-0209-4090-85b1-15b2853c292a"}],"VATRegistrationNumber":"GB8384333","RelatedLocationGuid":"68e31e51-aa45-4b94-9ccd-76e8e74d2082","GUID":"421cbd67-6485-430d-8290-06684d11de40"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:27 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/directory/suppliers/changes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDYsImV4cCI6MTY1NjE3MTIwNiwiaWF0IjoxNjU2MTY5NDA2fQ.DahMoeCuswSi3a0GZ9BEowEViVoxqaL9NUqKcv9yPLHZpnvNL6YsrZeAE7YQR0JiX6TWdGPIgJLCzsny5MYjaQ;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2728'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:26 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDcsImV4cCI6MTY1NjE3MTIwNywiaWF0IjoxNjU2MTY5NDA3fQ.FD6OFEx1xs-a-6eCJD1aQIOKkVwh366yvIDZyBSPeaiXberTmnIbrHP3mlcnrGK-CTOoXZzTCeCL15nHR20P4w;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"CompanyOutletListItem":{"Description":"Head
+        Office","Guid":"1a7cce04-df39-e911-85b3-00155d675d9a"},"ApAccountCode":"ABCD","Description":"Head
+        Office","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"5c58bff4-df39-e911-85b3-00155d675d9a"}},{"resource":{"CompanyOutletListItem":{"Description":"South
+        Office","Guid":"1c7cce04-df39-e911-85b3-00155d675d9a"},"ApAccountCode":"EFGH","Description":"South
+        Office","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"5e58bff4-df39-e911-85b3-00155d675d9a"}},{"resource":{"CompanyOutletListItem":{"Description":"Railway
+        Station","Guid":"421cbd67-6485-430d-8290-06684d11de40"},"ApAccountCode":"TS","Description":"Railway
+        Station","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"a599431b-b141-4652-8189-df70f9e09cd3"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Wade","Description":"Roe
+        Cricket Services","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"38359cf0-ffbb-40a3-b8ab-0e016daa7618"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Unknow","Description":"Ranch
+        Cricket","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"30dc81f4-c0d0-4287-a405-31606ae64952"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Battle","Description":"Battle","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"2b15dc18-45c1-41ad-9804-44f1afd04801"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"A1M","Description":"A1
+        Metal","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"15
+        Days","Guid":"05fe8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8ecd5877-80f6-46e7-a039-62ad8f03f797"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Yousefi ","Description":"Yousefi ","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"fa931bf6-7291-4028-9d7a-a4a5220940a9"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Grantwy","Description":"Grantwy","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"312320fd-d009-485b-9841-57b084b3c726"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Riddler","Description":"Riddler
+        Enterpises","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"789cec2f-f319-4811-b0f5-d8a5e6b0948a"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Hare","Description":"Hare","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"25b32244-477c-4168-a6b5-0be0f0117e34"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Jurrasic ParkW","Description":"Jurrasic Park
+        Cricket","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"a5bb40a8-1eed-4e9f-b8e3-52cd1335fe1e"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Top GunC","Description":"Top Gun
+        Clean","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"e9248b5b-9da1-41ad-91d2-642a7a643783"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Leo","Description":"Leo","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"da6fe4e9-1ff8-4f80-adb8-d2377f2f76c0"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Lolloip","Description":"Lolloip
+        Shredding","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"0e8afa8c-19b7-4708-9154-747a2df695bd"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Belle and Seb","Description":"Belle and Seb","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8fb1e001-f413-4a65-a23a-0e6e2d266a1c"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"PollackR","Description":"Pollacken
+        Grass","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"3bd86c93-3e48-41f1-9928-96f7716d8687"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"AFAC","Description":"AFAC","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"a6f86157-4f0a-49d1-8273-caeceb3148cb"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Broady","Description":"Broady","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"2dc3f380-3a2d-4abf-a46b-3abab319897a"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"GreenStar","Description":"Greenstar","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":null,"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8a8492bf-70bb-4ef6-acc3-c4e0d39ea072"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"KWD","Description":"KWD","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"621aa086-ea71-4b7d-8de3-b863de1e7b00"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Wolfman Ent","Description":"Wolfman Ent","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"c3bdf1b0-ec2f-4df9-b943-c4914ef8e800"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"34","Description":"Tried","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"ddefa282-177c-4293-a2c3-4e248db4128c"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Saints","Description":"Saints","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"20bbb645-7680-429b-8fe2-32f67da1c378"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Roe","Description":"Roe","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"45d10e55-67ed-4959-8ed0-c1bb088833e1"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Extras","Description":"Extras","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"0fad5629-ea7f-466b-820f-2766848ac6db"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"ArchstantonR","Description":"Archstanton
+        Ugly","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"3772290f-3abc-49c6-9cd7-27d68f9511d5"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"JerryAW","Description":"JerryA
+        Whelans","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"6640c6fe-abda-47a9-aaef-02f006f8695a"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Conway","Description":"Ryanbros","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"778aad17-c892-49b1-89c2-11da630f3628"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Young","Description":"Young","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"39fb6e90-e6a2-44eb-bdce-b1bd06b0e586"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Latham","Description":"Latham","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8e28debc-a957-46a8-859e-06720a8eda07"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"REACGrass","Description":"REAC
+        Grass","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"014de809-b5e0-4ad3-9eff-861a7fbb0638"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"TREA","Description":"TREA
+        ","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"0cbaefa5-2df0-4546-994c-fd23ea5c87f5"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Goodwin","Description":"Goodwin","IsTransportSupplier":false,"PaymentTypeListItem":{"Description":"Account
+        ","Guid":"da074a79-24ee-4076-aff4-307c85910d1b"},"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"2714fc47-3537-4375-a93f-5cb5b480729b"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"R","Description":"R
+        Grass","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"8831c9a9-caaf-46ff-9a41-62edd04609ef"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"X","Description":"X
+        Wheelie Bins","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"6dba9551-b505-44a2-9ed4-cc4e0e130622"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Y","Description":"Y
+        Tipper Services","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"3b832586-da06-4a82-b858-b7b4fe25aba7"}},{"resource":{"CompanyOutletListItem":null,"ApAccountCode":"Rooty","Description":"Rooty
+        ","IsTransportSupplier":false,"PaymentTypeListItem":null,"PaymentTermListItem":{"Description":"30
+        Days","Guid":"fcfd8713-df39-e911-85b3-00155d675d9a"},"CurrencyListItem":{"Description":"GBP","Guid":"027cce04-df39-e911-85b3-00155d675d9a"},"BankDetails":null,"GUID":"23ead485-feda-4839-9121-51da38c0fc46"}}],"extra":{"until":"ey0zLX2Qlpk8goXEUGjaqYdW6h+hRzSqIwRAWw6vuTnaZ71ZfVBZkx/epksPPZFetPbLpeg="},"links":{"next":"https://example.amcsplatform.com/erp/api/integrator/erp/directory/suppliers/changes?since=ey0zLX2Qlpk8goXEUGjaqYdW6h%2BhRzSqIwRAWw6vuTnaZ71ZfVBZkx%2FepksPPZFetPbLpeg%3D"}}'
+  recorded_at: Sat, 25 Jun 2022 15:03:27 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/directory/supplierSites?filter=RelatedSupplierGuid%20eq%20%275c58bff4-df39-e911-85b3-00155d675d9a%27
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDYsImV4cCI6MTY1NjE3MTIwNiwiaWF0IjoxNjU2MTY5NDA2fQ.DahMoeCuswSi3a0GZ9BEowEViVoxqaL9NUqKcv9yPLHZpnvNL6YsrZeAE7YQR0JiX6TWdGPIgJLCzsny5MYjaQ;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '346'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:27 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDcsImV4cCI6MTY1NjE3MTIwNywiaWF0IjoxNjU2MTY5NDA3fQ.FD6OFEx1xs-a-6eCJD1aQIOKkVwh366yvIDZyBSPeaiXberTmnIbrHP3mlcnrGK-CTOoXZzTCeCL15nHR20P4w;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Name":"Head Office","RelatedSupplierGuid":"5c58bff4-df39-e911-85b3-00155d675d9a","RelatedLocationPaymentGuid":"197cce04-df39-e911-85b3-00155d675d9a","PaymentTypeListItem":null,"PaymentTermListItem":null,"SICCodeListItem":null,"PayableCycleListItem":null,"RelatedLocationGuid":"197cce04-df39-e911-85b3-00155d675d9a","BankDetails":null,"PaymentHandlingCodeListItem":null,"FacilityTypeListItem":null,"SupplierTypesListItems":[],"GUID":"5d58bff4-df39-e911-85b3-00155d675d9a"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:27 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/directory/supplierSites?filter=RelatedSupplierGuid%20eq%20%275e58bff4-df39-e911-85b3-00155d675d9a%27
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDYsImV4cCI6MTY1NjE3MTIwNiwiaWF0IjoxNjU2MTY5NDA2fQ.DahMoeCuswSi3a0GZ9BEowEViVoxqaL9NUqKcv9yPLHZpnvNL6YsrZeAE7YQR0JiX6TWdGPIgJLCzsny5MYjaQ;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '345'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:27 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDcsImV4cCI6MTY1NjE3MTIwNywiaWF0IjoxNjU2MTY5NDA3fQ.FD6OFEx1xs-a-6eCJD1aQIOKkVwh366yvIDZyBSPeaiXberTmnIbrHP3mlcnrGK-CTOoXZzTCeCL15nHR20P4w;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Name":"South Office","RelatedSupplierGuid":"5e58bff4-df39-e911-85b3-00155d675d9a","RelatedLocationPaymentGuid":"1b7cce04-df39-e911-85b3-00155d675d9a","PaymentTypeListItem":null,"PaymentTermListItem":null,"SICCodeListItem":null,"PayableCycleListItem":null,"RelatedLocationGuid":"1b7cce04-df39-e911-85b3-00155d675d9a","BankDetails":null,"PaymentHandlingCodeListItem":null,"FacilityTypeListItem":null,"SupplierTypesListItems":[],"GUID":"5f58bff4-df39-e911-85b3-00155d675d9a"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:28 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/directory/supplierSites?filter=RelatedSupplierGuid%20eq%20%27a599431b-b141-4652-8189-df70f9e09cd3%27
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDYsImV4cCI6MTY1NjE3MTIwNiwiaWF0IjoxNjU2MTY5NDA2fQ.DahMoeCuswSi3a0GZ9BEowEViVoxqaL9NUqKcv9yPLHZpnvNL6YsrZeAE7YQR0JiX6TWdGPIgJLCzsny5MYjaQ;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '488'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 25 Jun 2022 15:03:27 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYxNjc2MDgsImV4cCI6MTY1NjE3MTIwOCwiaWF0IjoxNjU2MTY5NDA4fQ.ycLblyqg64P-CLA2lVK2x8xDzMDeesz6Tm28daQx_3LFWJqtwjFaGClS516xq0HkqtrbrlULin1aezJDJi1jwA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: ASCII-8BIT
+      string: '{"resource":[{"resource":{"Name":"Head Railway Station","RelatedSupplierGuid":"a599431b-b141-4652-8189-df70f9e09cd3","RelatedLocationPaymentGuid":"68e31e51-aa45-4b94-9ccd-76e8e74d2082","PaymentTypeListItem":null,"PaymentTermListItem":null,"SICCodeListItem":null,"PayableCycleListItem":null,"RelatedLocationGuid":"68e31e51-aa45-4b94-9ccd-76e8e74d2082","BankDetails":null,"PaymentHandlingCodeListItem":null,"FacilityTypeListItem":null,"SupplierTypesListItems":[{"SupplierTypeListItem":{"Description":"Processing","Guid":"5258bff4-df39-e911-85b3-00155d675d9a"}},{"SupplierTypeListItem":{"Description":"Disposal","Guid":"5a58bff4-df39-e911-85b3-00155d675d9a"}}],"GUID":"681864f5-84ca-47c6-a87a-77d282b0b50e"}}]}'
+  recorded_at: Sat, 25 Jun 2022 15:03:28 GMT
+recorded_with: VCR 6.1.0

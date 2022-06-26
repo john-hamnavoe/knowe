@@ -1,0 +1,252 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 09:33:31 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyMzQyMTIsImV4cCI6MTY1NjIzNzgxMiwiaWF0IjoxNjU2MjM2MDEyfQ.lrkwD2azX46HKG3eg1Uk5cx_2dbAFihUFx3M12pQoJPrziiPBQxg8Smuodh8Mv7RAXTo6g_X7pPy7rux2oVvWA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sun, 26 Jun 2022 09:33:32 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/materials?max=200&page=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyMzQyMTIsImV4cCI6MTY1NjIzNzgxMiwiaWF0IjoxNjU2MjM2MDEyfQ.lrkwD2azX46HKG3eg1Uk5cx_2dbAFihUFx3M12pQoJPrziiPBQxg8Smuodh8Mv7RAXTo6g_X7pPy7rux2oVvWA;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '3342'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 09:33:32 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyMzQyMTIsImV4cCI6MTY1NjIzNzgxMiwiaWF0IjoxNjU2MjM2MDEyfQ.lrkwD2azX46HKG3eg1Uk5cx_2dbAFihUFx3M12pQoJPrziiPBQxg8Smuodh8Mv7RAXTo6g_X7pPy7rux2oVvWA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"resource":[{"resource":{"Description":"Administration","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":null,"MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Administration","Guid":"8cf48713-df39-e911-85b3-00155d675d9a"},"EWCCodeListItem":{"Description":"NA","Guid":"8ff48713-df39-e911-85b3-00155d675d9a"},"GUID":"90f48713-df39-e911-85b3-00155d675d9a"}},{"resource":{"Description":"Skip
+        Waste","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Skip","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"80c47fcf-93c6-430f-af15-60d03525c253"}},{"resource":{"Description":"General
+        Waste","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"GW","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"General
+        Waste","Guid":"f6c0073d-df48-4dfd-a025-bd36758e8846"},"EWCCodeListItem":{"Description":"mixed
+        municipal waste","Guid":"fbd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"0acd040a-b1d7-466d-88cd-488b13016120"}},{"resource":{"Description":"Mixed
+        Dry Recycling","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"MDR","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Mixed
+        Dry Recycling","Guid":"72841522-74b9-4838-a8d2-7ad99fda5ad7"},"EWCCodeListItem":{"Description":"mixed
+        dry recyclable","Guid":"543c5181-d15d-484b-8c10-581023768ac2"},"GUID":"d0764474-f9e9-49ba-8b9e-15ed8fbca9a2"}},{"resource":{"Description":"Organic","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"ORG","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Organic","Guid":"ed19f1f3-ee67-44ef-9cb5-3a8c13df273c"},"EWCCodeListItem":{"Description":"biodegradable
+        kitchen and canteen waste","Guid":"dcd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"68aa3de3-11c8-4a3c-a9bc-dbd991cbf0a4"}},{"resource":{"Description":"Timber","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Timb","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"9851c180-281a-4079-99c6-9d67f484adcc"}},{"resource":{"Description":"Metal","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Met","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"metals","Guid":"f5d93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"0a45698c-2366-4650-a685-f4394310afd5"}},{"resource":{"Description":"Rubble","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Rub","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"mixed
+        construction and demolition wastes other than those mentioned in 17 09 01,
+        17 09 02 and 17 09 03","Guid":"67d93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"be7f7e76-5322-473a-8764-5039245d9fb4"}},{"resource":{"Description":"Construction
+        Waste","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"C&D","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"mixed
+        construction and demolition wastes other than those mentioned in 17 09 01,
+        17 09 02 and 17 09 03","Guid":"67d93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"59d05ae0-b0aa-4447-9002-5a10a5c776d6"}},{"resource":{"Description":"Wet
+        Waste","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Wet","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"General
+        Waste","Guid":"f6c0073d-df48-4dfd-a025-bd36758e8846"},"EWCCodeListItem":{"Description":"mixed
+        municipal waste","Guid":"fbd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"df23792d-1b4b-47e1-b429-96a17cfa4a19"}},{"resource":{"Description":"Dry
+        Waste","IsDeleted":true,"Color":null,"AnalysisCode":null,"ShortName":"Dry","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"9111a6e2-6bc6-4dfa-9b47-06b29dfb94fe"}},{"resource":{"Description":"Compost","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Compost","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"biodegradable
+        kitchen and canteen waste","Guid":"dcd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"8258caf0-6344-4ff3-b6dc-20e1455e962f"}},{"resource":{"Description":"Confidential
+        paper","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Confi","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Confidential","Guid":"b655ec99-4494-4287-8b31-b6095bfa9c11"},"EWCCodeListItem":{"Description":"biodegradable
+        kitchen and canteen waste","Guid":"dcd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"c354d810-54f4-4304-bd1c-6017ee99aad4"}},{"resource":{"Description":"Contaminated","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Contam","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"General
+        Waste","Guid":"f6c0073d-df48-4dfd-a025-bd36758e8846"},"EWCCodeListItem":{"Description":"mixed
+        municipal waste","Guid":"fbd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"d94996dd-b86b-4e3e-8026-fe2c885963ef"}},{"resource":{"Description":"Contaminated
+        ORG","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"ORGContam","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"General
+        Waste","Guid":"f6c0073d-df48-4dfd-a025-bd36758e8846"},"EWCCodeListItem":{"Description":"mixed
+        municipal waste","Guid":"fbd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"2941ae27-4bee-4e87-bab1-af5c99d3d19f"}},{"resource":{"Description":"Contaminated
+        MDR","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"MDRContam","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"General
+        Waste","Guid":"f6c0073d-df48-4dfd-a025-bd36758e8846"},"EWCCodeListItem":{"Description":"mixed
+        municipal waste","Guid":"fbd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"2e648469-c89a-461d-96f8-c68c7d826f87"}},{"resource":{"Description":"Glass","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Glass","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Glass","Guid":"b9120936-f4cf-4ca0-b994-0dd55de04b92"},"EWCCodeListItem":{"Description":"glass","Guid":"dbd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"40bcc9b1-14bc-4703-a8d3-62bc7175f4a2"}},{"resource":{"Description":"Crushed
+        Glass","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"CrGlass","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Glass","Guid":"b9120936-f4cf-4ca0-b994-0dd55de04b92"},"EWCCodeListItem":{"Description":"glass","Guid":"0bd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"ae0760ef-5ba4-4970-8658-84d07f759a00"}},{"resource":{"Description":"Paint","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Paint","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Hazardous","Guid":"d7f9cf1e-ea41-4918-9b31-cc857d5b4685"},"EWCCodeListItem":{"Description":"paint,
+        inks, adhesives and resins other than those mentioned in 20 01 27","Guid":"e9d93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"ce6f6fe6-d068-4367-9ecd-6d973da8efc8"}},{"resource":{"Description":"Batteries","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Batteries","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Hazardous","Guid":"d7f9cf1e-ea41-4918-9b31-cc857d5b4685"},"EWCCodeListItem":{"Description":"batteries
+        and accumulators included in 16 06 01, 16 06 02 or 16 06 03 and unsorted batteries
+        and accumulators containing these batteries","Guid":"eed93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"0977787d-3821-4ff5-a2a5-9f5e3db3534f"}},{"resource":{"Description":"Dry
+        Waste (GW)","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Dry","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"mixed
+        municipal waste","Guid":"fbd93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"2a46b343-4de3-46d6-b103-fe6f777f150a"}},{"resource":{"Description":"Electrical","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Elect","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"discarded
+        electrical and electronic equipment other than those mentioned in 20 01 21,
+        20 01 23 and 20 01 35","Guid":"f1d93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"70806a7b-9a45-4de0-af9f-a618561ffa54"}},{"resource":{"Description":"Loose
+        Waste","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"LC","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"4d77e894-7829-48a7-ae6f-4a8962c61e3c"}},{"resource":{"Description":"Cardboard","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Card","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Packaging","Guid":"563dc1da-d297-4a48-9365-d8e2e3536a17"},"EWCCodeListItem":{"Description":"paper
+        and cardboard packaging","Guid":"f0d83c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"3ce3acfe-bf2f-4f94-8974-8afe155e6eed"}},{"resource":{"Description":"Paper","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Paper","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Packaging","Guid":"563dc1da-d297-4a48-9365-d8e2e3536a17"},"EWCCodeListItem":{"Description":"paper
+        and cardboard packaging","Guid":"f0d83c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"2d81a260-f37a-4486-a06e-07ecb1902591"}},{"resource":{"Description":"Paper
+        & Packaging","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"P&P","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Packaging","Guid":"563dc1da-d297-4a48-9365-d8e2e3536a17"},"EWCCodeListItem":{"Description":"paper
+        and cardboard packaging","Guid":"f0d83c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"9c0ba820-6e1e-4092-8c99-3bf6111a115f"}},{"resource":{"Description":"Plastic","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Plast","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Packaging","Guid":"563dc1da-d297-4a48-9365-d8e2e3536a17"},"EWCCodeListItem":{"Description":"plastic
+        packaging","Guid":"f1d83c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"e628ab45-8d7e-42a4-942f-82357fa5f8ea"}},{"resource":{"Description":"Plastic
+        - high grade","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"PlastHG","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Packaging","Guid":"563dc1da-d297-4a48-9365-d8e2e3536a17"},"EWCCodeListItem":{"Description":"plastic
+        packaging","Guid":"f1d83c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"e6b29ff0-35ba-4dce-9b0f-d06c7a041fe9"}},{"resource":{"Description":"Ploysterene","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Poly","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Packaging","Guid":"563dc1da-d297-4a48-9365-d8e2e3536a17"},"EWCCodeListItem":{"Description":"plastic
+        packaging","Guid":"f1d83c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"69baf70e-e118-442f-860b-e50178196c46"}},{"resource":{"Description":"Bulky
+        Waste","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":null,"MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Skip
+        Waste","Guid":"6ded2759-a401-43e8-acbc-1c227f6eeee8"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"99202e51-27c8-47b7-99b6-0f5f3a976ae8"}},{"resource":{"Description":"Mattress
+        - Single","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"SMat","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Bulky
+        Items","Guid":"f34e0c90-efe8-4a79-b2d5-948205b11662"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"8b8e7776-d2d7-4c59-b597-d412e9e61c45"}},{"resource":{"Description":"Mattress
+        - Double","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"DMat","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Bulky
+        Items","Guid":"f34e0c90-efe8-4a79-b2d5-948205b11662"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"2b3f6488-c901-43e3-a6b0-e4167b72cbc8"}},{"resource":{"Description":"Car
+        Load","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"CarLo","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Bulky
+        Items","Guid":"f34e0c90-efe8-4a79-b2d5-948205b11662"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"162952a4-66a7-475a-b912-c6e8c9d4cc8e"}},{"resource":{"Description":"Boot
+        Load","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"BootLo","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Bulky
+        Items","Guid":"f34e0c90-efe8-4a79-b2d5-948205b11662"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"cdd104bf-18e2-4c26-873b-c2f0f64d6d38"}},{"resource":{"Description":"Transfer
+        Station Public","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"TSPub","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Bulky
+        Items","Guid":"f34e0c90-efe8-4a79-b2d5-948205b11662"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"4ddb50c2-6c39-4d59-a5af-711145c8cfa2"}},{"resource":{"Description":"WEEE","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"WEEE","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Hazardous","Guid":"d7f9cf1e-ea41-4918-9b31-cc857d5b4685"},"EWCCodeListItem":{"Description":"discarded
+        electrical and electronic equipment other than those mentioned in 20 01 21
+        and 20 01 23 containing hazardous components (6)","Guid":"f0d93c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"29305017-ca9f-4c4d-86b9-d26f567c4824"}},{"resource":{"Description":"Sales","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"Sales","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Administration","Guid":"8cf48713-df39-e911-85b3-00155d675d9a"},"EWCCodeListItem":{"Description":"NA","Guid":"8ff48713-df39-e911-85b3-00155d675d9a"},"GUID":"3467e57f-4581-497b-a4f9-4b09baecd27b"}},{"resource":{"Description":"Junk","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"CJ","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Bulky
+        Items","Guid":"f34e0c90-efe8-4a79-b2d5-948205b11662"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"2120657a-3185-49f6-9412-a999f68dc088"}},{"resource":{"Description":"Christmas
+        Tree","IsDeleted":false,"Color":null,"AnalysisCode":null,"ShortName":"XTree","MaterialStateListItem":null,"MaterialClassListItem":{"Description":"Bulky
+        Items","Guid":"f34e0c90-efe8-4a79-b2d5-948205b11662"},"EWCCodeListItem":{"Description":"bulky
+        waste","Guid":"00da3c9f-374a-e911-80f4-000d3ab0e9b1"},"GUID":"26cb1e07-a441-4b61-9eaa-69a1c343e632"}}]}'
+  recorded_at: Sun, 26 Jun 2022 09:33:32 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/lists/materials?max=200&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyMzQyMTIsImV4cCI6MTY1NjIzNzgxMiwiaWF0IjoxNjU2MjM2MDEyfQ.lrkwD2azX46HKG3eg1Uk5cx_2dbAFihUFx3M12pQoJPrziiPBQxg8Smuodh8Mv7RAXTo6g_X7pPy7rux2oVvWA;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '135'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 09:33:32 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyMzQyMTIsImV4cCI6MTY1NjIzNzgxMiwiaWF0IjoxNjU2MjM2MDEyfQ.lrkwD2azX46HKG3eg1Uk5cx_2dbAFihUFx3M12pQoJPrziiPBQxg8Smuodh8Mv7RAXTo6g_X7pPy7rux2oVvWA;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"resource":[]}'
+  recorded_at: Sun, 26 Jun 2022 09:33:33 GMT
+recorded_with: VCR 6.1.0

@@ -1,0 +1,117 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://example.amcsplatform.com/erp/api/authTokens?privatekey=HevysxrDUiPXUeBoxOLBVJpsAMmEAhj5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '301'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 11:36:35 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyNDE1OTUsImV4cCI6MTY1NjI0NTE5NSwiaWF0IjoxNjU2MjQzMzk1fQ.Z70wwbnwOQs-wGoFEJPw20cmuBKhouXkqYqURToMUjqo49_H5UKeOrj_705Ff3uF4jjYtPbbtVVSJ-Xpf1KeeQ;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"authResult":"ok","username":"john.wallace","userIdentity":"john.wallace@hamnavoepartners.com","sysUserId":167,"userGuid":"bfb4d0aa-8ac5-4c07-965d-39e2eaa97f7b","companyoutletid":1,"companyOutletGuid":"1a7cce04-df39-e911-85b3-00155d675d9a"}'
+  recorded_at: Sun, 26 Jun 2022 11:36:35 GMT
+- request:
+    method: get
+    uri: https://example.amcsplatform.com/erp/api/integrator/erp/transport/orders?max=1&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyNDE1OTUsImV4cCI6MTY1NjI0NTE5NSwiaWF0IjoxNjU2MjQzMzk1fQ.Z70wwbnwOQs-wGoFEJPw20cmuBKhouXkqYqURToMUjqo49_H5UKeOrj_705Ff3uF4jjYtPbbtVVSJ-Xpf1KeeQ;
+        path=/erp/api/; HttpOnly
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '1085'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2022 11:36:35 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - AccessKey, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - Platform.ERP.SessionToken=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLndhbGxhY2UiLCJzdWJfaWQiOiIxNjciLCJzdWJfY29pZCI6IjEiLCJuYmYiOjE2NTYyNDE1OTUsImV4cCI6MTY1NjI0NTE5NSwiaWF0IjoxNjU2MjQzMzk1fQ.Z70wwbnwOQs-wGoFEJPw20cmuBKhouXkqYqURToMUjqo49_H5UKeOrj_705Ff3uF4jjYtPbbtVVSJ-Xpf1KeeQ;
+        path=/erp/api/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Aspnetmvc-Version:
+      - '5.2'
+      Request-Context:
+      - appId=cid-v1:c9a7df32-3abb-4b51-9d1e-7465d1c8a9fd
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"resource":[{"resource":{"RelatedSiteGuid":"9c03b09b-e0de-48be-966e-b36ab154f795","RelatedSiteAreaGuid":null,"RelatedSupplierSiteForServiceGuid":null,"RelatedSupplierSiteForTransportGuid":null,"RelatedUserSalesRepGuid":null,"RelatedServiceAgreementGuid":"d5d54de1-f71f-4b4d-b551-0f53181610da","OrderNumber":"OR10001","CustomerOrderNumber":null,"OrderedBy":null,"ProcessFrom":"2020-03-31","ValidUntil":null,"Notes":null,"DriverNotes":null,"IsCustomerOwnedEquipment":false,"CompanyOutletListItem":{"Description":"Head
+        Office","Guid":"1a7cce04-df39-e911-85b3-00155d675d9a"},"ServiceListItem":{"Description":"Skip","Guid":"a7008b83-df39-e911-85b3-00155d675d9a"},"MaterialListItem":{"Description":"Skip
+        Waste","Guid":"80c47fcf-93c6-430f-af15-60d03525c253"},"DefaultContainerTypeListItem":{"Description":"12
+        CUBIC YARD","Guid":"792a2180-cfae-4132-baf9-39058c0ff7e7"},"PriorityListItem":{"Description":"Low","Guid":"10b6927d-df39-e911-85b3-00155d675d9a"},"PaymentTypeListItem":{"Description":"Credit
+        Card","Guid":"f1fd8713-df39-e911-85b3-00155d675d9a"},"RelatedLocationDestinationGuid":"197cce04-df39-e911-85b3-00155d675d9a","Containers":[{"Guid":"acddc83e-7976-4497-a65c-a406261d6a56","RelatedContainerGuid":null,"IsDeleted":false,"ContainerTypeListItem":{"Description":"12
+        CUBIC YARD","Guid":"792a2180-cfae-4132-baf9-39058c0ff7e7"},"ContainerStateListItem":{"Description":"Active","Guid":"ba008b83-df39-e911-85b3-00155d675d9a"},"Notes":null,"IsContainerAssignedWithoutJob":false,"IsFromIncreasedOrder":false,"IsContainerRemovedWithoutJob":false,"IsFixLocation":false,"Geo":null,"StartDate":null,"EndDate":null}],"AreaOfOriginListItem":null,"ItemRentals":[],"StandingJobs":[],"RouteAssignments":[],"IsDeleted":false,"PermitRequired":false,"RelatedOrderCombinationGroupingGuid":null,"RelatedPriceGuidFilter":null,"RelatedPriceModifierGuidFilter":null,"RelatedCostGuidFilter":null,"StandingJobsSiteAreaGuidFilter":null,"StandingJobsSysUserDriverGuidFilter":null,"StandingJobsVehicleGuidFilter":null,"StandingJobsStartDateFilter":null,"StandingJobsEndDateFilter":null,"RouteAssignmentSiteAreaGuidFilter":null,"RouteAssignmentStartDateFilter":null,"RouteAssignmentEndDateFilter":null,"RelatedContainerGuidFilter":null,"ContainersGeoLocationLatFilter":null,"ContainersGeoLocationLongFilter":null,"GUID":"d7c0a28b-5cd2-4c5c-81d7-8c1a8ffd4237"}}]}'
+  recorded_at: Sun, 26 Jun 2022 11:36:36 GMT
+recorded_with: VCR 6.1.0
