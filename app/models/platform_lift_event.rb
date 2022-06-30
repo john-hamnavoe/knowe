@@ -1,6 +1,7 @@
 class PlatformLiftEvent < ApplicationRecord
   belongs_to :project
   belongs_to :platform_order_item, optional: true
+  belongs_to :platform_vehicle, optional: true
 
   def as_platform_json
     chargable_weight = charge_weight.nil? ? net_weight : charge_weight
@@ -61,6 +62,8 @@ class PlatformLiftEvent < ApplicationRecord
                  else
                    lift_event.merge({ "Location": {} })
                  end
+
+    lift_event = lift_event.merge({ "RelatedVehicleGuid": platform_vehicle&.guid }) if platform_vehicle.present?
 
     lift_event.to_json
   end

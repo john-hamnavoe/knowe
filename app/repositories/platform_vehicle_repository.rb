@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PlatformVehicleRepository < ApplicationRepository
-  def all(args = {}, order_by = "registration", direction = "asc")
+  def all(args = {}, order_by = "registration_no", direction = "asc")
     query = PlatformVehicle.where( project: project).where(args)
 
     query.order(order_by => direction)

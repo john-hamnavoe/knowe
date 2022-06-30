@@ -11,6 +11,8 @@ class PlatformOrderItemRepository < ApplicationRepository
     platform_order_item = PlatformOrderItem.find_by(id: id)
     return platform_order_item if platform_order_item.nil?
 
+    @vehicles = PlatformVehicleRepository.new(user, project).all
+
     platform_order_item.assign_attributes(params)
     platform_order_item.platform_lift_events.each do |lift_event|
       lift_event.project = project if lift_event.project_id.nil?
@@ -21,6 +23,8 @@ class PlatformOrderItemRepository < ApplicationRepository
       lift_event.related_site_order_container_guid = platform_order_item.guid if lift_event.related_site_order_container_guid.nil?
       lift_event.is_deleted = false if lift_event.is_deleted.nil?
       lift_event.is_collected = true if lift_event.is_collected.nil?
+
+      lift_event.platform_vehicle_id = @vehicles.find { |v| v.registration_no == lift_event.vehicle_code ||  v.vehicle_code == lift_event.vehicle_code }&.id if lift_event.platform_vehicle_id.nil?
     end
     platform_order_item.save
     PlatformPostRepository.new(user, project).update_row_count("PlatformLiftEvent")

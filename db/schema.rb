@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_30_081614) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_30_084455) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -461,8 +461,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_30_081614) do
     t.datetime "updated_at", null: false
     t.text "last_response_body"
     t.integer "last_response_code"
+    t.bigint "platform_vehicle_id"
     t.index ["guid", "project_id"], name: "index_platform_lift_events_on_guid_project", unique: true
     t.index ["platform_order_item_id"], name: "index_platform_lift_events_on_platform_order_item_id"
+    t.index ["platform_vehicle_id"], name: "index_platform_lift_events_on_platform_vehicle_id"
     t.index ["project_id"], name: "index_platform_lift_events_on_project_id"
   end
 
@@ -915,6 +917,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_30_081614) do
   add_foreign_key "platform_item_rentals", "platform_prices"
   add_foreign_key "platform_item_rentals", "projects"
   add_foreign_key "platform_lift_events", "platform_order_items"
+  add_foreign_key "platform_lift_events", "platform_vehicles"
   add_foreign_key "platform_lift_events", "projects"
   add_foreign_key "platform_locations", "platform_zones"
   add_foreign_key "platform_locations", "projects"
