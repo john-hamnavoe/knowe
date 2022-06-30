@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  registration_no: MyString
+  vehicle_code: MyString
+  platform_company_outlet: one
+  platform_vehicle_type: one
+  guid: 
+
+two:
+  project: two
+  registration_no: MyString
+  vehicle_code: MyString
+  platform_company_outlet: two
+  platform_vehicle_type: two
+  guid: 

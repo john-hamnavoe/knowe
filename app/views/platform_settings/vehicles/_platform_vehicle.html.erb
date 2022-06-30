@@ -1,0 +1,5 @@
+<%= content_tag :tr, id: dom_id(platform_vehicle) do %>
+  <%= render "shared/table/table_data_cell", data: platform_vehicle.registration_no %>
+  <%= render "shared/table/table_data_cell", data: platform_vehicle.vehicle_code %>    
+  <%= render "shared/table/table_data_cell", data: platform_vehicle.guid %>    
+<% end %>

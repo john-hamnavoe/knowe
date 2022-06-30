@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_30_080158) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_30_081614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -789,6 +789,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_30_080158) do
     t.index ["project_id"], name: "index_platform_vehicle_types_on_project_id"
   end
 
+  create_table "platform_vehicles", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "registration_no"
+    t.string "vehicle_code"
+    t.bigint "platform_company_outlet_id"
+    t.bigint "platform_vehicle_type_id"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_vehicles_on_guid_project", unique: true
+    t.index ["platform_company_outlet_id"], name: "index_platform_vehicles_on_platform_company_outlet_id"
+    t.index ["platform_vehicle_type_id"], name: "index_platform_vehicles_on_platform_vehicle_type_id"
+    t.index ["project_id"], name: "index_platform_vehicles_on_project_id"
+  end
+
   create_table "platform_weighing_types", force: :cascade do |t|
     t.bigint "project_id", null: false
     t.uuid "guid"
@@ -945,6 +960,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_30_080158) do
   add_foreign_key "platform_sic_codes", "projects"
   add_foreign_key "platform_vats", "projects"
   add_foreign_key "platform_vehicle_types", "projects"
+  add_foreign_key "platform_vehicles", "platform_company_outlets"
+  add_foreign_key "platform_vehicles", "platform_vehicle_types"
+  add_foreign_key "platform_vehicles", "projects"
   add_foreign_key "platform_weighing_types", "projects"
   add_foreign_key "platform_zones", "projects"
   add_foreign_key "projects", "users"
