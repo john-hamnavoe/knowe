@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  class_name: MyString
+  last_request: 2022-07-01 14:39:33
+  last_response_code: MyString
+  last_response_body: MyText
+  guid: 
+  failed_count: 1
+
+two:
+  project: two
+  class_name: MyString
+  last_request: 2022-07-01 14:39:33
+  last_response_code: MyString
+  last_response_body: MyText
+  guid: 
+  failed_count: 1

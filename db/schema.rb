@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_30_084455) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_01_133933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -676,6 +676,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_30_084455) do
     t.index ["project_id"], name: "index_platform_priorities_on_project_id"
   end
 
+  create_table "platform_puts", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "class_name"
+    t.integer "last_response_code"
+    t.text "last_response_body"
+    t.uuid "guid"
+    t.integer "failed_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_platform_puts_on_project_id"
+  end
+
   create_table "platform_route_assignments", force: :cascade do |t|
     t.bigint "project_id", null: false
     t.bigint "platform_order_id", null: false
@@ -947,6 +959,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_30_084455) do
   add_foreign_key "platform_prices", "platform_services"
   add_foreign_key "platform_prices", "projects"
   add_foreign_key "platform_priorities", "projects"
+  add_foreign_key "platform_puts", "projects"
   add_foreign_key "platform_route_assignments", "platform_actions"
   add_foreign_key "platform_route_assignments", "platform_container_types"
   add_foreign_key "platform_route_assignments", "platform_day_of_weeks"

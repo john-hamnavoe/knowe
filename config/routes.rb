@@ -26,8 +26,9 @@ Rails.application.routes.draw do
     resources :order_items, only: [:index, :edit, :update], controller: "platform_customer_order_items"
     resources :orders, only: [:index], controller: "platform_customer_orders"
     resources :route_assignments, only: [:index], controller: "platform_customer_route_assignments"
+    resources :stop_lists, only: [:index, :create], controller: "platform_customer_stop_lists"    
     namespace :customer_dashboard do
-      resources :lift_events, only: [:index]
+      resources :lift_events, only: [:index]   
     end
   end
 

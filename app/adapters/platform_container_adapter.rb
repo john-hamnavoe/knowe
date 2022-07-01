@@ -11,6 +11,14 @@ class PlatformContainerAdapter < ApplicationAdapter
     import_container(guid)
   end
 
+  def update(platform_container)
+    return if platform_container.guid.blank?
+
+    response = put("integrator/erp/directory/containers", platform_container.guid, platform_container.as_platform_json)
+
+    response
+  end
+
   private
 
   def import_container(guid)

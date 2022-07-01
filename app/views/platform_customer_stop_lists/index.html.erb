@@ -1,0 +1,44 @@
+<%= turbo_frame_tag "customer_dashboard_container_statuses" do %>
+  <% if @on_stop_containers > 0 %>
+    <div class="flex items-center">
+      <div class="flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-700" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <dt class="px-2 text-sm font-medium text-gray-500 truncate"><%= @on_stop_containers%> On Stop Containers</dt>
+    </div>  
+  <% end %>
+  <% if @active_containers > 0 %>
+    <div class="flex items-center">
+      <div class="flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-700" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <dt class="px-2 text-sm font-medium text-gray-500 truncate"><%= @active_containers%> Active Containers</dt>
+    </div>
+  <% end %>
+  <div class="flex items-left py-3 px-1" >
+    <div>
+      <% if @active_containers > 0 %>
+        <%= form_for :stop_list, url: platform_customer_stop_lists_path(@platform_customer), method: :post do |f| %>
+          <%= f.hidden_field :is_stoplisted, value: true %>
+          <div class="inline">
+            <%= f.submit "Stop All", class: "rounded-lg py-1 px-2 bg-red-600 text-white inline-block font-medium cursor-pointer" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="px-2">
+      <% if @on_stop_containers > 0 %>
+        <%= form_for :stop_list, url: platform_customer_stop_lists_path(@platform_customer), method: :post do |f| %>
+          <%= f.hidden_field :is_stoplisted, value: false %>
+          <div class="inline">
+            <%= f.submit "Activate All", class: "rounded-lg py-1 px-2 bg-green-600 text-white inline-block font-medium cursor-pointer" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>          
+  </div>
+<% end %>

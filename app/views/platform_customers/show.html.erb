@@ -14,6 +14,11 @@
             <%= render "next_collections", customer: @customer %>
           </div>
           <div>
+            <h3 class="text-gray-700 whitespace-nowrap py-3 px-1 font-bold text-sm">Stop Status</h2>
+            <%= turbo_frame_tag "customer_dashboard_container_statuses", src: platform_customer_stop_lists_path(@customer), loading: "lazy" do %>
+            <% end %>
+          </div>           
+          <div>
             <h3 class="text-gray-700 whitespace-nowrap py-3 px-1 font-bold text-sm">Last 6 Months</h2>
             <%= turbo_frame_tag "customer_dashboard_lift_events", src: platform_customer_customer_dashboard_lift_events_path(@customer), loading: "lazy" do %>
             <% end %>

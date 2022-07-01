@@ -42,6 +42,19 @@ class PlatformCustomerRepository < ApplicationRepository
     platform_customer
   end
 
+  def update_container_stop_status(id, is_stoplisted)
+    platform_customer = load(id)
+    platform_customer.platform_order_items.each do |platform_order_item|
+      next unless platform_order_item.platform_container.present?
+
+      container = platform_order_item.platform_container
+      container.is_stoplisted = is_stoplisted
+      container.save
+
+      put_repo.create({guid: container.guid, class_name: "PlatformContainer"})
+    end
+  end
+
   def load(id)
     PlatformCustomer.find_by(id: id,  project: project)
   end
@@ -72,5 +85,11 @@ class PlatformCustomerRepository < ApplicationRepository
       end
     end
     PlatformCustomerDocumentDelivery.import document_deliveries, on_duplicate_key_ignore: true
+  end
+
+  private 
+
+  def put_repo
+    @put_repo ||= PlatformPutRepository.new(user, project)
   end
 end
