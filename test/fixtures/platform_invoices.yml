@@ -1,0 +1,65 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  platform_customer: one
+  invoice_number: MyString
+  customer_invoice_number: MyString
+  platform_invoice_cycle: one
+  platform_company_outlet: one
+  platform_department: one
+  platform_accounting_period: one
+  is_cash: false
+  is_accepted: false
+  is_debit: false
+  is_rebilled: false
+  is_tax_adjustment: false
+  is_request_for_payment: false
+  input_date: 2022-07-06
+  invoice_date: 2022-07-06
+  due_date: 2022-07-06
+  amount: 9.99
+  base_amount: 9.99
+  platform_location: one
+  print_house_number: MyString
+  print_address_1: MyString
+  print_address_2: MyString
+  print_address_3: MyString
+  print_address_4: MyString
+  print_address_5: MyString
+  print_postcode: MyString
+  notes: MyString
+  batch_guid: 
+  guid: 
+
+two:
+  project: two
+  platform_customer: two
+  invoice_number: MyString
+  customer_invoice_number: MyString
+  platform_invoice_cycle: two
+  platform_company_outlet: two
+  platform_department: two
+  platform_accounting_period: two
+  is_cash: false
+  is_accepted: false
+  is_debit: false
+  is_rebilled: false
+  is_tax_adjustment: false
+  is_request_for_payment: false
+  input_date: 2022-07-06
+  invoice_date: 2022-07-06
+  due_date: 2022-07-06
+  amount: 9.99
+  base_amount: 9.99
+  platform_location: two
+  print_house_number: MyString
+  print_address_1: MyString
+  print_address_2: MyString
+  print_address_3: MyString
+  print_address_4: MyString
+  print_address_5: MyString
+  print_postcode: MyString
+  notes: MyString
+  batch_guid: 
+  guid: 

@@ -25,7 +25,7 @@
         <%= form_for :stop_list, url: platform_customer_stop_lists_path(@platform_customer), method: :post do |f| %>
           <%= f.hidden_field :is_stoplisted, value: true %>
           <div class="inline">
-            <%= f.submit "Stop All", class: "rounded-lg py-1 px-2 bg-red-600 text-white inline-block font-medium cursor-pointer" %>
+            <%= f.submit "Stop All", class: "rounded-lg py-1 px-2 bg-red-600 text-white inline-block font-medium cursor-pointer", aria: {label: "Stop All Button"} %>
           </div>
         <% end %>
       <% end %>

@@ -52,6 +52,7 @@ Rails.application.routes.draw do
 
   resources :platform_settings, only: [:index, :new]
   namespace :platform_settings do
+    resources :accounting_periods, only: [:index]
     resources :actions, only: [:index]
     resources :business_types, only: [:index]
     resources :company_outlets, only: [:index]

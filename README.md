@@ -1,24 +1,39 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Using Template
 
-Things you may want to cover:
+Steps to use template:
 
-* Ruby version
+* Use Template button at top of this repo
 
-* System dependencies
+* git clone to local development machine
 
-* Configuration
+* Rename databases/redis etc. from knowe to `your app name`
 
-* Database creation
+* If npm < 7.1 rerun `bin/rails javascript:install:esbuild`
 
-* Database initialization
+* Run `bundle update`
 
-* How to run the test suite
+* Run `rails db:create db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+* Run `rails dev:cache` (for stimulus reflex)
 
-* Deployment instructions
+* Add remote original knowe: 
+  * `git remote add knowe git@github.com:john-hamnavoe/knowe.git`
 
-* ...
+## Merging Changes from Template
+
+Merge changes from template:
+
+* `git fetch knowe`
+
+* `git merge knowe/main --allow-unrelated-histories`
+
+* `rails db:migrate` (to apply new database changes)
+
+First time probably need to do some merges to get the right change to database name etc.
+
+## Running application 
+
+* `foreman start -f procfile.dev`   
+

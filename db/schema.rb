@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_01_133933) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_06_105729) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "platform_accounting_periods", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "description"
+    t.boolean "is_closed"
+    t.date "start_date"
+    t.date "end_date"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_accounting_periods_on_guid_project", unique: true
+    t.index ["project_id"], name: "index_platform_accounting_periods_on_project_id"
+  end
 
   create_table "platform_actions", force: :cascade do |t|
     t.bigint "project_id", null: false
@@ -413,6 +426,49 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_133933) do
     t.datetime "updated_at", null: false
     t.index ["guid", "project_id"], name: "index_platform_invoice_frequency_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_invoice_frequencies_on_project_id"
+  end
+
+  create_table "platform_invoices", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "platform_customer_id"
+    t.string "invoice_number"
+    t.string "customer_invoice_number"
+    t.bigint "platform_invoice_cycle_id"
+    t.bigint "platform_company_outlet_id"
+    t.bigint "platform_department_id"
+    t.bigint "platform_accounting_period_id"
+    t.boolean "is_cash"
+    t.boolean "is_accepted"
+    t.boolean "is_debit"
+    t.boolean "is_rebilled"
+    t.boolean "is_tax_adjustment"
+    t.boolean "is_request_for_payment"
+    t.date "input_date"
+    t.date "invoice_date"
+    t.date "due_date"
+    t.decimal "amount"
+    t.decimal "base_amount"
+    t.bigint "platform_location_id"
+    t.string "print_house_number"
+    t.string "print_address_1"
+    t.string "print_address_2"
+    t.string "print_address_3"
+    t.string "print_address_4"
+    t.string "print_address_5"
+    t.string "print_postcode"
+    t.string "notes"
+    t.uuid "batch_guid"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_invoices_on_guid_project", unique: true
+    t.index ["platform_accounting_period_id"], name: "index_platform_invoices_on_platform_accounting_period_id"
+    t.index ["platform_company_outlet_id"], name: "index_platform_invoices_on_platform_company_outlet_id"
+    t.index ["platform_customer_id"], name: "index_platform_invoices_on_platform_customer_id"
+    t.index ["platform_department_id"], name: "index_platform_invoices_on_platform_department_id"
+    t.index ["platform_invoice_cycle_id"], name: "index_platform_invoices_on_platform_invoice_cycle_id"
+    t.index ["platform_location_id"], name: "index_platform_invoices_on_platform_location_id"
+    t.index ["project_id"], name: "index_platform_invoices_on_project_id"
   end
 
   create_table "platform_item_rentals", force: :cascade do |t|
@@ -870,6 +926,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_133933) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "platform_accounting_periods", "projects"
   add_foreign_key "platform_actions", "projects"
   add_foreign_key "platform_bookmarks", "projects"
   add_foreign_key "platform_business_types", "projects"
@@ -923,6 +980,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_133933) do
   add_foreign_key "platform_external_vehicles", "projects"
   add_foreign_key "platform_invoice_cycles", "projects"
   add_foreign_key "platform_invoice_frequencies", "projects"
+  add_foreign_key "platform_invoices", "platform_accounting_periods"
+  add_foreign_key "platform_invoices", "platform_company_outlets"
+  add_foreign_key "platform_invoices", "platform_customers"
+  add_foreign_key "platform_invoices", "platform_departments"
+  add_foreign_key "platform_invoices", "platform_invoice_cycles"
+  add_foreign_key "platform_invoices", "platform_locations"
+  add_foreign_key "platform_invoices", "projects"
   add_foreign_key "platform_item_rentals", "platform_actions"
   add_foreign_key "platform_item_rentals", "platform_container_types"
   add_foreign_key "platform_item_rentals", "platform_orders"
