@@ -86,30 +86,30 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
   def import_all_customer_sites(bookmark, pages)
     @customers = customer_repo.all
     page = 1
-    response = query_changes("integrator/erp/directory/sites/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
-    customer_site_repo.import(customer_sites_from_response(response.data)) if response.success?
 
-    until response.cursor.nil? || (pages.present? && page >= pages)
-      response = query_changes("integrator/erp/directory/sites/changes", nil, response.cursor)
-      customer_site_repo.import(customer_sites_from_response(response.data))
+    loop do
+      response = query_changes("integrator/erp/directory/sites/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
+      customer_site_repo.import(customer_sites_from_response(response.data)) if response.success?
+      bookmark = bookmark_repo.create_or_update(PlatformBookmark::CUSTOMER_SITE, response.until, response.cursor)
+
+      break if response.cursor.nil? || (pages.present? && page >= pages)
+      
       page += 1
     end
-
-    bookmark_repo.create_or_update(PlatformBookmark::CUSTOMER_SITE, response.until, response.cursor)
   end
 
   def import_all_locations(bookmark, pages)
     page = 1
-    response = query_changes("integrator/erp/directory/locations/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
-    location_repo.import(locations_from_response(response.data)) if response.success?
 
-    until response.cursor.nil? || (pages.present? && page >= pages)
-      response = query_changes("integrator/erp/directory/locations/changes", nil, response.cursor)
-      location_repo.import(locations_from_response(response.data))
+    loop do
+      response = query_changes("integrator/erp/directory/locations/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
+      location_repo.import(locations_from_response(response.data)) if response.success?
+      bookmark = bookmark_repo.create_or_update(PlatformBookmark::LOCATION, response.until, response.cursor)
+      
+      break if response.cursor.nil? || (pages.present? && page >= pages)
+
       page += 1
     end
-
-    bookmark_repo.create_or_update(PlatformBookmark::LOCATION, response.until, response.cursor)
   end
 
   def customer_sites_from_response(response_data, customer_id = nil)

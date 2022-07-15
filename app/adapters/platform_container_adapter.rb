@@ -2,8 +2,8 @@
 
 class PlatformContainerAdapter < ApplicationAdapter
   def fetch_all(pages = nil)
-    # TODO: Implement
-    # No Changes Event available yet
+    load_standing_data
+    import_all_containers(bookmark_repo.find(PlatformBookmark::CONTAINER), pages)
   end
 
   def fetch_by_guid(guid)
@@ -28,17 +28,15 @@ class PlatformContainerAdapter < ApplicationAdapter
 
   def import_all_containers(bookmark, pages)
     page = 1
-    response = query_changes("/integrator/erp/directory/containers/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
-    container_repo.import(containers_from_response(response.data)) if response.success?
+    loop do 
+      response = query_changes("/integrator/erp/directory/containers/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
+      container_repo.import(containers_from_response(response.data)) if response.success?
+      bookmark = bookmark_repo.create_or_update(PlatformBookmark::CONTAINER, response.until, response.cursor) if response.success?
 
-    until response.cursor.nil? || (pages.present? && page >= pages)
-      response = query_changes("/integrator/erp/directory/containers/changes", nil, response.cursor)
-      container_repo.import(containers_from_response(response.data))
-      bookmark_repo.create_or_update(PlatformBookmark::CONTAINER, response.until, response.cursor) if response.success?
+      break if response.cursor.nil? || (pages.present? && page >= pages)
+
       page += 1
-    end
-
-    bookmark_repo.create_or_update(PlatformBookmark::CONTAINER, response.until, response.cursor) if response.success?
+    end    
   end
 
   def containers_from_response(response_data)

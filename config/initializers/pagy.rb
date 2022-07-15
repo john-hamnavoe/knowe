@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Pagy::VARS[:items] = 25
+Pagy::VARS[:items] = 30
 # Pagy::VARS[:size] = [1, 2, 2, 1]
 
 # Pagy initializer file (3.6.0)

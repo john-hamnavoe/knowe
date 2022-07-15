@@ -88,23 +88,22 @@ class PlatformOrderAdapter < ApplicationAdapter
     create_orders(orders, rentals, assignments, items)
   end
 
-  def import_all_orders(bookmark, pages = nil)
+  def import_all_orders(bookmark, fetch_container_details = false, pages = nil)
     page = 1
-    response = query_changes("integrator/erp/transport/orders/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
-    orders, rentals, assignments, items = orders_from_response(response.data)
-    create_orders(orders, rentals, assignments, items) if orders.length.positive?
 
-    until response.cursor.nil? || (pages.present? && page >= pages)
-      response = query_changes("integrator/erp/transport/orders/changes", nil, response.cursor)
+    loop do 
+      response = query_changes("integrator/erp/transport/orders/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
       orders, rentals, assignments, items = orders_from_response(response.data)
-      create_orders(orders, rentals, assignments, items) if orders.length.positive?
+      create_orders(orders, rentals, assignments, items, fetch_container_details) if orders.length.positive?
+      bookmark = bookmark_repo.create_or_update(PlatformBookmark::ORDER, response.until, response.cursor)
+
+      break if response.cursor.nil? || (pages.present? && page >= pages)
+
       page += 1
     end
-
-    bookmark_repo.create_or_update(PlatformBookmark::ORDER, response.until, response.cursor)
   end
 
-  def create_orders(orders, rentals, assignments, items)
+  def create_orders(orders, rentals, assignments, items, fetch_container_details = true)
     order_repo.import(orders)
 
     # after orders saved set the platform_order_id to be new id on detail records
@@ -126,6 +125,10 @@ class PlatformOrderAdapter < ApplicationAdapter
     assignment_repo.import(assignments)
     item_repo.import(items)
 
+    fetch_lifts_and_containers_for_items(items) if fetch_container_details
+  end
+
+  def fetch_lifts_and_containers_for_items(items)
     lift_event_adapter = PlatformLiftEventAdapter.new(user, project)
     items.each do |item|
       lift_event_adapter.fetch_by_order_item(item[:guid])

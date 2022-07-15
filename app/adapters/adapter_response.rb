@@ -24,6 +24,10 @@ class AdapterResponse
     code == 200
   end
 
+  def failure?
+    code != 200
+  end  
+
   def cursor
     data[:extra][:cursor] if data[:extra]
   end

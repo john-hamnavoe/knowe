@@ -40,17 +40,16 @@ class PlatformLiftEventAdapter < ApplicationAdapter
 
   def import_all_lift_events(bookmark, pages)
     page = 1
-    response = query_changes("/integrator/erp/transport/liftEvents/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
-    lift_event_repo.import(lift_events_from_response(response.data)) if response.success?
 
-    until response.cursor.nil? || (pages.present? && page >= pages)
-      response = query_changes("/integrator/erp/transport/liftEvents/changes", nil, response.cursor)
-      lift_event_repo.import(lift_events_from_response(response.data))
-      bookmark_repo.create_or_update(PlatformBookmark::LIFT_EVENT, response.until, response.cursor) if response.success?
+    loop do 
+      response = query_changes("/integrator/erp/transport/liftEvents/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
+      lift_event_repo.import(lift_events_from_response(response.data)) if response.success?
+      bookmark = bookmark_repo.create_or_update(PlatformBookmark::LIFT_EVENT, response.until, response.cursor) if response.success?
+
+      break if response.cursor.nil? || (pages.present? && page >= pages)
+      
       page += 1
     end
-
-    bookmark_repo.create_or_update(PlatformBookmark::LIFT_EVENT, response.until, response.cursor) if response.success?
   end
 
   def lift_events_from_response(response_data, parent_order_item_id = nil)

@@ -75,16 +75,16 @@ class PlatformCustomerAdapter < ApplicationAdapter
 
   def import_all_customers(bookmark, pages)
     page = 1
-    response = query_changes("integrator/erp/accounting/accountCustomers/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
-    customer_repo.import(customers_from_response(response.data)) if response.success?
 
-    until response.cursor.nil? || (pages.present? && page >= pages)
-      response = query_changes("integrator/erp/accounting/accountCustomers/changes", nil, response.cursor)
-      customer_repo.import(customers_from_response(response.data))
+    loop do 
+      response = query_changes("integrator/erp/accounting/accountCustomers/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
+      customer_repo.import(customers_from_response(response.data)) if response.success?
+      bookmark = bookmark_repo.create_or_update(PlatformBookmark::CUSTOMER, response.until, response.cursor)
+
+      break if response.cursor.nil? || (pages.present? && page >= pages)
+
       page += 1
     end
-
-    bookmark_repo.create_or_update(PlatformBookmark::CUSTOMER, response.until, response.cursor)
   end
 
   def customers_from_response(response_data)

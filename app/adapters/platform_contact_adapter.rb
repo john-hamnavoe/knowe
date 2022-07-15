@@ -39,16 +39,16 @@ class PlatformContactAdapter < ApplicationAdapter
 
   def import_all_contacts(bookmark, pages)
     page = 1
-    response = query_changes("integrator/erp/directory/contacts/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
-    contact_repo.import(contacts_from_response(response.data)) if response.success?
 
-    until response.cursor.nil? || (pages.present? && page >= pages)
-      response = query_changes("integrator/erp/directory/contacts/changes", nil, response.cursor)
-      contact_repo.import(contacts_from_response(response.data))
+    loop do 
+      response = query_changes("integrator/erp/directory/contacts/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
+      contact_repo.import(contacts_from_response(response.data)) if response.success?
+      bookmark = bookmark_repo.create_or_update(PlatformBookmark::CONTACT, response.until, response.cursor)
+
+      break if response.cursor.nil? || (pages.present? && page >= pages)
+
       page += 1
     end
-
-    bookmark_repo.create_or_update(PlatformBookmark::CONTACT, response.until, response.cursor)
   end
 
   def contacts_from_response(response_data, parent_customer_id = nil)
@@ -67,14 +67,16 @@ class PlatformContactAdapter < ApplicationAdapter
 
   def contact_from_resource(contact, customer_id)
     contact_type_id = @contact_types.find { |ct| ct.guid == contact[:resource][:ContactTypeListItems][0][:ContactTypeListItem][:Guid] }&.id if contact[:resource][:ContactTypeListItems].length.positive?
+    tel_no = contact[:resource][:ContactMethods][:TelNo] if contact[:resource][:ContactMethods].present?
+    email = contact[:resource][:ContactMethods][:Email] if contact[:resource][:ContactMethods].present?
 
     {
       project_id: project.id,
       guid: contact[:resource][:GUID],
       forename: contact[:resource][:Forename],
       surname: contact[:resource][:Surname],
-      tel_no: contact[:resource][:ContactMethods][:TelNo],
-      email: contact[:resource][:ContactMethods][:Email],
+      tel_no: tel_no,
+      email: email,
       platform_customer_id: customer_id,
       platform_contact_type_id: contact_type_id
     }

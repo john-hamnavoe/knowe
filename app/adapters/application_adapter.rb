@@ -38,6 +38,10 @@ class ApplicationAdapter
 
   def query_changes(resource, since, cursor)
     response = platform_client.query_changes(resource, since, cursor)
+    if response.code == 401 
+      reauthenticate
+      response = platform_client.query_changes(resource, since, cursor)
+    end
     AdapterResponse.new(response)
   end
 end
