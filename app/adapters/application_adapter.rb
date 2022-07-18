@@ -18,6 +18,10 @@ class ApplicationAdapter
 
   def post(path, data)
     response = platform_client.post(path, data)
+    if response.code == 401 
+      reauthenticate
+      response = platform_client.post(path, data)
+    end    
     AdapterResponse.new(response)
   end
 

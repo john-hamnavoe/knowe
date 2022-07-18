@@ -2,7 +2,7 @@
 
 class PlatformLiftEventRepository < ApplicationRepository
   def all(args = {}, order_by = "collection_date", direction = "asc")
-    query = PlatformLiftEvent.where(project: project).where(args)
+    query = PlatformLiftEvent.includes(:platform_vehicle).where(project: project).where(args)
 
     query.order(order_by => direction)
   end
