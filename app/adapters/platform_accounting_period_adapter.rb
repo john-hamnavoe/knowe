@@ -2,12 +2,12 @@
 
 class PlatformAccountingPeriodAdapter < ApplicationAdapter
   def fetch
-    import_currencies
+    import_accounting_periods
   end
 
   private
 
-  def import_currencies
+  def import_accounting_periods
     response = platform_client.query("integrator/erp/lists/accountingPeriods")
 
     if response.success?
