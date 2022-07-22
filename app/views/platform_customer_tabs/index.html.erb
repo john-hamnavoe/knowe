@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "customer_tabs" do %>
 
-  <%= render "platform_customers/tabs" unless @target_frame.include?("edit_") %>
+  <%= render "platform_account_customers/tabs" unless @target_frame.include?("edit_") %>
 
   <%= turbo_frame_tag @target_frame, src: @path do %>
   <% end %>

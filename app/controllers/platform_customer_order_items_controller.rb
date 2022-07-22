@@ -17,7 +17,7 @@ class PlatformCustomerOrderItemsController < ApplicationController
 
   def update
     repo.update(params[:id], platform_order_item_params)
-    redirect_to platform_customer_tabs_path(@platform_customer, params: {tab: "items"})
+    redirect_to platform_account_customer_tabs_path(@platform_customer, params: {tab: "items"})
   end
 
   private

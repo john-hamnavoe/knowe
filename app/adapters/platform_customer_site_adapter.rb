@@ -183,7 +183,7 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
   end
 
   def customer_repo
-    @customer_repo ||= PlatformCustomerRepository.new(user, project)
+    @customer_repo ||= PlatformAccountCustomerRepository.new(user, project)
   end
 
   def customer_site_repo

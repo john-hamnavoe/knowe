@@ -91,7 +91,7 @@ class PlatformContactAdapter < ApplicationAdapter
   end
 
   def customer_repo
-    @customer_repo ||= PlatformCustomerRepository.new(user, project)
+    @customer_repo ||= PlatformAccountCustomerRepository.new(user, project)
   end
 
   def bookmark_repo

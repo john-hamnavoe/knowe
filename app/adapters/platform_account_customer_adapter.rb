@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PlatformCustomerAdapter < ApplicationAdapter
+class PlatformAccountCustomerAdapter < ApplicationAdapter
   def create(platform_customer)
     return unless platform_customer.guid.nil?
 
@@ -108,26 +108,26 @@ class PlatformCustomerAdapter < ApplicationAdapter
     invoice_frequency_id = customer[:resource][:Contract][:InvoiceFrequencyTermListItem].present? ? @invoice_frequencies.find { |c| c.guid == customer[:resource][:Contract][:InvoiceFrequencyTermListItem][:Guid] }&.id : nil
     business_type_id = customer[:resource][:BusinessTypeListItem].present? ? @business_types.find { |c| c.guid == customer[:resource][:BusinessTypeListItem][:Guid] }&.id : nil
     customer_template_id = customer[:resource][:CustomerTemplateListItem].present? ? @customer_templates.find { |c| c.guid == customer[:resource][:CustomerTemplateListItem][:Guid] }&.id : nil
-    platform_customer = PlatformCustomer.new(project_id: project.id,
-                                             guid: customer[:resource][:GUID],
-                                             name: customer[:resource][:Name],
-                                             is_internal: customer[:resource][:IsInternal],
-                                             reference: customer[:resource][:Reference],
-                                             ar_account_code: customer[:resource][:ARAccountCode],
-                                             ap_account_code: customer[:resource][:APAccountCode],
-                                             credit_limit: customer[:resource][:Contract][:CreditLimit],
-                                             platform_company_id: company_id,
-                                             platform_currency_id: currency_id,
-                                             platform_customer_state_id: customer_state_id,
-                                             platform_invoice_cycle_id: invoice_cycle_id,
-                                             platform_department_id: department_id,
-                                             platform_contract_status_id: contract_status_id,
-                                             platform_payment_type_id: payment_type_id,
-                                             platform_payment_term_id: payment_term_id,
-                                             platform_invoice_frequency_id: invoice_frequency_id,
-                                             platform_customer_type_id: customer_type_id,
-                                             platform_business_type_id: business_type_id,
-                                             platform_customer_template_id: customer_template_id)
+    platform_customer = PlatformAccountCustomer.new(project_id: project.id,
+                                                    guid: customer[:resource][:GUID],
+                                                    name: customer[:resource][:Name],
+                                                    is_internal: customer[:resource][:IsInternal],
+                                                    reference: customer[:resource][:Reference],
+                                                    ar_account_code: customer[:resource][:ARAccountCode],
+                                                    ap_account_code: customer[:resource][:APAccountCode],
+                                                    credit_limit: customer[:resource][:Contract][:CreditLimit],
+                                                    platform_company_id: company_id,
+                                                    platform_currency_id: currency_id,
+                                                    platform_customer_state_id: customer_state_id,
+                                                    platform_invoice_cycle_id: invoice_cycle_id,
+                                                    platform_department_id: department_id,
+                                                    platform_contract_status_id: contract_status_id,
+                                                    platform_payment_type_id: payment_type_id,
+                                                    platform_payment_term_id: payment_term_id,
+                                                    platform_invoice_frequency_id: invoice_frequency_id,
+                                                    platform_customer_type_id: customer_type_id,
+                                                    platform_business_type_id: business_type_id,
+                                                    platform_customer_template_id: customer_template_id)
     if customer[:resource][:BankDetails].present?
       direct_debit_run_id = @direct_debit_runs.find { |c| c.guid == customer[:resource][:BankDetails][:DirectDebitRunConfigListItem][:Guid] }&.id
       platform_customer.platform_direct_debit_run_configuration_id = direct_debit_run_id
@@ -154,7 +154,7 @@ class PlatformCustomerAdapter < ApplicationAdapter
   end
 
   def customer_repo
-    @customer_repo ||= PlatformCustomerRepository.new(user, project)
+    @customer_repo ||= PlatformAccountCustomerRepository.new(user, project)
   end
 
   def bookmark_repo

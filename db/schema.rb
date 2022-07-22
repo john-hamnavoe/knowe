@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_06_105729) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_22_075031) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -314,6 +314,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_105729) do
     t.uuid "guid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["guid", "project_id"], name: "index_platform_customers_on_guid_project", unique: true
     t.index ["platform_business_type_id"], name: "index_platform_customers_on_platform_business_type_id"
     t.index ["platform_company_id"], name: "index_platform_customers_on_platform_company_id"

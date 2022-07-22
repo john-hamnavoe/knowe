@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
 
   resources :platform_customer_fetches, only: [:new, :create, :update]
-  resources :platform_customers, only: [:index, :show] do
+  resources :platform_account_customers, only: [:index, :show] do
     resources :tabs, only: [:index], controller: "platform_customer_tabs"
     resources :contacts, only: [:index], controller: "platform_customer_contacts"
     resources :customer_sites, only: [:index], controller: "platform_customer_customer_sites"

@@ -4,7 +4,7 @@ module CustomerConcern
   extend ActiveSupport::Concern
 
   def set_customer
-    @platform_customer_id = params[:platform_customer_id]
+    @platform_customer_id = params[:platform_account_customer_id] || params[:platform_casual_customer_id]
     @platform_customer = customer_repo.load(@platform_customer_id)
   end
 

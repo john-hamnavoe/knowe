@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class PlatformCustomersController < ApplicationController
+class PlatformAccountCustomersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_title
 
   def index
-    @query, page = ransack_query(PlatformCustomer, "name asc")
+    @query, page = ransack_query(PlatformAccountCustomer, "name asc")
 
     @pagy, @platform_customers = pagy(@query.result(distinct: true).includes(:platform_customer_state, :platform_department), page: page)
   end
@@ -19,10 +19,10 @@ class PlatformCustomersController < ApplicationController
 
   def set_title
     @title = "Customers"
-    @title_path = platform_customers_path
+    @title_path = platform_account_customers_path
   end
 
   def repo
-    @repo ||= PlatformCustomerRepository.new(current_user)
+    @repo ||= PlatformAccountCustomerRepository.new(current_user)
   end
 end

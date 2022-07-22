@@ -8,7 +8,7 @@
       </div>
 
 
-      <%= form_for(@platform_order_item, url: platform_customer_order_item_path(@platform_customer, @platform_order_item), data: { turbo_frame: "customer_tabs" }) do |f|  %>
+      <%= form_for(@platform_order_item, url: platform_account_customer_order_item_path(@platform_customer, @platform_order_item), data: { turbo_frame: "customer_tabs" }) do |f|  %>
         <%= f.hidden_field :tag %>
 
         <div data-controller="nested-form">
@@ -38,7 +38,7 @@
         </div>
 
         <%= f.submit "Save", class: "rounded-lg py-2 px-2 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-        <%= link_to "Cancel", platform_customer_tabs_path(@platform_customer, params: {tab: "items"}), data: { turbo_frame: "customer_tabs" }, class: "pl-4" %>        
+        <%= link_to "Cancel", platform_account_customer_tabs_path(@platform_customer, params: {tab: "items"}), data: { turbo_frame: "customer_tabs" }, class: "pl-4" %>        
       <% end %>
     </div>
   </div>

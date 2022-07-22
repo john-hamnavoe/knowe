@@ -22,7 +22,7 @@
         <%= render "shared/table/table_data_cell", data: platform_order_item.guid %>
         <td>
           <% if platform_order_item.tag.present? %>
-            <%= link_to "Add Lifts", platform_customer_tabs_path(@platform_customer, params: { tab: "editor", path: edit_platform_customer_order_item_path(@platform_customer.id, platform_order_item), target_frame: "edit_item" } ), data: { turbo_frame: "customer_tabs" }, class: "text-blue-600" %>  
+            <%= link_to "Add Lifts", platform_account_customer_tabs_path(@platform_customer, params: { tab: "editor", path: edit_platform_account_customer_order_item_path(@platform_customer.id, platform_order_item), target_frame: "edit_item" } ), data: { turbo_frame: "customer_tabs" }, class: "text-blue-600" %>  
           <% end %>
         </td>
       </tr>

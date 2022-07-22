@@ -15,8 +15,14 @@ class PlatformCustomerStopListsController < ApplicationController
   end
 
   def create
-    @customer_repo.update_container_stop_status(params[:platform_customer_id], params[:stop_list][:is_stoplisted])
+    repo.update_container_stop_status(params[:platform_account_customer_id], params[:stop_list][:is_stoplisted])
     PutPlatformUpdatesJob.perform_later(current_user, current_user.current_project)
-    redirect_to platform_customer_stop_lists_path(@platform_customer)
+    redirect_to platform_account_customer_stop_lists_path(@platform_customer)
+  end
+
+  private
+
+  def repo
+    @repo ||= PlatformAccountCustomerRepository.new(current_user)
   end
 end

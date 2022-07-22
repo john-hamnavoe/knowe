@@ -1,0 +1,9 @@
+<%= content_tag :tr, id: dom_id(platform_account_customer) do %>
+  <%= render "shared/table/table_data_cell", data: platform_account_customer.name %>
+  <%= render "shared/table/table_data_cell", data: platform_account_customer.ar_account_code %>    
+  <%= render "shared/table/table_data_cell", data: platform_account_customer.reference %>    
+  <%= render "shared/table/table_data_cell", data: platform_account_customer.platform_customer_state&.description %>    
+  <%= render "shared/table/table_data_cell", data: platform_account_customer.platform_department&.description %>     
+  <%= render "shared/table/table_data_cell", data: platform_account_customer.guid %>    
+  <td class="whitespace-nowrap px-3 py-1 text-sm text-blue-500"><%= link_to 'Show', platform_account_customer_path(platform_account_customer) %></td>    
+<% end %>
