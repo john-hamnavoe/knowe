@@ -1,0 +1,138 @@
+<main class="py-10">
+    <!-- Page header -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
+      <div class="flex items-center space-x-5">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900"><%= @customer.name %></h1>
+          <p class="text-sm font-medium text-gray-500">Details last refreshed on <time datetime="<%= @customer.updated_at %>"><%= @customer.updated_at.strftime("%B %d %Y") %></time></p>
+        </div>
+      </div>
+      <div class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3">
+      
+        <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">Refresh</button>
+      </div>
+    </div>
+
+    <div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-5">
+      <div class="space-y-6 lg:col-start-1 lg:col-span-3">
+        <!-- Description list-->
+        <section aria-labelledby="applicant-information-title">
+          <div class="bg-white shadow sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6">
+              <h2 id="applicant-information-title" class="text-lg leading-6 font-medium text-gray-900">Address</h2>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500"><%= @selected_site.platform_location&.full_address %></p>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+              <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+                <div class="sm:col-span-1">
+                  <dt class="text-sm font-medium text-gray-500">Zone</dt>
+                  <dd class="mt-1 text-sm text-gray-900"><%= @selected_site.platform_location&.platform_zone.description %> </dd>
+                </div>
+                <div class="sm:col-span-1">
+                  <dt class="text-sm font-medium text-gray-500">Email address</dt>
+                  <dd class="mt-1 text-sm text-gray-900"><%= @selected_contact.email %></dd>
+                </div>
+                <div class="sm:col-span-1">
+                  <dt class="text-sm font-medium text-gray-500">Company Outlet</dt>
+                  <dd class="mt-1 text-sm text-gray-900"><%= @selected_site.platform_company_outlet&.description %></dd>
+                </div>
+                <div class="sm:col-span-1">
+                  <dt class="text-sm font-medium text-gray-500">Phone</dt>
+                  <dd class="mt-1 text-sm text-gray-900"><%= @selected_site.platform_location&.tel_no %> </dd>
+                </div>
+                <div class="sm:col-span-2">
+                  <dt class="text-sm font-medium text-gray-500">Preferences</dt>
+                  <dd class="mt-1 text-sm text-gray-900"><%= "Service updates by email" if @customer.receive_service_updates_by_email %></dd>
+                  <dd class="mt-1 text-sm text-gray-900"><%= "Service updates by text" if @customer.receive_service_updates_by_text %></dd>
+                  <dd class="mt-1 text-sm text-gray-900"><%= "Marketing updates by email" if @customer.receive_marketing_updates_by_email %></dd>
+                  <dd class="mt-1 text-sm text-gray-900"><%= "Marketing updates by text" if @customer.receive_marketing_updates_by_text %></dd>
+               
+                </div>
+                <div class="sm:col-span-2">
+                  <dt class="text-sm font-medium text-gray-500">Links</dt>
+                  <dd class="mt-1 text-sm text-gray-900">
+                    <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
+                      <% if @selected_site.platform_location&.latitude.present? %>
+                        <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                          <div class="w-0 flex-1 flex items-center">
+                            <!-- Heroicon name: solid/map -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-2 flex-1 w-0 truncate"> View Location on Open Streetmap (opens new tab) </span>
+                          </div>
+                          <div class="ml-4 flex-shrink-0">
+                            <a href=<%= "http://www.openstreetmap.org/?mlat=#{@selected_site.platform_location&.latitude}&mlon=#{@selected_site.platform_location&.longitude}&zoom=17&layers=M" %> target="top" class="font-medium text-blue-600 hover:text-blue-500"> Open </a>
+                          </div>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comments-->
+      </div>
+
+      <section aria-labelledby="timeline-title" class="lg:col-start-4 lg:col-span-2">
+        <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
+          <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Timeline</h2>
+
+          <!-- Activity Feed -->
+          <div class="mt-6 flow-root">
+            <ul role="list" class="-mb-8">
+              <% @timeline.sort_by { |h| h[:date] }.reverse.each do |entry| %>
+                <li>
+                  <div class="relative pb-8">
+                    <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+                    <div class="relative flex space-x-3">
+                      <div>
+
+                          <!-- Heroicon name: solid/shopping-cart -->
+                          <% case %>
+                          <% when entry[:type] == "Order" %>
+                            <span class="h-8 w-8 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5  text-white" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                              </svg>
+                            </span>                            
+                          <% when entry[:type] == "Job" %>
+                            <span class="h-8 w-8 rounded-full bg-blue-400 flex items-center justify-center ring-8 ring-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                               <path d="M2 6a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 100 4v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2a2 2 0 100-4V6z" />
+                              </svg>
+                            </span>                              
+                          <% when entry[:type] == "Pay" %>
+                            <span class="h-8 w-8 rounded-full bg-green-400 flex items-center justify-center ring-8 ring-white">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
+                              </svg>
+                            </span>                              
+                          <% end %>                          
+                      </div>
+                      <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
+                        <div>
+                          <p class="text-sm text-gray-500"><%= entry[:type] %> <span class="font-medium text-gray-900"><%= entry[:title] %></span> <span class="text-small"><%= entry[:content] %></span></p>
+                        </div>
+                        <div class="text-right text-sm whitespace-nowrap text-gray-500">
+                          <time datetime="<%= entry[:date] %>"><%= entry[:date].strftime("%B %Y")%></time>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+
+            </ul>
+          </div>
+           <div class="mt-8 flex flex-col justify-stretch">
+            <!-- <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Advance to offer</button>-->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>

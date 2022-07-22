@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :platform_casual_customers, only: [:index, :show]
+  
   resources :platform_notifications, only: [:index, :new]
 
   namespace :dashboard do

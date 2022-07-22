@@ -23,6 +23,11 @@ class PlatformOrderAdapter < ApplicationAdapter
     import_orders(account_numbers)
   end
 
+  def fetch_by_customer_guid(customer_guid)
+    load_standing_data
+    import_orders_by_customer_guid(customer_guid)
+  end  
+
   def fetch_all(pages = nil)
     load_standing_data
     import_all_orders(bookmark_repo.find(PlatformBookmark::ORDER), pages)
@@ -68,7 +73,7 @@ class PlatformOrderAdapter < ApplicationAdapter
     assignments = []
     items = []
     ar_account_codes.each do |ar_account_code|
-      customer = customer_repo.load_by_account_code(ar_account_code.strip)
+      customer = account_customer_repo.load_by_account_code(ar_account_code.strip)
       next if customer.nil?
 
       customer_sites = customer.platform_customer_sites
@@ -87,6 +92,31 @@ class PlatformOrderAdapter < ApplicationAdapter
 
     create_orders(orders, rentals, assignments, items)
   end
+
+  def import_orders_by_customer_guid(customer_guid)
+    orders = []
+    rentals = []
+    assignments = []
+    items = []
+    customer = customer_repo.load_by_guid(customer_guid)
+    return if customer.nil?
+
+    customer_sites = customer.platform_customer_sites
+
+    customer_sites&.each do |customer_site|
+      response = query_with_filter("integrator/erp/transport/orders", "filter=RelatedSiteGuid eq '#{customer_site.guid}'")
+      next unless response.success?
+
+      site_orders, site_rentals, site_assignments, site_items = orders_from_response(response.data, customer_site.id)
+      orders += site_orders
+      rentals += site_rentals
+      assignments += site_assignments
+      items += site_items
+    end
+
+
+    create_orders(orders, rentals, assignments, items)
+  end  
 
   def import_all_orders(bookmark, fetch_container_details = false, pages = nil)
     page = 1
@@ -265,7 +295,11 @@ class PlatformOrderAdapter < ApplicationAdapter
   end
 
   def customer_repo
-    @customer_repo ||= PlatformAccountCustomerRepository.new(user, project)
+    @customer_repo ||= PlatformCustomerRepository.new(user, project)
+  end
+
+  def account_customer_repo
+    @account_customer_repo ||= PlatformAccountCustomerRepository.new(user, project)
   end
 
   def customer_site_repo

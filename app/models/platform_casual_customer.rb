@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PlatformAccountCustomer < PlatformCustomer
+class PlatformCasualCustomer < PlatformCustomer
    def as_platform_json
     { "Name": name,
       "Reference": reference,

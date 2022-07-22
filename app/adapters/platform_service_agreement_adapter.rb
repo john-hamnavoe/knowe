@@ -49,7 +49,7 @@ class PlatformServiceAgreementAdapter < ApplicationAdapter
       agreements += next_agreements
       prices += next_prices
     end
-    bookmark_repo.create_or_update(PlatformBookmark::CUSTOMER, response.until, response.cursor)
+    bookmark_repo.create_or_update(PlatformBookmark::SERVICE_AGREEMENT, response.until, response.cursor)
 
     service_agreement_repo.import(agreements)
 

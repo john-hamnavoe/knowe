@@ -52,7 +52,7 @@ class PlatformAccountCustomerAdapter < ApplicationAdapter
 
   def fetch_all(pages = nil)
     load_standing_data
-    import_all_customers(bookmark_repo.find(PlatformBookmark::CUSTOMER), pages)
+    import_all_customers(bookmark_repo.find(PlatformBookmark::CUSTOMER_ACCOUNT), pages)
   end
 
   private
@@ -79,7 +79,7 @@ class PlatformAccountCustomerAdapter < ApplicationAdapter
     loop do 
       response = query_changes("integrator/erp/accounting/accountCustomers/changes", bookmark&.until_bookmark, bookmark&.cursor_bookmark)
       customer_repo.import(customers_from_response(response.data)) if response.success?
-      bookmark = bookmark_repo.create_or_update(PlatformBookmark::CUSTOMER, response.until, response.cursor)
+      bookmark = bookmark_repo.create_or_update(PlatformBookmark::CUSTOMER_ACCOUNT, response.until, response.cursor)
 
       break if response.cursor.nil? || (pages.present? && page >= pages)
 

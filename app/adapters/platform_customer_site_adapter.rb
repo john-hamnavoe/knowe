@@ -33,6 +33,11 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
     import_customer_sites(account_numbers)
   end
 
+  def fetch_by_customer_guid(customer_guid)
+    load_standing_data
+    import_customer_sites_by_customer_guid(customer_guid)
+  end  
+
   def fetch_all(pages = nil)
     load_standing_data
     import_all_customer_sites(bookmark_repo.find(PlatformBookmark::CUSTOMER_SITE), pages)
@@ -70,7 +75,7 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
   def import_customer_sites(ar_account_codes)
     records = []
     ar_account_codes.each do |ar_account_code|
-      customer = customer_repo.load_by_account_code(ar_account_code.strip)
+      customer = acccount_customer_repo.load_by_account_code(ar_account_code.strip)
       next if customer.nil?
 
       response = query_with_filter("integrator/erp/directory/sites", "filter=RelatedCustomerGuid eq '#{customer.guid}'")
@@ -82,6 +87,20 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
       import_location(record[:location_guid])
     end
   end
+
+  def import_customer_sites_by_customer_guid(customer_guid)
+    customer = customer_repo.load_by_guid(customer_guid)
+    return if customer.nil?
+
+    response = query_with_filter("integrator/erp/directory/sites", "filter=RelatedCustomerGuid eq '#{customer.guid}'")
+    return unless response.success?
+
+    records = customer_sites_from_response(response.data, customer.id)
+    customer_site_repo.import(records)
+    records.each do |record|
+      import_location(record[:location_guid])
+    end
+  end  
 
   def import_all_customer_sites(bookmark, pages)
     @customers = customer_repo.all
@@ -183,8 +202,12 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
   end
 
   def customer_repo
-    @customer_repo ||= PlatformAccountCustomerRepository.new(user, project)
+    @customer_repo ||= PlatformCustomerRepository.new(user, project)
   end
+
+  def acccount_customer_repo
+    @acccount_customer_repo ||= PlatformAccountCustomerRepository.new(user, project)
+  end  
 
   def customer_site_repo
     @customer_site_repo ||= PlatformCustomerSiteRepository.new(user, project)

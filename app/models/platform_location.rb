@@ -2,6 +2,14 @@ class PlatformLocation < ApplicationRecord
   belongs_to :project
   belongs_to :platform_zone
 
+  def full_address
+    parts = [house_number, address_1, address_2, address_3, address_4, address_5, post_code]
+  
+    parts.reject!(&:blank?) 
+  
+    parts.join(", ")
+  end  
+
   def as_platform_json
     { "Description": description,
       "UniqueReference": unqiue_reference,

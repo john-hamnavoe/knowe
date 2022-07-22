@@ -23,12 +23,17 @@ class PlatformContactAdapter < ApplicationAdapter
     import_contacts(account_numbers)
   end
 
+  def fetch_by_customer_guid(customer_guid)
+    load_standing_data
+    import_contacts_by_customer_guid(customer_guid)
+  end
+
   private
 
   def import_contacts(ar_account_codes)
     records = []
     ar_account_codes.each do |ar_account_code|
-      customer = customer_repo.load_by_account_code(ar_account_code.strip)
+      customer = account_customer_repo.load_by_account_code(ar_account_code.strip)
       next if customer.nil?
 
       response = query_with_filter("integrator/erp/directory/contacts", "filter=RelatedCustomerGuid eq '#{customer.guid}'")
@@ -36,6 +41,16 @@ class PlatformContactAdapter < ApplicationAdapter
     end
     contact_repo.import(records) if records
   end
+
+  def import_contacts_by_customer_guid(customer_guid)
+    records = []
+    customer = customer_repo.load_by_guid(customer_guid)
+    return if customer.nil?
+
+    response = query_with_filter("integrator/erp/directory/contacts", "filter=RelatedCustomerGuid eq '#{customer.guid}'")
+
+    contact_repo.import(contacts_from_response(response.data, customer.id)) if response.success?
+  end  
 
   def import_all_contacts(bookmark, pages)
     page = 1
@@ -91,7 +106,11 @@ class PlatformContactAdapter < ApplicationAdapter
   end
 
   def customer_repo
-    @customer_repo ||= PlatformAccountCustomerRepository.new(user, project)
+    @customer_repo ||= PlatformCustomerRepository.new(user, project)
+  end
+
+  def account_customer_repo
+    @account_customer_repo ||= PlatformAccountCustomerRepository.new(user, project)
   end
 
   def bookmark_repo

@@ -1,0 +1,6 @@
+<%= content_tag :tr, id: dom_id(platform_casual_customer) do %>
+  <%= render "shared/table/table_data_cell", data: platform_casual_customer.name %>  
+  <%= render "shared/table/table_data_cell", data: platform_casual_customer.reference %>    
+  <%= render "shared/table/table_data_cell", data: platform_casual_customer.guid %>    
+  <td class="whitespace-nowrap px-3 py-1 text-sm text-blue-500"><%= link_to 'Show', platform_casual_customer_path(platform_casual_customer) %></td>    
+<% end %>
