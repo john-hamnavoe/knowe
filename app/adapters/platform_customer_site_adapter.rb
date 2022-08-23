@@ -175,7 +175,7 @@ class PlatformCustomerSiteAdapter < ApplicationAdapter
   end
 
   def location_from_resource(location)
-    zone_id = location[:resource][:Geo][:ZoneListItem].present? ? @zones.find { |c| c.guid == location[:resource][:Geo][:ZoneListItem][:Guid] }&.id : nil
+    zone_id = location[:resource][:Geo].present? && location[:resource][:Geo][:ZoneListItem].present? ? @zones.find { |c| c.guid == location[:resource][:Geo][:ZoneListItem][:Guid] }&.id : nil
     latitude = location[:resource][:Geo][:Latitude] if location[:resource][:Geo].present?
     longitude = location[:resource][:Geo][:Longitude] if location[:resource][:Geo].present?
     tel_no = location[:resource][:Address][:ContactMethods][:TelNo] if location[:resource][:Address][:ContactMethods].present?
