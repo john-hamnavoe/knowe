@@ -1,6 +1,6 @@
 class PlatformLocation < ApplicationRecord
   belongs_to :project
-  belongs_to :platform_zone
+  belongs_to :platform_zone, optional: true
 
   def full_address
     parts = [house_number, address_1, address_2, address_3, address_4, address_5, post_code]
