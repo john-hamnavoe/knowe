@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_22_075031) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_100345) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -529,7 +529,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_075031) do
     t.bigint "project_id", null: false
     t.string "description"
     t.string "legal_name"
-    t.string "unqiue_reference"
+    t.string "unique_reference"
     t.string "house_number"
     t.string "address_1"
     t.string "address_2"
@@ -546,6 +546,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_075031) do
     t.uuid "guid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address_6"
+    t.string "address_7"
+    t.string "address_8"
+    t.string "address_9"
     t.index ["guid", "project_id"], name: "index_platform_locations_on_guid_project", unique: true
     t.index ["platform_zone_id"], name: "index_platform_locations_on_platform_zone_id"
     t.index ["project_id"], name: "index_platform_locations_on_project_id"

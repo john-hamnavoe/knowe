@@ -283,10 +283,15 @@ class PlatformOrderAdapter < ApplicationAdapter
     @route_templates = PlatformRouteTemplateRepository.new(user, project).all
     @service_agreements = PlatformServiceAgreementRepository.new(user, project).all
     @priorities = PlatformPriorityRepository.new(user, project).all
+    @container_statuses = container_status_repo.all
   end
 
   def find_or_create_container_status_id(container_status)
+    container_status_id = @container_statuses.find { |c| c.guid == container_status[:Guid] }&.id
+    return container_status_id if container_status_id.present?
+
     container_status = container_status_repo.find_or_create(container_status[:Guid], container_status[:Description])
+    @container_statuses = container_status_repo.all
     container_status.id
   end
 

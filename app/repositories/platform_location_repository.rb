@@ -15,7 +15,7 @@ class PlatformLocationRepository < ApplicationRepository
   end
 
   def import(records)
-    PlatformLocation.import records, on_duplicate_key_update: { conflict_target: [:guid, :project_id], columns: [:description, :legal_name, :unqiue_reference, :house_number, :address_1,
+    PlatformLocation.import records, on_duplicate_key_update: { conflict_target: [:guid, :project_id], columns: [:description, :legal_name, :unique_reference, :house_number, :address_1,
                                                                                                                  :address_2, :address_3, :address_4, :address_5, :post_code, :tel_no,
                                                                                                                  :platform_zone_id, :latitude, :longitude] }, returning: :guid
 

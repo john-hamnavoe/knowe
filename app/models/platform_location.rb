@@ -12,7 +12,8 @@ class PlatformLocation < ApplicationRecord
 
   def as_platform_json
     { "Description": description,
-      "UniqueReference": unqiue_reference,
+      "UniqueReference": unique_reference,
+      "LegalName": legal_name,
       "Address": {
         "HouseNumber": house_number,
         "Address1": address_1,
@@ -20,6 +21,10 @@ class PlatformLocation < ApplicationRecord
         "Address3": address_3,
         "Address4": address_4,
         "Address5": address_5,
+        "Address6": address_6,
+        "Address7": address_7,
+        "Address8": address_8,
+        "Address9": address_9,                
         "Postcode": post_code,
         "ContactMethods": {
           "TelNo": tel_no
@@ -29,7 +34,7 @@ class PlatformLocation < ApplicationRecord
         "ZoneListItem": {
           "Guid": platform_zone.guid
         },
-        "ParcelBoundaryListItem": nil,
+        # "ParcelBoundaryListItem": nil,
         "Location": {
           "Lat": latitude.to_f,
           "Long": longitude.to_f
