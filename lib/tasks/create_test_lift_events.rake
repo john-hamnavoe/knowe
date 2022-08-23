@@ -11,9 +11,9 @@
 
 task :create_test_lift_events => :environment do
   project_id = 1
-  invoice_cycle_id = 7
-  month = 4
-  add_months = 2
+  invoice_cycle_id = 6
+  month = 3
+  add_months = 5
   vehicle_id = 67
 
   project = Project.find(project_id)
@@ -46,3 +46,5 @@ task :create_test_lift_events => :environment do
   post_repo = PlatformPostRepository.new(project.user, project)
   post_repo.update_row_count("PlatformLiftEvent")  
 end
+
+
