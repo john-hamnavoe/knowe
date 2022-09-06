@@ -2,19 +2,21 @@
 
 class PlatformCustomerSiteAdapter < ApplicationAdapter
   def create(platform_customer_site)
-    if platform_customer_site.location_guid.nil?
-      response = post("integrator/erp/directory/locations", platform_customer_site.as_platform_location_json)
+    if platform_customer_site.platform_location.guid.nil?
+      response = post("integrator/erp/directory/locations", platform_customer_site.platform_location.as_platform_json)
       if response.success?
         platform_customer_site.update(location_guid: response.data[:resource], last_response_body: response.body, last_response_code: response.code)
+        platform_customer_site.platform_location.update(guid: response.data[:resource], last_response_body: response.body, last_response_code: response.code)
       else
         platform_customer_site.update(last_response_body: response.body, last_response_code: response.code)
+        platform_customer_site.platform_location.update(last_response_body: response.body, last_response_code: response.code)        
       end
       return response if platform_customer_site.location_guid.nil?
     end
 
     return unless platform_customer_site.guid.nil?
 
-    response = post("integrator/erp/directory/sites", platform_customer_site.as_platform_site_json)
+    response = post("integrator/erp/directory/sites", platform_customer_site.as_platform_json)
     if response.success?
       platform_customer_site.update(guid: response.data[:resource], last_response_body: response.body, last_response_code: response.code)
     else

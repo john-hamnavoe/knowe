@@ -32,4 +32,5 @@ class PlatformJobRepository < ApplicationRepository
   def load_by_ticket_no(ticket_no)
     PlatformJob.find_by(order_number: ticket_no,  project: project)
   end
+
 end

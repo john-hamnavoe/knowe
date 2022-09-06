@@ -16,7 +16,7 @@ class PlatformOrder < ApplicationRecord
   has_many :platform_lift_events, through: :platform_order_items
   # has_many :platform_jobs, dependent: :restrict_with_error
 
-  # accepts_nested_attributes_for :platform_jobs
+  accepts_nested_attributes_for :platform_order_items
 
   def as_platform_json
     { "RelatedSiteGuid": platform_customer_site.guid,
@@ -125,16 +125,19 @@ class PlatformOrder < ApplicationRecord
 
   def platform_containers_as_json
     containers = []
-    containers << {
-      "Guid": nil,
-      "RelatedContainerGuid": nil,
-      "ContainerTypeListItem": {
-        "Guid": platform_container_type.guid
-      },
-      "ContainerStateListItem": {
-        "Guid": "ba008b83-df39-e911-85b3-00155d675d9a"
+
+    platform_order_items.each do |order_item|
+      containers << {
+        "Guid": order_item.guid,
+        "RelatedContainerGuid": order_item&.platform_container&.guid,
+        "ContainerTypeListItem": {
+          "Guid": order_item.platform_container_type.guid
+        },
+        "ContainerStateListItem": {
+          "Guid": order_item.platform_container_status.guid
+        }
       }
-    }
+    end
     containers
   end
 end

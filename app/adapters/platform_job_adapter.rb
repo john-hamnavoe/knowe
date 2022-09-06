@@ -13,55 +13,40 @@ class PlatformJobAdapter < ApplicationAdapter
     response
   end
 
-  def update
+  def complete(platform_job)
     body = {
       "IsCompleted": true,
-      "CompletedDate": "2021-12-10",
-      "GUID": "38cbc8fa-beb3-40d2-a8f9-adfa010271d1"
-    }.to_json
-    response = put("integrator/erp/transport/jobs", "38cbc8fa-beb3-40d2-a8f9-adfa010271d1", body)
+      "IsConfirmed": true,
+      "IsFinanciallyConfirmed": true,
+      "CompletedDate": Time.zone.today,
+      "GUID": platform_job.guid
+    }
+
+    body = body.merge({ "PriceOverrides": [
+      {
+        "RelatedPriceGuid": platform_job.related_price_guid,
+        "Guid": platform_job.price_override_guid,
+        "OverrideRate": platform_job.override_rate.to_f,
+        "IsSelected": true
+      }
+    ]}) if platform_job.price_override_guid.present? && platform_job.override_rate.present?
+    
+    response = put("integrator/erp/transport/jobs", platform_job.guid, body.to_json)
+    if response.success?
+      platform_job.update(is_completed: true, is_confirmed: true, is_financially_confirmed: true, last_response_body: response.body, last_response_code: response.code)
+    else 
+      platform_job.update(last_response_body: response.body, last_response_code: response.code)
+    end      
     response
   end
 
-  def update_location
-    body = {
-      "Description": "Maple Leaf - Madison - Ivy St",
-      "Address": {
-        "HouseNumber": "3398",
-        "Address1": "Ivy Street",
-        "Address2": "Madison",
-        "Address3": "Dane County",
-        "Address4": "Wisconsin",
-        "Address5": "United States of America",
-        "Postcode": "53714",
-        "ContactMethods": {
-          "TelNo": "07866383201",
-          "FaxNo": nil
-        },
-        "PostTownListItem": nil,
-        "RegionCodeListItem": nil
-      },
-      "TimeZone": nil,
-      "LegalName": nil,
-      "Directions": nil,
-      "Geo": {
-        "ZoneListItem": {
-          "Description": "Kirkwall Zone",
-          "Guid": "367139cc-beb3-4474-a419-adc500ed59a6"
-        },
-        "ParcelBoundaryListItem": nil,
-        "Location": {
-          "Lat": 55.85050,
-          "Long": -4.44445
-        },
-        "Latitude": 55.85050,
-        "Longitude": -4.44445
-      },
-      "UniqueReference": nil,
-      "Acreage": nil,
-      "GUID": "f7a376d2-c130-ec11-ae72-a085fcbc6ce0"
-    }.to_json
-    response = put("integrator/erp/directory/locations", "f7a376d2-c130-ec11-ae72-a085fcbc6ce0", body)
+  def fetch_price_override(platform_job)
+    return unless platform_job.guid.present?
+
+    response = query("integrator/erp/transport/jobs/#{platform_job.guid}")
+    if response.success?
+      platform_job.update(price_override_guid: response.data[:resource][:PriceOverrides][0][:Guid])
+    end
     response
   end
 end

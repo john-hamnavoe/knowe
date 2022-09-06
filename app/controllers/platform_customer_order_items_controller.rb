@@ -7,6 +7,10 @@ class PlatformCustomerOrderItemsController < ApplicationController
 
   def index
     @platform_order_items = @platform_customer.platform_order_items.order(:id)
+    respond_to do |format|
+      format.html
+      format.dat { send_data to_tab_file, filename: "routeman.dat" }
+    end    
   end
 
   def edit
@@ -21,6 +25,24 @@ class PlatformCustomerOrderItemsController < ApplicationController
   end
 
   private
+
+  def to_tab_file
+    attributes = %w{serial_no tag latitude longitude}
+    CSV.generate(headers: false, col_sep: "\t") do |tsv|
+      @platform_order_items.each do |item|
+        next if item.platform_container.nil?
+
+        tsv << [item.platform_container.serial_no, 
+                item.platform_container.tag, 
+                item.platform_container.platform_container_type&.short_name, 
+                "nb",
+                item.platform_container.updated_at.strftime("%Y%m%d"),
+                item.platform_container.updated_at.strftime("%H%M%S"),
+                item.platform_container.latitude.to_f, 
+                item.platform_container.longitude.to_f]
+      end
+    end 
+  end
 
   def platform_order_item_params
     params.require(:platform_order_item).permit(:tag, platform_lift_events_attributes: [:id, :net_weight, :vehicle_code, :collection_date, :latitude, :longitude, :_destroy])

@@ -1,4 +1,9 @@
+
+
 <%= turbo_frame_tag "items" do %>
+  <div class="my-2 ml-3">
+    <%= link_to "Download routeman import file", platform_account_customer_order_items_path(@platform_customer, format: :dat), class: "text-blue-600" %> 
+  </div>
   <table class="min-w-full divide-y divide-gray-300">
     <thead>
       <tr>

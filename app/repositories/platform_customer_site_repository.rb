@@ -7,6 +7,15 @@ class PlatformCustomerSiteRepository < ApplicationRepository
     query.order(order_by => direction)
   end
 
+  def create(params)
+    platform_customer_site = PlatformCustomerSite.new(params)
+
+    platform_customer_site.project = project
+    platform_customer_site.platform_location.project = project if  platform_customer_site.platform_location.present?
+    platform_customer_site.save
+    platform_customer_site
+  end  
+
   def load(id)
     PlatformCustomerSite.find_by(id: id,  project: project)
   end

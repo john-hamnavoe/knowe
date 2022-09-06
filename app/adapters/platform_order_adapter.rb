@@ -172,10 +172,8 @@ class PlatformOrderAdapter < ApplicationAdapter
 
   def orders_from_response(response_data, parent_customer_site_id = nil)
     customer_sites = customer_site_repo.all({ guid: response_data[:resource].map { |r| r[:resource][:RelatedSiteGuid] } })
-    records = []
-    rentals = []
-    assignments = []
-    items = []
+    records, rentals, assignments, items = [], [], [], []
+
     response_data[:resource].each do |order|
       customer_site_id = parent_customer_site_id || customer_sites.find { |cs| cs.guid == order[:resource][:RelatedSiteGuid] }&.id
       next if customer_site_id.nil?
@@ -210,6 +208,7 @@ class PlatformOrderAdapter < ApplicationAdapter
                        notes: order[:resource][:Notes],
                        driver_notes: order[:resource][:DriverNotes],
                        related_order_combination_grouping_guid: order[:resource][:RelatedOrderCombinationGroupingGuid],
+                       related_service_agreement_guid: order[:resource][:RelatedServiceAgreementGuid],
                        platform_customer_site_id: customer_site_id,
                        platform_company_outlet_id: company_outlet_id,
                        platform_service_id: service_id,

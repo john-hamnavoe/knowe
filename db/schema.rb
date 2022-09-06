@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_100345) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_06_074235) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -492,6 +492,54 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_100345) do
     t.index ["project_id"], name: "index_platform_item_rentals_on_project_id"
   end
 
+  create_table "platform_jobs", force: :cascade do |t|
+    t.boolean "delete_route_assignments_on_completion", default: false
+    t.boolean "in_progress", default: false
+    t.boolean "is_adhoc", default: false
+    t.boolean "is_completed", default: false
+    t.boolean "is_confirmed", default: false
+    t.boolean "is_external_transport", default: false
+    t.boolean "is_financially_confirmed", default: false
+    t.boolean "is_hazardous_paperwork_complete", default: false
+    t.boolean "is_scheduled_transfer", default: false
+    t.boolean "is_warranty", default: false
+    t.uuid "related_site_order_guid"
+    t.bigint "platform_action_id", null: false
+    t.bigint "platform_company_outlet_id", null: false
+    t.bigint "platform_order_id"
+    t.bigint "platform_container_type_id"
+    t.bigint "platform_material_id"
+    t.bigint "platform_vat_id"
+    t.bigint "platform_order_item_id"
+    t.string "customer_order_no"
+    t.date "date_required"
+    t.string "ticket_no"
+    t.string "hazardous_load_reference"
+    t.string "manual_ticket_no"
+    t.string "notes"
+    t.string "po_number"
+    t.decimal "quantity", precision: 18, scale: 4
+    t.uuid "related_location_destination_guid"
+    t.uuid "price_override_guid"
+    t.uuid "related_price_guid"
+    t.decimal "override_rate", precision: 18, scale: 4
+    t.bigint "project_id", null: false
+    t.uuid "guid"
+    t.text "last_response_body"
+    t.integer "last_response_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_jobs_on_guid_project", unique: true
+    t.index ["platform_action_id"], name: "index_platform_jobs_on_platform_action_id"
+    t.index ["platform_company_outlet_id"], name: "index_platform_jobs_on_platform_company_outlet_id"
+    t.index ["platform_container_type_id"], name: "index_platform_jobs_on_platform_container_type_id"
+    t.index ["platform_material_id"], name: "index_platform_jobs_on_platform_material_id"
+    t.index ["platform_order_id"], name: "index_platform_jobs_on_platform_order_id"
+    t.index ["platform_order_item_id"], name: "index_platform_jobs_on_platform_order_item_id"
+    t.index ["platform_vat_id"], name: "index_platform_jobs_on_platform_vat_id"
+    t.index ["project_id"], name: "index_platform_jobs_on_project_id"
+  end
+
   create_table "platform_lift_events", force: :cascade do |t|
     t.bigint "project_id", null: false
     t.bigint "platform_order_item_id"
@@ -627,6 +675,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_100345) do
     t.uuid "guid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "related_service_agreement_guid"
     t.index ["guid", "project_id"], name: "index_platform_orders_on_guid_project", unique: true
     t.index ["platform_company_outlet_id"], name: "index_platform_orders_on_platform_company_outlet_id"
     t.index ["platform_container_type_id"], name: "index_platform_orders_on_platform_container_type_id"
@@ -997,6 +1046,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_100345) do
   add_foreign_key "platform_item_rentals", "platform_orders"
   add_foreign_key "platform_item_rentals", "platform_prices"
   add_foreign_key "platform_item_rentals", "projects"
+  add_foreign_key "platform_jobs", "platform_actions"
+  add_foreign_key "platform_jobs", "platform_company_outlets"
+  add_foreign_key "platform_jobs", "platform_container_types"
+  add_foreign_key "platform_jobs", "platform_materials"
+  add_foreign_key "platform_jobs", "platform_order_items"
+  add_foreign_key "platform_jobs", "platform_orders"
+  add_foreign_key "platform_jobs", "platform_vats"
+  add_foreign_key "platform_jobs", "projects"
   add_foreign_key "platform_lift_events", "platform_order_items"
   add_foreign_key "platform_lift_events", "platform_vehicles"
   add_foreign_key "platform_lift_events", "projects"

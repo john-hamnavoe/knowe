@@ -36,11 +36,11 @@ class PlatformLocation < ApplicationRecord
         },
         # "ParcelBoundaryListItem": nil,
         "Location": {
-          "Lat": latitude.to_f,
-          "Long": longitude.to_f
+          "Lat": latitude&.to_f,
+          "Long": longitude&.to_f
         },
-        "Latitude": latitude.to_f,
-        "Longitude": longitude.to_f
+        "Latitude": latitude&.to_f,
+        "Longitude": longitude&.to_f
       } }.to_json
   end  
 end
