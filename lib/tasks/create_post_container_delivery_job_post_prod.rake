@@ -4,34 +4,35 @@
 # Create a new order for each material 
 # Create a new delivery job for each order item
 
-task :create_post_container_delivery_job => :environment do
-  project = Project.find(1)
+task :create_post_container_delivery_job_post_prod => :environment do
+  project = Project.find(2)
   user = User.find(1)
 
   # Create a new site so driver knows where to deliver
-  site_name = "Oscar Torres"
-  site_address = "14 Main Street"
-  site_town = "Galway"
+  site_name = "Jack Carlin"
+  site_address = "5 Clonard Road"
+  site_area = "Crumlin"
+  site_town = "Dublin"
   site_country = "Ireland"
-  site_postcode = "EC1Y 1AA"
+  site_postcode = "D12 XH73"
   site_tel_no = "0123456789"
 
 
   # Constants Required to the Account we created
-  platform_customer_id = 80425
-  platform_company_outlet_id = 1
-  platform_zone_id= 11
-  platform_customer_site_state_id = 1
-  platform_service_id = 21
-  platform_general_waste_material_id = 3
-  platform_organic_material_id = 5
-  platform_mixed_recy_material_id = 4
-  platform_container_type_id = 3
-  platform_priority_id = 1
-  platform_service_agreement_id = 429
-  platform_container_status_id = 1
-  platform_action_id = 21
-  platform_vat_id = 1
+  platform_customer_id = 80433
+  platform_company_outlet_id = 8
+  platform_zone_id = 38
+  platform_customer_site_state_id = 9
+  platform_service_id = 75
+  platform_general_waste_material_id = 81
+  platform_organic_material_id = 83
+  platform_mixed_recy_material_id = 82
+  platform_container_type_id = 147
+  platform_priority_id = 3
+  platform_service_agreement_id = 650
+  platform_container_status_id = 2
+  platform_action_id = 185
+  platform_vat_id = 7
 
   site = PlatformCustomerSiteRepository.new(user, project).create(
     {platform_customer_id: platform_customer_id,
@@ -42,6 +43,7 @@ task :create_post_container_delivery_job => :environment do
      platform_location_attributes: {
       description: site_name,
       address_1: site_address,
+      address_2: site_area,
       address_4: site_town,
       address_5: site_country,
       post_code: site_postcode,

@@ -6,7 +6,8 @@ class Users::CurrentProjectsController < ApplicationController
   def update
     project = repo.load(params[:id])
     current_user.update current_project: project if project
-    redirect_to dashboards_path, status: :see_other # 303
+    redirect_to root_path
+    # redirect to differnt page in here causes env["warden"].user to be wrong value in action cable connection. Need to investigate why.
   end
 
   protected

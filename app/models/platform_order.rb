@@ -129,7 +129,7 @@ class PlatformOrder < ApplicationRecord
     platform_order_items.each do |order_item|
       containers << {
         "Guid": order_item.guid,
-        "RelatedContainerGuid": order_item&.platform_container&.guid,
+        "RelatedContainerGuid": order_item&.platform_container&.guid || order_item.related_container_guid,
         "ContainerTypeListItem": {
           "Guid": order_item.platform_container_type.guid
         },

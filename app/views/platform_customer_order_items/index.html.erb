@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <%= render "shared/table/static_table_header", title: "Order Number" %>
+        <%= render "shared/table/static_table_header", title: "Site Name" %>        
         <%= render "shared/table/static_table_header", title: "Container Type" %>               
         <%= render "shared/table/static_table_header", title: "Material" %>    
         <%= render "shared/table/static_table_header", title: "Container Status" %>            
@@ -19,11 +20,12 @@
     <tbody class="divide-y divide-gray-200">
      <% @platform_order_items.each do |platform_order_item| %>
       <tr>
-        <%= render "shared/table/table_data_cell", data: platform_order_item.platform_order&.order_number %> 
+        <%= render "shared/table/table_data_cell", data: platform_order_item.platform_order.order_number %>
+        <%= render "shared/table/table_data_cell", data: platform_order_item.platform_order.platform_customer_site.name %> 
         <%= render "shared/table/table_data_cell", data: platform_order_item.platform_container_type&.description %>            
         <%= render "shared/table/table_data_cell", data: platform_order_item.platform_order.platform_material&.description %>
         <%= render "shared/table/table_data_cell", data: platform_order_item.platform_container_status&.description %>                 
-        <%= render "shared/table/table_data_cell", data: platform_order_item.tag %>
+        <%= render "shared/table/table_data_cell", data: platform_order_item.tag || platform_order_item.platform_container&.tag %>
         <%= render "shared/table/table_data_cell", data: platform_order_item.guid %>
         <td>
           <% if platform_order_item.tag.present? %>

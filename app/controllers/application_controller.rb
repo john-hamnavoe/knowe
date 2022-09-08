@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def ransack_query(model, default_sort = "")
+    #binding.remote_pry
     set_filter
     saved_query = Filter.find(session[session_symbol("filter")]) if session[session_symbol("filter")]
     params[:query] = JSON.load(saved_query&.query) || {}  if params[:query].nil?

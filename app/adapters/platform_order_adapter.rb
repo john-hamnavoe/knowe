@@ -61,10 +61,7 @@ class PlatformOrderAdapter < ApplicationAdapter
     assignment_repo.import(assignments)
     item_repo.import(items)
 
-    lift_event_adaptor = PlatformLiftEventAdapter.new(user, project)
-    items.each do |item|
-      lift_event_adaptor.fetch_by_order_item(item[:guid])
-    end
+    fetch_lifts_and_containers_for_items(items)
   end
 
   def import_orders(ar_account_codes)

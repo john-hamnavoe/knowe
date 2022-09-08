@@ -16,7 +16,8 @@ class PlatformCustomerSite < ApplicationRecord
 
 
   def as_platform_json
-    { "Name": name,
+    site = { 
+      "Name": name,
       "Reference": reference,
       "RelatedCustomerGuid": platform_customer.guid,
       "RelatedLocationInvoiceGuid": location_guid,
@@ -31,19 +32,21 @@ class PlatformCustomerSite < ApplicationRecord
         "Guid": platform_zone.guid
       },
       "SiteTypeListItem": {},
-      "SICCodeListItem": {},
       "SalesTerritoryListItem": {},    
       "RebatePaymentTypeListItem": {},
       "RebatePaymentTermListItem": {},
       "ReminderLetterPolicyListItem": {},
       "PaymentHandlingCodeListItem": {},
       "ContactMethods": {},
-      "VisitStatusListItem": {},
       "DocumentDeliveryMethods": [],
       "Areas": [],
       "AccessTimes": [],
       "RelatedTradingNames": [],
-      "RelatedHealthAndSafetyBlobs": [] }.to_json
+      "RelatedHealthAndSafetyBlobs": [] }
+      
+      site = site.merge({ "SICCodeListItem": {}, "VisitStatusListItem": {} }) if project.version.to_f >= 8.9
+      
+      site.to_json
   end
 end
 

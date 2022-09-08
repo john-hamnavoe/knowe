@@ -7,6 +7,19 @@ class PlatformContainerRepository < ApplicationRepository
     query.order(order_by => direction)
   end
 
+  def create(params)
+    platform_container = PlatformContainer.new(params)
+    platform_container.project = project
+    platform_container.save
+    platform_container
+  end
+
+  def update(id, params)
+    platform_container = PlatformContainer.find_by(id: id,  project: project)
+    platform_container&.update(params)
+    platform_container
+  end  
+
   def load(id)
     PlatformContainer.find_by(id: id, project: project)
   end

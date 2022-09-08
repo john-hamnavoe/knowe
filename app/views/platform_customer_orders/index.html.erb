@@ -3,6 +3,7 @@
     <thead>
       <tr>
         <%= render "shared/table/static_table_header", title: "Order Number" %>
+        <%= render "shared/table/static_table_header", title: "Site" %>
         <%= render "shared/table/static_table_header", title: "Agreement" %>
         <%= render "shared/table/static_table_header", title: "Outlet" %>        
         <%= render "shared/table/static_table_header", title: "Service" %>
@@ -15,6 +16,7 @@
      <% @platform_orders.each do |platform_order| %>
       <tr>
         <%= render "shared/table/table_data_cell", data: platform_order.order_number %>
+        <%= render "shared/table/table_data_cell", data: platform_order.platform_customer_site&.name %>        
         <%= render "shared/table/table_data_cell", data: platform_order.platform_service_agreement&.description %>
         <%= render "shared/table/table_data_cell", data: platform_order.platform_company_outlet&.description %>        
         <%= render "shared/table/table_data_cell", data: platform_order.platform_service&.description %>

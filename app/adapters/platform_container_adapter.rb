@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 class PlatformContainerAdapter < ApplicationAdapter
+  def create(platform_container)
+    return unless platform_container.guid.nil?
+
+    response = post("integrator/erp/directory/containers", platform_container.as_platform_json)
+    if response.success?
+      platform_container.update(guid: response.data[:resource], last_response_body: response.body, last_response_code: response.code)
+    else
+      platform_container.update(last_response_body: response.body, last_response_code: response.code)
+    end
+    response
+  end
+
   def fetch_all(pages = nil)
     load_standing_data
     import_all_containers(bookmark_repo.find(PlatformBookmark::CONTAINER), pages)
