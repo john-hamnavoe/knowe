@@ -72,6 +72,7 @@ class PlatformServiceAgreementAdapter < ApplicationAdapter
       agreements << { project_id: project.id,
                       guid: service_agreement[:resource][:GUID],
                       description: service_agreement[:resource][:Description],
+                      related_customer_guid: service_agreement[:resource][:RelatedCustomerGuid],
                       platform_company_outlet_id: company_outlet_id }
       service_agreement[:resource][:Prices].each do |price|
         action_id = @actions.find { |c| c.guid == price[:ActionListItem][:Guid] }&.id

@@ -1,5 +1,6 @@
 <%= content_tag :tr, id: dom_id(platform_service_agreement) do %>
   <%= render "shared/table/table_data_cell", data: platform_service_agreement.description %>
-  <%= render "shared/table/table_data_cell", data: platform_service_agreement.guid %> 
+  <%= render "shared/table/table_data_cell", data: platform_service_agreement.guid %>
+  <%= render "shared/table/table_data_cell", data: platform_service_agreement.related_customer_guid %>   
   <td class="whitespace-nowrap px-3 py-1 text-sm text-blue-500"><%= link_to 'Show', platform_settings_service_agreement_path(platform_service_agreement) %></td>  
 <% end %>

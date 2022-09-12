@@ -16,6 +16,6 @@ class PlatformServiceAgreementRepository < ApplicationRepository
   end
 
   def import(records)
-    PlatformServiceAgreement.import records, on_duplicate_key_update: { conflict_target: [:guid, :project_id], columns: [:platform_company_outlet_id, :description] }, returning: :guid
+    PlatformServiceAgreement.import records, on_duplicate_key_update: { conflict_target: [:guid, :project_id], columns: [:platform_company_outlet_id, :description, :related_customer_guid] }, returning: :guid
   end
 end

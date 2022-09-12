@@ -32,6 +32,9 @@ class PlatformJob < ApplicationRecord
             "MaterialListItem": {
               "Guid": platform_material&.guid
             },
+            "VisitDetails": {
+              "DriverNotes": notes,
+            },
             "CustomerOrderNo": customer_order_no,
             "DateRequired": date_required,
             "TicketNo": ticket_no,
