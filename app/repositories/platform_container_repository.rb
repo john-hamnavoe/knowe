@@ -14,6 +14,14 @@ class PlatformContainerRepository < ApplicationRepository
     platform_container
   end
 
+  def load_or_create_by_tag(tag, params)
+    platform_container = load_by_tag(tag)
+    return platform_container if platform_container.present?
+
+    platform_container = create(params)
+    platform_container
+  end    
+
   def update(id, params)
     platform_container = PlatformContainer.find_by(id: id,  project: project)
     platform_container&.update(params)
@@ -26,6 +34,10 @@ class PlatformContainerRepository < ApplicationRepository
 
   def load_by_guid(guid)
     PlatformContainer.find_by(guid: guid, project: project)
+  end
+
+  def load_by_tag(tag)
+    PlatformContainer.find_by(tag: tag, project: project)
   end
 
   def import(records)
