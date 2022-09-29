@@ -68,7 +68,7 @@ class PlatformAccountCustomerRepository < ApplicationRepository
   end
 
   def import(records)
-    PlatformAccountCustomer.import records, on_duplicate_key_update: { conflict_target: [:guid, :project_id], columns: [:name, :reference, :ar_account_code, :ap_account_code, :is_internal, :platform_company_id,
+    PlatformAccountCustomer.import records, on_duplicate_key_update: { conflict_target: [:guid, :project_id], columns: [:name, :reference, :ar_account_code, :ap_account_code, :is_internal, :platform_company_id, :notes,
                                                                                                                                :credit_limit, :platform_currency_id, :platform_customer_state_id, :platform_invoice_cycle_id,
                                                                                                                                :platform_department_id, :platform_contract_status_id, :platform_payment_type_id, :platform_payment_term_id,
                                                                                                                                :platform_invoice_frequency_id, :platform_customer_type_id, :platform_customer_template_id,

@@ -4,13 +4,8 @@ class PlatformAccountCustomerAdapter < ApplicationAdapter
   def create(platform_customer)
     return unless platform_customer.guid.nil?
 
-    response =
-      if platform_customer.platform_invoice_cycle.present?
-        post("integrator/erp/accounting/accountCustomers", platform_customer.as_platform_account_json)
-      else
-        post("integrator/erp/directory/Customers", platform_customer.as_platform_json)
-      end
-
+    response = post("integrator/erp/accounting/accountCustomers", platform_customer.as_platform_account_json)
+ 
     if response.success?
       platform_customer.update(guid: response.data[:resource], last_response_body: response.body, last_response_code: response.code)
     else
@@ -19,21 +14,13 @@ class PlatformAccountCustomerAdapter < ApplicationAdapter
     response
   end
 
-  def update(platform_customer)
+  def update(platform_customer, *attributes)
     return if platform_customer.guid.blank?
 
-    response =
-      if platform_customer.platform_invoice_cycle.present?
-        put("integrator/erp/accounting/accountCustomers", platform_customer.guid, platform_customer.as_platform_account_json)
-      else
-        put("integrator/erp/directory/Customers", platform_customer.guid, platform_customer.as_platform_json)
-      end
+    response = put("integrator/erp/accounting/accountCustomers", platform_customer.guid, platform_customer.as_platform_account_json(*attributes))
 
-    if response.success?
-      platform_customer.update(guid: response.data[:resource], last_response_body: response.body, last_response_code: response.code)
-    else
-      platform_customer.update(last_response_body: response.body, last_response_code: response.code)
-    end
+    platform_customer.update(last_response_body: response.body, last_response_code: response.code)
+
     response
   end
 
@@ -116,6 +103,7 @@ class PlatformAccountCustomerAdapter < ApplicationAdapter
                                                     ar_account_code: customer[:resource][:ARAccountCode],
                                                     ap_account_code: customer[:resource][:APAccountCode],
                                                     credit_limit: customer[:resource][:Contract][:CreditLimit],
+                                                    notes: customer[:resource][:Notes],
                                                     platform_company_id: company_id,
                                                     platform_currency_id: currency_id,
                                                     platform_customer_state_id: customer_state_id,
