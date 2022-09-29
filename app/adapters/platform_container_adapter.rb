@@ -13,6 +13,14 @@ class PlatformContainerAdapter < ApplicationAdapter
     response
   end
 
+  def update(platform_container, *attributes)
+    return if platform_container.guid.blank?
+
+    response = put("integrator/erp/directory/containers", platform_container.guid, platform_container.as_platform_json(*attributes))
+
+    response
+  end  
+
   def fetch_all(pages = nil)
     load_standing_data
     import_all_containers(bookmark_repo.find(PlatformBookmark::CONTAINER), pages)
@@ -21,14 +29,6 @@ class PlatformContainerAdapter < ApplicationAdapter
   def fetch_by_guid(guid)
     load_standing_data
     import_container(guid)
-  end
-
-  def update(platform_container)
-    return if platform_container.guid.blank?
-
-    response = put("integrator/erp/directory/containers", platform_container.guid, platform_container.as_platform_json)
-
-    response
   end
 
   private

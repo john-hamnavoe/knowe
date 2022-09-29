@@ -51,7 +51,7 @@ class PlatformAccountCustomerRepository < ApplicationRepository
       container.is_stoplisted = is_stoplisted
       container.save
 
-      put_repo.create({guid: container.guid, class_name: "PlatformContainer"})
+      put_repo.create({guid: container.guid, class_name: "PlatformContainer", restrict_to_attributes: "is_stoplisted"})
     end
   end
 

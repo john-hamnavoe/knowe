@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_29_155235) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_29_161744) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -796,6 +796,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_29_155235) do
     t.integer "failed_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "restrict_to_attributes"
     t.index ["project_id"], name: "index_platform_puts_on_project_id"
   end
 
