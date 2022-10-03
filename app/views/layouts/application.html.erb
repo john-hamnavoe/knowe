@@ -3,29 +3,36 @@
   <%= render "shared/head" %>
 
   <body class="h-full">
-      <%= render "shared/flash_notice" %>
-      <%= render "shared/top_nav" %>
-      
-      <header class="bg-white shadow-sm">
-        <div class="max-w-full mx-auto py-4 px-4 sm:px-6 lg:px-8">
-          <% if @title_path %>
-            <%= link_to @title, @title_path, class: "text-lg leading-6 font-semibold text-blue-700" %>
-          <% else %>
-            <h1 class="text-lg leading-6 font-semibold text-gray-900"><%= @title %></h1>
-          <% end %>
-        </div>
-      </header>    
-
-
-      <main>
-        <div class="max-w-full mx-auto ">
-          <!-- Replace with your content -->
-          <div class="px-4 sm:px-0">
-            <%= yield %>
+    <div data-controller="slideover" data-slideover-open-value="false"
+         data-slideover-invisible-class="-translate-x-full,opacity-0"
+         data-slideover-visible-class="translate-x-0,opacity-100"
+         data-slideover-entering-class="" data-slideover-enter-timeout="300,300"
+         data-slideover-leaving-class="" data-slideover-leave-timeout="300,0"
+         data-slideover-active-target="#slideover-target" aria-haspopup="true" aria-expanded="false">
+        <%= render "shared/flash_notice" %>
+        <%= render "shared/top_nav" %>
+        
+        <header class="bg-white shadow-sm">
+          <div class="max-w-full mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <% if @title_path %>
+              <%= link_to @title, @title_path, class: "text-lg leading-6 font-semibold text-blue-700" %>
+            <% else %>
+              <h1 class="text-lg leading-6 font-semibold text-gray-900"><%= @title %></h1>
+            <% end %>
           </div>
-          <!-- /End replace -->
-        </div>
-      </main>
-      <% debug session%>
+        </header>    
+
+
+        <main>
+          <div class="max-w-full mx-auto ">
+            <!-- Replace with your content -->
+            <div class="px-4 sm:px-0">
+              <%= yield %>
+            </div>
+            <!-- /End replace -->
+          </div>
+        </main>
+        <% debug session%>
+    </div>
   </body>
 </html>
