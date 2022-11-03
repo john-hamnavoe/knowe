@@ -1,0 +1,15 @@
+<% content_for :toolbar_col_1 do %>
+<%= link_to "Fetch All", new_platform_settings_schedule_path, class: "rounded-lg py-1 px-2 bg-indigo-600 text-white block font-medium" %>
+<% end %>
+
+<%= turbo_stream_from :platform_schedules %>
+<div class="w-full">
+  <%= search_form_for(@query, url: request.path , method: :get) do |f| %>  
+    <%= render partial: "shared/index/top", locals: { hide_new: true, search_field: "description_cont", form: f, filter: @filter } %>
+
+    <div id="schedules" class="min-w-full">        
+        <%= render partial: "table", layout: "shared/index/table", locals: { current_sort: params[:query].try(:[], :s), form: f} %>
+        <%= render partial: "shared/index/paginator", locals: { pagy: @pagy, reflex: "IndexReflex" } %>
+    </div>  
+  <% end %>      
+</div>

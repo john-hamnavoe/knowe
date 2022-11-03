@@ -82,6 +82,7 @@ Rails.application.routes.draw do
     resources :pickup_intervals, only: [:index]
     resources :priorities, only: [:index]
     resources :route_templates, only: [:index]
+    resources :schedules, only: [:index, :new]    
     resources :service_agreements, only: [:index, :show, :new]
     resources :services, only: [:index]
     resources :sic_codes, only: [:index]

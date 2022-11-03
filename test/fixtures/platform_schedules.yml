@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  guid: 
+  last_response_body: MyText
+  last_response_code: 1
+
+two:
+  project: two
+  guid: 
+  last_response_body: MyText
+  last_response_code: 1

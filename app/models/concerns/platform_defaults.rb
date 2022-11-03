@@ -38,6 +38,7 @@ module PlatformDefaults
     PlatformSetting.create(project: project, class_name: "PlatformVehicleType", position: 32) unless PlatformSetting.where(class_name: "PlatformVehicleType", project: project).exists?
     PlatformSetting.create(project: project, class_name: "PlatformVehicle", position: 33) unless PlatformSetting.where(class_name: "PlatformVehicle", project: project).exists?
     PlatformSetting.create(project: project, class_name: "PlatformAccountingPeriod", position: 34) unless PlatformSetting.where(class_name: "PlatformAccountingPeriod", project: project).exists?     
+    PlatformSetting.create(project: project, class_name: "PlatformSchedule", position: 35) unless PlatformSetting.where(class_name: "PlatformSchedule", project: project).exists?     
   end
 
   def create_default_platform_posts(project)

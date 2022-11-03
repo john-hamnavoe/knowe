@@ -1,0 +1,6 @@
+<%= content_tag :tr, id: dom_id(platform_schedule) do %>
+  <%= render "shared/table/table_data_cell", data: platform_schedule.scheduled_date.strftime("%d/%m/%Y") %>
+  <%= render "shared/table/table_data_cell", data: platform_schedule.platform_company_outlet&.description %>  
+  <%= render "shared/table/table_data_cell", data: platform_schedule.description %>
+  <%= render "shared/table/table_data_cell", data: platform_schedule.guid %> 
+<% end %>

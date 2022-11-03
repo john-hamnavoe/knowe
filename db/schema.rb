@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_29_161744) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_03_145615) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -838,6 +838,34 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_29_161744) do
     t.index ["project_id"], name: "index_platform_route_templates_on_project_id"
   end
 
+  create_table "platform_schedules", force: :cascade do |t|
+    t.date "scheduled_date"
+    t.boolean "is_completed", default: false
+    t.boolean "is_container_schedule", default: false
+    t.boolean "is_for_vehicle", default: false
+    t.boolean "is_manifest_completed", default: false
+    t.boolean "is_manifest_exported", default: false
+    t.boolean "is_manifest_exported_failed", default: false
+    t.text "notes"
+    t.string "description"
+    t.datetime "leave_yard_time"
+    t.datetime "return_yard_time"
+    t.uuid "related_vehicle_guid"
+    t.uuid "related_user_driver_guid"
+    t.bigint "platform_vehicle_id"
+    t.bigint "platform_company_outlet_id", null: false
+    t.bigint "project_id", null: false
+    t.uuid "guid"
+    t.text "last_response_body"
+    t.integer "last_response_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_schedules_on_guid_project", unique: true
+    t.index ["platform_company_outlet_id"], name: "index_platform_schedules_on_platform_company_outlet_id"
+    t.index ["platform_vehicle_id"], name: "index_platform_schedules_on_platform_vehicle_id"
+    t.index ["project_id"], name: "index_platform_schedules_on_project_id"
+  end
+
   create_table "platform_service_agreements", force: :cascade do |t|
     t.uuid "guid"
     t.string "description"
@@ -1098,6 +1126,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_29_161744) do
   add_foreign_key "platform_route_assignments", "projects"
   add_foreign_key "platform_route_templates", "platform_company_outlets"
   add_foreign_key "platform_route_templates", "projects"
+  add_foreign_key "platform_schedules", "platform_company_outlets"
+  add_foreign_key "platform_schedules", "platform_vehicles"
+  add_foreign_key "platform_schedules", "projects"
   add_foreign_key "platform_service_agreements", "platform_company_outlets"
   add_foreign_key "platform_service_agreements", "projects"
   add_foreign_key "platform_services", "projects"
