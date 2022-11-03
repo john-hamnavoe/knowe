@@ -10,6 +10,7 @@ class PlatformBookmark < ApplicationRecord
   SERVICE_AGREEMENT = "PlatformServiceAgreement".freeze
   ROUTE_TEMPLATE = "PlatformRouteTemplate".freeze
   SCHEDULE = "PlatformSchedule".freeze
+  JOB = "PlatformJob".freeze
 
   belongs_to :project
 end

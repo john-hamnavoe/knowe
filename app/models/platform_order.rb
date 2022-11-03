@@ -14,7 +14,7 @@ class PlatformOrder < ApplicationRecord
   has_many :platform_route_assignments, dependent: :destroy
   has_many :platform_order_items, dependent: :destroy
   has_many :platform_lift_events, through: :platform_order_items
-  # has_many :platform_jobs, dependent: :restrict_with_error
+  has_many :platform_jobs, dependent: :restrict_with_error
 
   accepts_nested_attributes_for :platform_order_items
 

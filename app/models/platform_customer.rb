@@ -21,7 +21,7 @@ class PlatformCustomer < ApplicationRecord
   # has_many :platform_payments, dependent: :destroy
   has_many :platform_customer_document_deliveries, dependent: :destroy
   has_many :platform_orders, through: :platform_customer_sites
-  # has_many :platform_jobs, through: :platform_orders
+  has_many :platform_jobs, through: :platform_orders
   has_many :platform_item_rentals, through: :platform_orders
   has_many :platform_route_assignments, through: :platform_orders
   has_many :platform_order_items, through: :platform_orders

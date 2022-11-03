@@ -7,6 +7,7 @@ class PlatformJob < ApplicationRecord
   belongs_to :platform_material, optional: true
   belongs_to :platform_vat, optional: true
   belongs_to :platform_order_item, optional: true
+  belongs_to :platform_schedule, optional: true
 
   def as_platform_json
     job = { "DeleteRouteAssignmentsOnCompletion": delete_route_assignments_on_completion,

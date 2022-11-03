@@ -31,7 +31,7 @@ class PlatformScheduleAdapter < ApplicationAdapter
     schedules = []
     response_data[:resource].each do |schedule|
       company_outlet_id = @company_outlets.find { |c| c.guid == schedule[:resource][:CompanyOutletListItem][:Guid] }&.id
-      vehicle_id = @vehicles.find { |c| c.guid == schedule[:resource][:related_vehicle_guid] }&.id
+      vehicle_id = @vehicles.find { |c| c.guid == schedule[:resource][:RelatedVehicleGuid] }&.id
       schedules << { project_id: project.id,
                      guid: schedule[:resource][:GUID],
                      scheduled_date: schedule[:resource][:ScheduledDate],                 
@@ -45,8 +45,8 @@ class PlatformScheduleAdapter < ApplicationAdapter
                      notes: schedule[:resource][:Notes],
                      leave_yard_time: schedule[:resource][:LeaveYardTime],
                      return_yard_time: schedule[:resource][:ReturnYardTime],
-                     related_vehicle_guid: schedule[:resource][:RelatedVehicleGUID],
-                     related_user_driver_guid: schedule[:resource][:RelatedUserDriverGUID],                                                                                           
+                     related_vehicle_guid: schedule[:resource][:RelatedVehicleGuid],
+                     related_user_driver_guid: schedule[:resource][:RelatedUserDriverGuid],                                                                                           
                      platform_vehicle_id: vehicle_id,
                      platform_company_outlet_id: company_outlet_id }
     end

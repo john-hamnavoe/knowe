@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_03_145615) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_03_161027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -530,6 +530,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_145615) do
     t.integer "last_response_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "related_schedule_guid"
+    t.bigint "platform_schedule_id"
     t.index ["guid", "project_id"], name: "index_platform_jobs_on_guid_project", unique: true
     t.index ["platform_action_id"], name: "index_platform_jobs_on_platform_action_id"
     t.index ["platform_company_outlet_id"], name: "index_platform_jobs_on_platform_company_outlet_id"
@@ -537,6 +539,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_145615) do
     t.index ["platform_material_id"], name: "index_platform_jobs_on_platform_material_id"
     t.index ["platform_order_id"], name: "index_platform_jobs_on_platform_order_id"
     t.index ["platform_order_item_id"], name: "index_platform_jobs_on_platform_order_item_id"
+    t.index ["platform_schedule_id"], name: "index_platform_jobs_on_platform_schedule_id"
     t.index ["platform_vat_id"], name: "index_platform_jobs_on_platform_vat_id"
     t.index ["project_id"], name: "index_platform_jobs_on_project_id"
   end
@@ -1083,6 +1086,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_145615) do
   add_foreign_key "platform_jobs", "platform_materials"
   add_foreign_key "platform_jobs", "platform_order_items"
   add_foreign_key "platform_jobs", "platform_orders"
+  add_foreign_key "platform_jobs", "platform_schedules"
   add_foreign_key "platform_jobs", "platform_vats"
   add_foreign_key "platform_jobs", "projects"
   add_foreign_key "platform_lift_events", "platform_order_items"

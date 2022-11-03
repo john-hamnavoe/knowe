@@ -15,7 +15,8 @@ class PlatformCasualCustomersController < ApplicationController
     @selected_site = @customer.platform_customer_sites.first || PlatformCustomerSite.new
     @selected_contact = @customer.platform_contacts.first || PlatformContact.new
 
-    @timeline =  @customer.platform_orders.map { |order| { title: order.order_number, type: "Order", date: order.process_from, content: order.platform_service&.description } }
+    @timeline =  @customer.platform_orders.map { |order| { title: order.order_number, type: "Order", date: order.process_from, content: "#{order.platform_service&.description} (#{order.platform_container_type&.description})" } }
+    @timeline += @customer.platform_jobs.map { |job| { title: job.ticket_no, type: "Job", date: job.date_required, content: job.platform_action&.description } }
   end
 
   private
