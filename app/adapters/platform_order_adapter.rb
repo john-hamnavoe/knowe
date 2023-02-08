@@ -257,6 +257,7 @@ class PlatformOrderAdapter < ApplicationAdapter
       items << {
         project_id: project.id,
         guid: container[:Guid],
+        is_deleted: container[:IsDeleted],
         platform_container_type_id: container_type_id,
         platform_container_status_id: container_status_id,
         related_container_guid: container[:RelatedContainerGuid],

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_03_161027) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_08_124915) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -648,6 +648,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_161027) do
     t.datetime "updated_at", null: false
     t.uuid "related_container_guid"
     t.bigint "platform_container_id"
+    t.boolean "is_deleted", default: false
     t.index ["guid", "project_id"], name: "index_platform_order_item_on_guid_project", unique: true
     t.index ["platform_container_id"], name: "index_platform_order_items_on_platform_container_id"
     t.index ["platform_container_status_id"], name: "index_platform_order_items_on_platform_container_status_id"

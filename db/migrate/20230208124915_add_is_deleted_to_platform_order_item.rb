@@ -1,0 +1,5 @@
+class AddIsDeletedToPlatformOrderItem < ActiveRecord::Migration[7.0]
+  def change
+    add_column :platform_order_items, :is_deleted, :boolean, default: false
+  end
+end
