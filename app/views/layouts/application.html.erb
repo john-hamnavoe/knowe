@@ -13,13 +13,15 @@
         <%= render "shared/top_nav" %>
         
         <header class="bg-white shadow-sm">
-          <div class="max-w-full mx-auto py-4 px-4 sm:px-6 lg:px-8">
-            <% if @title_path %>
-              <%= link_to @title, @title_path, class: "text-lg leading-6 font-semibold text-blue-700" %>
-            <% else %>
-              <h1 class="text-lg leading-6 font-semibold text-gray-900"><%= @title %></h1>
-            <% end %>
-          </div>
+          <% if @title.present? %>
+            <div class="max-w-full mx-auto py-4 px-4 sm:px-6 lg:px-8">
+              <% if @title_path %>
+                <%= link_to @title, @title_path, class: "text-lg leading-6 font-semibold text-blue-700" %>
+              <% else %>
+                <h1 class="text-lg leading-6 font-semibold text-gray-900"><%= @title %></h1>
+              <% end %>
+            </div>
+          <% end %>
         </header>    
 
 

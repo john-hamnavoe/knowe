@@ -1,1 +1,2 @@
-<th scope="col" class="pb-1 py-2.5 px-3 text-left text-sm font-semibold text-gray-900"> <%= sort_link(query, column, data: { reflex:"click->Index#sort", column: column, direction: new_direction(current_sort)}) %></th>
+<%  column_title = local_assigns.has_key?(:title) ? title : column.to_s.humanize %>
+<th scope="col" class="pb-1 py-2.5 px-3 text-left text-sm font-semibold text-gray-900"> <%= sort_link(query, column, column_title, html_options: { data: { reflex:"click->Index#sort", column: column, direction: new_direction(current_sort)}} ) %></th>

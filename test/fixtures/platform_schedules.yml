@@ -5,9 +5,11 @@ one:
   guid: 
   last_response_body: MyText
   last_response_code: 1
+  platform_company_outlet: one
 
 two:
   project: two
   guid: 
   last_response_body: MyText
   last_response_code: 1
+  platform_company_outlet: two
