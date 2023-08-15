@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_08_124915) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_15_160355) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -193,6 +193,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_124915) do
     t.datetime "updated_at", null: false
     t.index ["guid", "project_id"], name: "index_platform_currencies_on_guid_project", unique: true
     t.index ["project_id"], name: "index_platform_currencies_on_project_id"
+  end
+
+  create_table "platform_customer_categories", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "description"
+    t.string "short_code"
+    t.boolean "is_deleted"
+    t.uuid "guid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid", "project_id"], name: "index_platform_customer_categories_on_guid_project", unique: true
+    t.index ["project_id"], name: "index_platform_customer_categories_on_project_id"
   end
 
   create_table "platform_customer_document_deliveries", force: :cascade do |t|
@@ -1034,6 +1046,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_124915) do
   add_foreign_key "platform_containers", "projects"
   add_foreign_key "platform_contract_statuses", "projects"
   add_foreign_key "platform_currencies", "projects"
+  add_foreign_key "platform_customer_categories", "projects"
   add_foreign_key "platform_customer_document_deliveries", "platform_customers"
   add_foreign_key "platform_customer_document_deliveries", "platform_document_delivery_types"
   add_foreign_key "platform_customer_site_states", "projects"

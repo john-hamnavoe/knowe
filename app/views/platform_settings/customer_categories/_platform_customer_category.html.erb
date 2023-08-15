@@ -1,0 +1,6 @@
+<%= content_tag :tr, id: dom_id(platform_customer_category) do %>
+  <%= render "shared/table/table_data_cell", data: platform_customer_category.description %>
+  <%= render "shared/table/table_data_cell", data: platform_customer_category.short_code %>    
+  <%= render "shared/table/table_data_cell", data: platform_customer_category.is_deleted %>    
+  <%= render "shared/table/table_data_cell", data: platform_customer_category.guid %>    
+<% end %>

@@ -20,7 +20,7 @@ class Project < ApplicationRecord
   private
 
   def defaults_configure
-    create_default_platform_settings(self)
-    create_default_platform_posts(self)
+    create_default_platform_settings
+    create_default_platform_posts
   end
 end

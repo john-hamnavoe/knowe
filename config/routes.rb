@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     resources :container_types, only: [:index]
     resources :contract_statuses, only: [:index]
     resources :currencies, only: [:index]
+    resources :customer_categories, only: [:index]    
     resources :customer_site_states, only: [:index]
     resources :customer_states, only: [:index]
     resources :customer_templates, only: [:index]
