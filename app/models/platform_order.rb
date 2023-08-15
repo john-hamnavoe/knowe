@@ -14,7 +14,7 @@ class PlatformOrder < ApplicationRecord
   has_many :platform_route_assignments, dependent: :destroy
   has_many :platform_order_items, dependent: :destroy
   has_many :platform_lift_events, through: :platform_order_items
-  has_many :platform_jobs, dependent: :restrict_with_error
+  has_many :platform_jobs, dependent: :destroy
 
   accepts_nested_attributes_for :platform_order_items
 
@@ -126,10 +126,12 @@ class PlatformOrder < ApplicationRecord
   def platform_containers_as_json
     containers = []
 
+    # message from platform: Containers.IsDeleted is a read-only property and cannot be set.
     platform_order_items.each do |order_item|
+      next if order_item.is_deleted
+
       containers << {
         "Guid": order_item.guid,
-        "IsDeleted": order_item.is_deleted,
         "RelatedContainerGuid": order_item&.platform_container&.guid || order_item.related_container_guid,
         "ContainerTypeListItem": {
           "Guid": order_item.platform_container_type.guid

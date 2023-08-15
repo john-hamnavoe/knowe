@@ -13,6 +13,14 @@ class PlatformOrderAdapter < ApplicationAdapter
     response
   end
 
+  def update(platform_order)
+    return if platform_order.guid.blank?
+
+    response = put("integrator/erp/transport/orders", platform_order.guid, platform_order.as_platform_json)
+
+    response
+  end   
+
   def fetch(guid)
     load_standing_data
     import_order(guid)

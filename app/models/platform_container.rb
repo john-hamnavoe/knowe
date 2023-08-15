@@ -9,7 +9,8 @@ class PlatformContainer < ApplicationRecord
     if attributes.any? 
       build_attributes_json(attributes).to_json
     else
-      { "IsCommercial": is_commercial,
+      container = { 
+        "IsCommercial": is_commercial,
         "IsStoplisted": is_stoplisted,
         "ContainerStatusListItem": nil,
         "ContainerTypeListItem": {
@@ -26,7 +27,11 @@ class PlatformContainer < ApplicationRecord
         "Note": note,
         "SerialNo": serial_no,
         "Tag": tag,      
-        "GUID": guid }.to_json
+        "GUID": guid }
+
+        container = container.merge({ "IsDeleted": false }) if project.version_number >= Gem::Version.new("8.11")
+        
+        container.to_json
      end
   end  
 end

@@ -13,6 +13,10 @@ class Project < ApplicationRecord
 
   after_commit :defaults_configure
 
+  def version_number
+    Gem::Version.new(version)
+  end  
+
   private
 
   def defaults_configure
